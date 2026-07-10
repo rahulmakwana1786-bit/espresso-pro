@@ -386,7 +386,7 @@ export default function ServiceDetail() {
 
       {/* Horizontal Sub-Navigation Header Bar */}
       <div className="w-full py-4 fixed top-32 lg:top-[132px] z-40 flex justify-center bg-transparent pointer-events-none">
-        <div className="max-w-[95%] mx-auto px-4 md:px-6 pointer-events-auto overflow-x-auto scrollbar-none rounded-full border border-[#C08860]/30 bg-black/60 backdrop-blur-md shadow-lg py-2">
+        <div className="max-w-[95%] mx-auto px-4 md:px-6 pointer-events-auto overflow-x-auto scrollbar-none rounded-full border border-gray-200 bg-white/60 backdrop-blur-md shadow-[0_15px_50px_rgba(0,0,0,0.1)] py-2">
           <div className="flex items-center justify-start lg:justify-center gap-2 md:gap-4 whitespace-nowrap">
             {services.map((s) => {
               const isActive = s.slug === slug;
@@ -396,8 +396,8 @@ export default function ServiceDetail() {
                   to={`/service/${s.slug}`}
                   className={`px-5 py-2 text-[10px] md:text-[11px] tracking-[0.2em] uppercase transition-all duration-300 font-bold rounded-full hover:scale-[1.03] ${
                     isActive
-                      ? "text-[#291b03] bg-gradient-to-r from-[#B8734E] to-[#8a563a] shadow-lg"
-                      : "text-[#A8A8A8] hover:text-[#291b03] hover:bg-[#C08860]/10"
+                      ? "text-[#291b03] bg-[#D4AF37] shadow-lg"
+                      : "text-[#291b03]/60 hover:text-[#291b03] hover:bg-[#D4AF37]/10"
                   }`}
                 >
                   {s.title}
@@ -438,7 +438,7 @@ export default function ServiceDetail() {
 
               <Link 
                 to="/#contact" 
-                className="px-8 py-4 bg-gradient-to-r from-[#B8734E] to-[#8a563a] text-[#291b03] text-xs font-bold tracking-[0.2em] uppercase flex items-center gap-3 transition-all duration-300 hover:scale-[1.05] active:scale-[0.98] hover:shadow-[0_10px_20px_rgba(184,115,78,0.3)] w-fit"
+                className="px-8 py-4 bg-[#D4AF37] text-[#291b03] text-xs font-bold tracking-[0.2em] uppercase flex items-center gap-3 transition-all duration-300 hover:scale-[1.05] active:scale-[0.98] hover:shadow-[0_10px_20px_rgba(212,175,55,0.3)] w-fit rounded-full"
               >
                 START A PROJECT <span>&rarr;</span>
               </Link>

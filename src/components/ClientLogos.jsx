@@ -52,12 +52,12 @@ export default function ClientLogos() {
           {[...logos, ...logos].map((logo, i) => (
             <div
               key={i}
-              className="w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 rounded-full flex items-center justify-center bg-black flex-shrink-0 border border-white/5 hover:border-white/20 transition-colors"
+              className="w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 rounded-full flex items-center justify-center bg-black flex-shrink-0 border border-white/5"
             >
               <img
                 src={logo}
                 alt="Brand Logo"
-                className="max-w-[95%] max-h-[95%] object-contain opacity-50 hover:opacity-100 transition-opacity duration-300"
+                className="max-w-[95%] max-h-[95%] object-contain"
               />
             </div>
           ))}

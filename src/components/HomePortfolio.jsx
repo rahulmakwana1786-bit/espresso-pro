@@ -137,12 +137,7 @@ const PortfolioCard = ({ project }) => {
       {/* ================= HEADING ================= */}
       <div className="relative z-10 max-w-[1400px] mx-auto mb-24 max-sm:mb-16">
         
-        {/* Top border & labels */}
-        <div className="border-t border-b border-[#291b03]/20 py-4 flex justify-between items-center text-[10px] sm:text-xs text-[#291b03] tracking-widest uppercase mb-8">
-          <span>Featured Projects</span>
-          <span className="hidden sm:inline-block">(01 — 04)</span>
-          <span>Creative Development</span>
-        </div>
+
 
         {/* Marquee Container */}
         <div className="w-full overflow-hidden flex whitespace-nowrap relative pb-10 border-b border-[#291b03]/20">
@@ -154,18 +149,9 @@ const PortfolioCard = ({ project }) => {
             {[...Array(4)].map((_, i) => (
               <h2
                 key={i}
-                className={`font-sans text-[clamp(4rem,12vw,10rem)] leading-none font-bold tracking-tighter ${
-                  i % 2 === 0
-                    ? "text-[#cca027]"
-                    : "text-transparent"
-                }`}
-                style={
-                  i % 2 !== 0
-                    ? { WebkitTextStroke: "2px rgba(204,160,39,0.5)" }
-                    : {}
-                }
+                className="font-sans text-[clamp(4rem,12vw,10rem)] leading-none font-bold tracking-tighter text-[#cca027]"
               >
-                Works<span className="text-[0.4em] align-top text-[#cca027] font-medium mx-2" style={i % 2 !== 0 ? { WebkitTextStroke: "0px" } : {}}>©</span> Featured
+                Works Featured
               </h2>
             ))}
           </motion.div>

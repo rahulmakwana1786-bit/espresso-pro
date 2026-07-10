@@ -57,16 +57,17 @@ export default function InsightSection() {
         {/* 1. The Initial Text (Fades out word by word) */}
         <motion.div
           style={{ scale: initialTextScale }}
-          className="absolute inset-0 z-20 px-6 flex items-center justify-center pointer-events-none"
+          className="absolute inset-0 z-20 px-6 flex flex-col items-center justify-center pointer-events-none"
         >
-          <h2 className="font-serif text-[clamp(2.5rem,6vw,5.5rem)] leading-[1.05] text-white text-center font-normal tracking-tight">
-            <AnimatedWord progress={smoothProgress} start={0.00} end={0.06}>Where</AnimatedWord>
-            <AnimatedWord progress={smoothProgress} start={0.02} end={0.08}>human</AnimatedWord>
-            <AnimatedWord progress={smoothProgress} start={0.04} end={0.10}>insight</AnimatedWord>
-            <br />
-            <AnimatedWord progress={smoothProgress} start={0.06} end={0.12}>meets</AnimatedWord>
-            <AnimatedWord progress={smoothProgress} start={0.08} end={0.14}>modern</AnimatedWord>
-            <AnimatedWord progress={smoothProgress} start={0.10} end={0.16}>capability.</AnimatedWord>
+          <h2 className="font-serif text-[clamp(1.5rem,3.5vw,4rem)] max-w-6xl leading-[1.2] text-white text-center font-normal tracking-tight">
+            <AnimatedWord progress={smoothProgress} start={0.00} end={0.06}>From brand creation</AnimatedWord>
+            <AnimatedWord progress={smoothProgress} start={0.02} end={0.08}>to revenue execution,</AnimatedWord>
+            <br className="hidden md:block" />
+            <AnimatedWord progress={smoothProgress} start={0.04} end={0.10}>we build strategic</AnimatedWord>
+            <AnimatedWord progress={smoothProgress} start={0.06} end={0.12}>and creative marketing systems</AnimatedWord>
+            <br className="hidden md:block" />
+            <AnimatedWord progress={smoothProgress} start={0.08} end={0.14}>that drive measurable</AnimatedWord>
+            <AnimatedWord progress={smoothProgress} start={0.10} end={0.16}>business growth.</AnimatedWord>
           </h2>
         </motion.div>
 
@@ -74,7 +75,7 @@ export default function InsightSection() {
         <div className="absolute inset-0 z-30 flex items-center pointer-events-none overflow-hidden">
           <motion.div style={{ x: textX }} className="flex whitespace-nowrap pl-[100vw] pr-0">
             <motion.h2 style={{ color: textColor, scale: textSlideScale }} className="text-[18vw] font-serif tracking-tight">
-              Clarity. Craft. Momentum.
+              Strategy. Content. Growth.
             </motion.h2>
           </motion.div>
         </div>
@@ -86,7 +87,7 @@ export default function InsightSection() {
         >
           <motion.div style={{ x: textX }} className="flex whitespace-nowrap pl-[100vw] pr-0">
             <motion.h2 style={{ scale: textSlideScale }} className="text-[18vw] font-serif tracking-tight text-[#291b03]">
-              Clarity. Craft. Momentum.
+              Strategy. Content. Growth.
             </motion.h2>
           </motion.div>
         </motion.div>

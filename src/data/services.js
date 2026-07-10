@@ -10,7 +10,8 @@ export const services = [
     title: "Content Strategy & Marketing",
     description:
       "Content systems that attract audiences and drive business growth.",  
-      icon: contentIcon,
+    icon: contentIcon,
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop",
     subItems: [
       {
         name: "Social Media Strategy ",
@@ -52,6 +53,7 @@ export const services = [
     description:
       "Strong branding that makes your business memorable and premium.",
     icon: brandingIcon,
+    image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=2274&auto=format&fit=crop",
     subItems: [
       {
         name: "Brand Identity Design",
@@ -85,6 +87,7 @@ export const services = [
     description:
       "Cinematic content that captures attention and elevates your brand.",
     icon: performanceIcon,
+    image: "https://images.unsplash.com/photo-1601506521937-0121a7fc2a6b?q=80&w=2371&auto=format&fit=crop",
     subItems: [
       {
         name: "Product Shoot",
@@ -106,6 +109,7 @@ export const services = [
     description:
       "Modern websites designed to convert visitors into customers.",
     icon: socialIcon,
+    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2372&auto=format&fit=crop",
     subItems: [
       {
         name: "E-Commerce Development",
@@ -127,6 +131,7 @@ export const services = [
     description:
       "Automate workflows using AI to save time and improve business efficiency.",
     icon: automationIcon,
+    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2370&auto=format&fit=crop",
     subItems: [
       {
         name: "WhatsApp Marketing Automation",

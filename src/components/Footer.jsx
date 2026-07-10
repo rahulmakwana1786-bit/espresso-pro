@@ -128,8 +128,8 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto border-t border-white/20" />
 
       {/* BOTTOM BAR */}
-      <div className="max-w-7xl mx-auto py-6 md:py-8 flex flex-col md:flex-row items-center justify-between text-xs md:text-sm text-[#291b03]/60 gap-4">
-        <p className="text-center md:text-left">
+      <div className="max-w-7xl mx-auto py-6 md:py-8 flex flex-col items-center justify-center text-xs md:text-sm text-[#291b03]/60 gap-4">
+        <p className="text-center w-full">
           © {new Date().getFullYear()} The Espresso Media. All rights reserved.
         </p>
       </div>
