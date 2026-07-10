@@ -1,0 +1,110 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+node_modules
+dist
+dist-ssr
+*.local
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+node_modules/
+coverage
+.cache
+.next
+out
+build
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.eslintcache
+.nuxt
+.nuxt-storybook
+.storybook/dist
+.storybook/preview.jsonfig.js
+.storybook/main.jsonfig.js
+.storybook/tsconfig.json
+storybook-static    
+.cache/ 
+.parcel-cache/
+.pnp.*
+.pnp.js
+dist/
+logs/       
+*.log
+*.tsbuildinfo
+.sass-cache/
+.jest/
+/coverage/
+reports/
+test-results/
+.babelrc
+.cache/
+.next/
+out/
+build/
+.DS_Store
+Thumbs.db
+.AppleDouble
+.LSOverride
+# Thumbnails
+._*
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+# Windows system files
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+# Linux system files
+*~
+.nfs0000
+# Yarn Integrity file
+.yarn-integrity
+# dotenv environment variables file
+.env.test
+.env.production
+.env.staging
+.env.production.local
+.env.staging.local
+.env.test.local
+.env.development
+.env.local
+.env
+.env.development.local
+.env.test.local
+.env.production.local
+.env.staging.local
+.env.production
+.env.staging
+public/videos/1.mp4
+public/videos/6.mp4

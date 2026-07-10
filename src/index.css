@@ -1,0 +1,151 @@
+@font-face {
+  font-family: 'TNR-Condensed';
+  src: url('./assets/fonts/TimesNewRomanMTStdCondensed.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'TNR-Condensed';
+  src: url('./assets/fonts/TimesNewRomanMTStdCondensedItalic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Also map the same files to font-weight:300 so elements using "font-light" (300) still pick the TNR faces */
+@font-face {
+  font-family: 'TNR-Condensed';
+  src: url('./assets/fonts/TimesNewRomanMTStdCondensed.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'TNR-Condensed';
+  src: url('./assets/fonts/TimesNewRomanMTStdCondensedItalic.otf') format('opentype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+} 
+
+@font-face {
+  font-family: 'Manrope';
+  src: url('./assets/fonts/Manrope-VariableFont_wght.ttf') format('truetype');
+  font-weight: 400; /* change if this is a different weight */
+  font-style: normal; /* or italic if your font is italic */
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Century Gothic Paneuropean';
+  src: url('./assets/fonts/Gothic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Century Gothic Paneuropean';
+  src: url('./assets/fonts/GothicI.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Century Gothic Paneuropean';
+  src: url('./assets/fonts/GothicB.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Century Gothic Paneuropean';
+  src: url('./assets/fonts/GothicBI.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Century Gothic Paneuropean';
+  src: url('./assets/fonts/GothicB.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@import "tailwindcss";
+
+@theme {
+  --color-espresso: #B8734E;
+  --color-espresso-dark: #422825;
+  --font-family-tnr: 'TNR-Condensed', "Playfair Display", serif;
+  /* Make serif variable use TNR first so italic styles pick the italic face automatically */
+  --font-family-serif: 'TNR-Condensed', "Playfair Display", serif;
+  --font-family-sans: "Inter", sans-serif;
+  --font-family-gothic: "Century Gothic", "CenturyGothic", AppleGothic, sans-serif;
+}
+
+/* Apply globally - default to the sans stack, override per-component when needed */
+body {
+  font-family: var(--font-family-sans);
+  background-color: #fbf8f3;
+  color: #2c1e16;
+}
+
+/* Explicit helper class (use in markup if you prefer not to use the Tailwind utility) */
+.font-tnr {
+  font-family: var(--font-family-tnr) !important;
+} 
+
+/* Ensure elements using the `italic` utility (or <em>/<i>) get the TNR condensed italic face */
+.italic, em, i {
+  font-family: var(--font-family-tnr) !important;
+  font-style: italic;
+}
+
+/* Keep explicit non-italic text using the default sans unless `font-serif` is applied */
+.not-italic {
+  font-style: normal !important;
+}
+
+/* Force normal serif text to use the TNR normal face */
+.font-serif {
+  font-family: var(--font-family-tnr) !important;
+}
+
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* Custom override for the Gothic Sans only page */
+body.gothic-only-page,
+body.gothic-only-page *:not(header):not(header *):not(.font-serif) {
+  font-family: 'Century Gothic Paneuropean', 'Century Gothic', AppleGothic, sans-serif !important;
+}
+
+/* Ensure navbar font remains consistent on all pages */
+header,
+header *:not(.font-serif) {
+  font-family: var(--font-family-sans) !important;
+}
+
+/* Custom Cursor Hiding style */
+.custom-cursor-hovered,
+.custom-cursor-hovered * {
+  cursor: none !important;
+}
+
+
+
