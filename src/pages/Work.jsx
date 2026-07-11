@@ -1,127 +1,218 @@
-import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
-import { useEffect } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useNavigate, useLocation } from "react-router-dom";
+import { useEffect, useState, useRef } from "react";
 import tabImg from "../assets/mobile/tab.png";
 import grahpImg from "../assets/mobile/grahp1.png";
 import caseImg from "../assets/casestudy/case-study-4-200-leads.png";
 import tab2Enhance from "../assets/mobile/tab2-enhance.png";
 
-const WORKS = [
-  { id: "01", title: "Content Strategy", category: "Marketing", image: tabImg, slug: "content-strategy-and-marketing", desc: "Data-driven content and strategic positioning designed to turn attention into conversion." },
-  { id: "02", title: "Brand Identity", category: "Branding", image: grahpImg, slug: "branding-and-creative-solutions", desc: "Strong branding that makes your business memorable, premium, and positioned for scale." },
-  { id: "03", title: "Commercials", category: "Production", image: caseImg, slug: "commercial-production", desc: "High-end commercial video and photography production that captures your brand's essence." },
-  { id: "04", title: "Digital Platforms", category: "Development", image: tab2Enhance, slug: "web-development", desc: "Custom-built, high-performance web experiences designed to convert visitors into customers." },
-];
-
-const ProjectCard = ({ work }) => {
-  return (
-    <motion.div 
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.8 }}
-      className="w-full py-16 md:py-24 relative group border-t border-black/10"
-    >
-      <div className="max-w-[1500px] mx-auto px-6 md:px-12">
-        
-        {/* TOP ROW: Huge Title & Info */}
-        <div className="w-full flex flex-col lg:flex-row justify-between items-start lg:items-end gap-10 mb-10 md:mb-16">
-          <Link to={`/work/${work.slug}`} className="block overflow-hidden">
-            <motion.h2 
-              className="text-[12vw] lg:text-[7vw] font-serif leading-[0.85] tracking-tighter uppercase text-[#111] group-hover:text-[#cca027] transition-colors duration-700"
-            >
-              {work.title}
-            </motion.h2>
-          </Link>
-          
-          <div className="flex flex-col gap-6 lg:max-w-md w-full shrink-0">
-            <div className="flex items-center gap-4">
-              <span className="text-[#cca027] font-serif text-4xl italic">{work.id}</span>
-              <span className="text-xs font-bold tracking-[0.3em] uppercase text-[#111]">{work.category}</span>
-            </div>
-            <p className="text-black/60 text-lg md:text-xl font-medium leading-relaxed">
-              {work.desc}
-            </p>
-            <Link to={`/work/${work.slug}`} className="inline-flex items-center gap-4 group/btn w-fit mt-2">
-              <span className="text-[10px] md:text-xs font-bold tracking-[0.2em] text-[#111] uppercase group-hover/btn:text-[#cca027] transition-colors duration-300">Explore Project</span>
-              <div className="w-10 h-10 rounded-full bg-[#111] flex items-center justify-center group-hover/btn:bg-[#cca027] transition-all duration-300">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover/btn:translate-x-1 transition-transform duration-300">
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
-                  <polyline points="12 5 19 12 12 19"></polyline>
-                </svg>
-              </div>
-            </Link>
-          </div>
-        </div>
-
-        {/* MASSIVE IMAGE */}
-        <Link to={`/work/${work.slug}`} className="block w-full rounded-[2rem] md:rounded-[3rem] overflow-hidden aspect-[4/3] md:aspect-[21/9] bg-[#e0e0e0] relative shadow-[0_20px_50px_rgba(0,0,0,0.1)]">
-          <img 
-            src={work.image} 
-            alt={work.title} 
-            className="w-full h-full object-cover grayscale opacity-90 group-hover:grayscale-0 group-hover:opacity-100 scale-105 group-hover:scale-100 transition-all duration-[1.5s] ease-[0.25,1,0.5,1]"
-          />
-          <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-700 pointer-events-none" />
-          
-          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none">
-            <div className="w-32 h-32 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white tracking-[0.2em] text-[10px] uppercase font-bold shadow-2xl border border-white/20">
-              View Work
-            </div>
-          </div>
-        </Link>
-        
-      </div>
-    </motion.div>
-  );
-};
-
 export default function Work() {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"]
+  });
+
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+    if (location.hash) {
+      const id = location.hash.substring(1);
+      const el = document.getElementById(id);
+      if (el) {
+        setTimeout(() => {
+          const headerEl = document.querySelector("header");
+          const headerHeight = headerEl ? headerEl.offsetHeight : 80;
+          const top = el.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
+          window.scrollTo({ top, behavior: "smooth" });
+        }, 150);
+      }
+    }
+  }, [location]);
+
+  const works = [
+    {
+      id: "01",
+      title: "Content strategy and marketing",
+      image: tabImg,
+      slug: "content-strategy-and-marketing",
+    },
+    {
+      id: "02",
+      title: "Branding",
+      image: grahpImg,
+      slug: "branding-and-creative-solutions",
+    },
+    {
+      id: "03",
+      title: "Commercial Production",
+      image: caseImg,
+      slug: "commercial-production",
+    },
+    {
+      id: "04",
+      title: "Web development",
+      image: tab2Enhance,
+      slug: "web-development",
+    },
+  ];
 
   return (
-    <div className="w-full bg-[#fbf8f3] text-[#111] z-20 relative font-sans min-h-screen overflow-hidden">
+    <div className="w-full min-h-screen bg-[#fbf8f3] text-[#291b03] pt-[180px] md:pt-[240px] pb-20 px-6 md:px-12 lg:px-20 xl:px-32 relative overflow-clip">
       
-      {/* HERO SECTION */}
-      <div className="w-full pt-[200px] md:pt-[250px] pb-24 px-6 md:px-12 max-w-[1400px] mx-auto flex flex-col items-center text-center relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="inline-flex items-center gap-4 mb-6"
-        >
-          <span className="w-12 h-[2px] bg-[#cca027]"></span>
-          <span className="text-xs font-bold uppercase tracking-[0.4em] text-[#cca027]">Our Portfolio</span>
-          <span className="w-12 h-[2px] bg-[#cca027]"></span>
-        </motion.div>
-        
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.1 }}
-          className="text-[14vw] md:text-[9vw] lg:text-[10rem] font-serif tracking-tighter leading-[0.85] uppercase mb-8"
-        >
-          Selected <br className="md:hidden" /><span className="italic text-[#cca027]">Works.</span>
-        </motion.h1>
+      {/* Decorative background lights */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-[#cca027]/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#b08810]/5 rounded-full blur-[120px] pointer-events-none" />
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-lg md:text-2xl text-[#666] max-w-3xl font-medium leading-relaxed"
-        >
-          High-intensity digital growth systems, custom-made for brands who want to scale.
-        </motion.p>
+      <div className="max-w-7xl mx-auto relative z-10 mb-32 px-4 lg:px-8 min-h-[60vh] lg:min-h-[calc(100vh-320px)] flex flex-col justify-center">
+        {/* ================= HERO TEXT SECTION ================= */}
+        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center w-full">
+          
+          {/* Left Side: Huge Text & Scroll Down */}
+          <div className="flex relative w-full lg:w-[60%]">
+            
+            {/* Huge OUR WORK text */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="relative flex flex-col font-sans font-bold text-[#cca027] leading-[0.9] tracking-tighter text-[18vw] sm:text-[120px] lg:text-[130px] xl:text-[150px] uppercase"
+            >
+              <span>OUR</span>
+              <span className="ml-16 md:ml-24 lg:ml-32">WORK</span>
+
+              {/* Scroll Down Vertical Indicator placed firmly under OUR and left of WORK */}
+              <div className="hidden lg:flex flex-col items-center absolute top-[65%] left-4">
+                <span className="text-xs font-bold tracking-[0.3em] text-[#291b03] uppercase whitespace-nowrap absolute top-[2rem] left-[-2.5rem] -rotate-90 origin-center font-sans">
+                  Scroll Down
+                </span>
+                <div className="w-[2px] h-20 bg-[#291b03] absolute top-[6rem] left-[-0.5rem]">
+                  {/* Arrow head */}
+                  <div className="absolute bottom-[-2px] left-[-3px] w-2 h-2 border-b-2 border-r-2 border-[#291b03] transform rotate-45"></div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Right Side: Description */}
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="w-full lg:w-[40%] mt-12 lg:mt-0 lg:-translate-y-12 flex lg:justify-end"
+          >
+            <p className="text-[#291b03] text-xl md:text-2xl font-medium leading-relaxed max-w-md">
+              Higher-intensity digital growth systems, custom-made for brands who
+              want to scale. We build systems that turn attention into conversion
+              and brand value.
+            </p>
+          </motion.div>
+        </div>
       </div>
 
-      {/* EDITORIAL LISTING CARDS */}
-      <div className="pb-32 w-full">
-        {WORKS.map((work) => (
-          <ProjectCard key={work.id} work={work} />
-        ))}
+      {/* ================= CARD FEED SECTION (SCROLL CAROUSEL) ================= */}
+      <div ref={containerRef} className="relative w-full" style={{ height: `${works.length * 90}vh` }}>
+        <div className="sticky top-0 w-full h-screen flex items-center justify-center overflow-hidden">
+          {works.map((item, idx) => (
+            <CarouselCard 
+              key={item.id}
+              item={item}
+              idx={idx}
+              worksLength={works.length}
+              scrollYProgress={scrollYProgress}
+              containerRef={containerRef}
+              navigate={navigate}
+            />
+          ))}
+        </div>
       </div>
-      
     </div>
   );
 }
+
+// Separate component to handle per-card useTransform hooks
+function CarouselCard({ item, idx, worksLength, scrollYProgress, containerRef, navigate }) {
+  const scrollFloatIndex = useTransform(scrollYProgress, [0, 1], [0, worksLength - 1]);
+  const offset = useTransform(scrollFloatIndex, (latest) => idx - latest);
+  
+  const x = useTransform(offset, (v) => `${v * 105}%`);
+  const scale = useTransform(offset, [-1, 0, 1], [0.85, 1, 0.85]);
+  const opacity = useTransform(offset, [-2, -1, -0.2, 0, 0.2, 1, 2], [0, 0.4, 0.9, 1, 0.9, 0.4, 0]);
+  const zIndex = useTransform(offset, (v) => 30 - Math.round(Math.abs(v) * 10));
+
+  const titleOpacity = useTransform(offset, [-0.5, 0, 0.5], [0, 1, 0]);
+  const titleY = useTransform(offset, [-0.5, 0, 0.5], [20, 0, 20]);
+  
+  const pointerEvents = useTransform(offset, [-1.5, -0.5, 0.5, 1.5], ["none", "auto", "auto", "none"]);
+
+  const handleClick = () => {
+    if (Math.abs(offset.get()) < 0.2) {
+      // It's the active center card
+      if (item.slug === "content-strategy-and-marketing") {
+        navigate("/work/content-strategy-and-marketing");
+      } else if (item.slug === "branding-and-creative-solutions") {
+        navigate("/work/branding-and-creative-solutions");
+      } else if (item.slug === "commercial-production") {
+        navigate("/work/commercial-production");
+      } else if (item.slug === "web-development") {
+        navigate("/work/web-development");
+      } else {
+        navigate(`/service/${item.slug}`);
+      }
+    } else {
+      // It's a side card, smoothly scroll the page so this card becomes centered
+      if (containerRef.current) {
+        const rect = containerRef.current.getBoundingClientRect();
+        const containerTop = rect.top + window.scrollY;
+        const scrollableDistance = containerRef.current.offsetHeight - window.innerHeight;
+        const targetScroll = containerTop + (idx / (worksLength - 1)) * scrollableDistance;
+        window.scrollTo({ top: targetScroll, behavior: "smooth" });
+      }
+    }
+  };
+
+  return (
+    <motion.div
+      style={{ x, scale, opacity, zIndex, pointerEvents }}
+      className="absolute w-[85%] sm:w-[60%] lg:w-[45%] flex flex-col items-center cursor-pointer"
+      onClick={handleClick}
+    >
+      {/* Card Container */}
+      <div className="relative w-full aspect-[4/3] lg:aspect-[16/10] rounded-[28px] overflow-hidden border border-[#C08860]/10 bg-[#0c0806] flex items-center justify-center transition-shadow duration-500 hover:border-[#cca027]/30 hover:shadow-[0_0_50px_rgba(184,115,78,0.1)] group">
+        <div className="absolute inset-0 bg-gradient-to-tr from-[#cca027]/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
+        <img
+          src={item.image}
+          alt={item.title}
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.05]"
+          loading="lazy"
+        />
+
+        {/* Hover Overlay */}
+        <div className="absolute inset-0 bg-[#0c0806]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20 flex items-center justify-center backdrop-blur-[2px]">
+          <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-500 px-8 py-3 rounded-full border border-[#e8dac1]/30 bg-[#0c0806]/60 backdrop-blur-md">
+            <span className="text-[#e8dac1] font-semibold tracking-widest text-sm uppercase">
+              View Project
+            </span>
+          </div>
+        </div>
+      </div>
+
+      {/* Title & View Project Button */}
+      <motion.div 
+        style={{ opacity: titleOpacity, y: titleY }}
+        className="flex flex-col items-center mt-8 text-center pointer-events-none"
+      >
+        <h3 className="font-serif text-3xl md:text-5xl text-[#291b03] uppercase tracking-wide mb-6">
+          {item.title}
+        </h3>
+        <div className="flex items-center gap-4">
+          <span className="w-12 h-[1px] bg-[#291b03]/30"></span>
+          <span className="font-semibold tracking-widest text-[#291b03] text-sm uppercase">VIEW PROJECT</span>
+          <span className="w-12 h-[1px] bg-[#291b03]/30"></span>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+}
+
+

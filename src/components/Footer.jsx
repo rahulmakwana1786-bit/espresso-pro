@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <footer className="bg-transparent text-[#291b03] px-6 md:px-12 py-12">
+    <footer className="bg-transparent text-[#291b03] px-6 md:px-12 py-16 border-t-2 border-[#cca027]/40 mt-12">
       {/* MAIN CONTENT */}
       <div className="max-w-[1400px] mx-auto flex flex-col lg:flex-row items-start justify-between gap-12 lg:gap-8 pb-16">
         
@@ -77,3 +77,4 @@ export default function Footer() {
     </footer>
   );
 }
+

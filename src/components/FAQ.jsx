@@ -48,12 +48,12 @@ export default function FAQ() {
           transition={{ duration: 0.6 }}
           className="flex justify-center mb-6"
         >
-          <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#B8734E]/10 to-[#8a563a]/10 border border-[#B8734E]/20 backdrop-blur-sm">
+          <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#cca027]/10 border border-[#cca027]/20 backdrop-blur-sm">
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#B8734E] opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#B8734E]"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#cca027] opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#cca027]"></span>
             </span>
-            <span className="text-[#B8734E] text-sm font-medium tracking-wide">Got Questions?</span>
+            <span className="text-[#cca027] text-sm font-medium tracking-wide uppercase">Got Questions?</span>
           </div>
         </motion.div>
 
@@ -65,10 +65,10 @@ export default function FAQ() {
           className="font-serif text-5xl md:text-6xl max-sm:text-4xl mb-4"
         >
           <span className="relative inline-block">
-            <span className="bg-gradient-to-r from-[#8a563a] via-espresso to-[#8a563a] bg-clip-text text-transparent italic font-bold animate-[shimmer_3s_ease-in-out_infinite] bg-[length:200%_auto]">
+            <span className="text-[#111] italic font-bold">
               Frequently <br className="block sm:hidden" /> Asked Questions
             </span>
-            <span className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#B8734E] to-transparent rounded-full blur-sm"></span>
+            <span className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#cca027] to-transparent rounded-full blur-sm"></span>
           </span>
         </motion.h2>
 
@@ -77,7 +77,7 @@ export default function FAQ() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-[#291b03] text-lg mt-4 max-w-2xl mx-auto"
+          className="text-[#666] text-lg mt-4 max-w-2xl mx-auto"
         >
           Everything you need to know about working with us
         </motion.p>
@@ -88,7 +88,7 @@ export default function FAQ() {
           whileInView={{ scaleX: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1, delay: 0.3 }}
-          className="mt-8 mx-auto w-24 h-px bg-gradient-to-r from-transparent via-[#B8734E] to-transparent relative"
+          className="mt-8 mx-auto w-24 h-px bg-gradient-to-r from-transparent via-[#cca027] to-transparent relative"
         >
         </motion.div>
       </div>
@@ -118,9 +118,9 @@ export default function FAQ() {
               }}
             >
               {/* Glow effect on hover */}
-              <div className="absolute inset-0 bg-gradient-to-r from-[#B8734E]/5 via-transparent to-[#8a563a]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl blur-xl" />
+              <div className="absolute inset-0 bg-gradient-to-r from-black/5 via-transparent to-black/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl blur-xl" />
 
-              <div className="relative border-t border-[#B8734E]/20 group-hover:border-[#B8734E]/40 transition-all duration-300">
+              <div className="relative border-t border-black/10 group-hover:border-black/20 transition-all duration-300">
                 {/* QUESTION */}
                 <button
                   onClick={() => toggle(i)}
@@ -128,21 +128,21 @@ export default function FAQ() {
                 >
                   <div className="flex items-start gap-4 flex-1">
                     {/* Number Badge */}
-                    <span className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-[#B8734E]/20 to-[#8a563a]/20 border border-[#B8734E]/30 flex items-center justify-center text-[#D4A574] text-sm font-semibold group-hover/btn:scale-110 transition-transform duration-300">
+                    <span className="flex-shrink-0 w-8 h-8 rounded-full bg-black/5 border border-black/10 flex items-center justify-center text-black/40 text-sm font-semibold group-hover/btn:text-[#cca027] group-hover/btn:scale-110 transition-all duration-300">
                       {i + 1}
                     </span>
                     
-                    <span className="text-[20px] max-sm:text-[18px] font-medium text-[#291b03] group-hover/btn:text-[#D4A574] transition-colors duration-300">
+                    <span className="text-[20px] max-sm:text-[18px] font-medium text-[#111] group-hover/btn:text-[#cca027] transition-colors duration-300">
                       {item.q}
                     </span>
                   </div>
 
                   {/* Toggle Icon */}
-                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-[#B8734E]/10 to-[#8a563a]/10 flex items-center justify-center  group-hover/btn:scale-110 transition-all duration-300">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-black/5 flex items-center justify-center group-hover/btn:scale-110 transition-all duration-300 group-hover/btn:bg-[#cca027]/10">
                     <motion.span
                       animate={{ rotate: isOpen ? 180 : 0 }}
                       transition={{ duration: 0.3 }}
-                      className="text-[#C08860] text-2xl font-light"
+                      className="text-[#111] group-hover/btn:text-[#cca027] text-2xl font-light"
                     >
                       {isOpen ? '−' : '+'}
                     </motion.span>
@@ -168,9 +168,9 @@ export default function FAQ() {
                       >
                         <div className="relative">
                           {/* Decorative line */}
-                          <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-[#B8734E]/40 via-[#B8734E]/20 to-transparent" />
+                          <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-[#cca027]/40 via-[#cca027]/20 to-transparent" />
                           
-                          <p className="pl-6 text-[#291b03] text-[16px] max-sm:text-[15px] leading-relaxed">
+                          <p className="pl-6 text-[#666] text-[16px] max-sm:text-[15px] leading-relaxed">
                             {item.a}
                           </p>
                         </div>
@@ -184,7 +184,7 @@ export default function FAQ() {
         })}
 
         {/* LAST BORDER */}
-        <div className="border-t border-[#B8734E]/20 mt-2" />
+        <div className="border-t border-black/10 mt-2" />
       </div>
       
 
@@ -215,3 +215,4 @@ export default function FAQ() {
     </section>
   );
 }
+

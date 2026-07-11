@@ -105,8 +105,8 @@ export default function WorkDevelopment() {
       className="w-full min-h-screen bg-[#fbf8f3] text-[#291b03] py-28 px-6 md:px-12 lg:px-20 xl:px-32 relative overflow-hidden font-gothic"
     >
       {/* Decorative Background Lights */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#B8734E]/5 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#8a563a]/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#cca027]/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#b08810]/5 rounded-full blur-[120px] pointer-events-none" />
 
       {/* Main Layout Wrapper */}
       <div className="max-w-7xl mx-auto relative z-10 mt-8">
@@ -118,7 +118,7 @@ export default function WorkDevelopment() {
           <div className="w-full lg:w-[50%] flex flex-col items-start text-left header-left-col">
             <Link
               to="/work"
-              className="text-[#A8A8A8] text-xs tracking-[0.2em] uppercase hover:text-[#B8734E] transition-colors flex items-center gap-3 mb-8 group"
+              className="text-[#666] text-xs tracking-[0.2em] uppercase hover:text-[#cca027] transition-colors flex items-center gap-3 mb-8 group"
             >
               <span className="group-hover:-translate-x-1 transition-transform">&larr;</span> BACK TO WORK
             </Link>
@@ -161,7 +161,7 @@ export default function WorkDevelopment() {
                 href={site.url}
                 target="_blank"
                 rel="noreferrer"
-                className="block relative w-full aspect-[16/9] rounded-[28px] overflow-hidden border border-[#C08860]/10 bg-[#0c0806] transition-all duration-500 group-hover:border-[#B8734E]/30 group-hover:shadow-[0_0_50px_rgba(184,115,78,0.15)]"
+                className="block relative w-full aspect-[16/9] rounded-[28px] overflow-hidden border border-[#C08860]/10 bg-[#0c0806] transition-all duration-500 group-hover:border-[#cca027]/30 group-hover:shadow-[0_0_50px_rgba(184,115,78,0.15)]"
               >
                 {/* Edge blending vignette */}
                 <div className="absolute inset-0 shadow-[inset_0_0_60px_#000000] pointer-events-none z-10" />
@@ -171,7 +171,7 @@ export default function WorkDevelopment() {
 
                 {/* Overlay Text elements visible on hover */}
                 <div className="absolute inset-0 z-30 flex flex-col justify-end p-8 text-left opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                  <span className="text-[#B8734E] text-[10px] tracking-[0.25em] font-bold uppercase mb-1.5">Launch Project ↗</span>
+                  <span className="text-[#cca027] text-[10px] tracking-[0.25em] font-bold uppercase mb-1.5">Launch Project ↗</span>
                   <h3 className="font-serif text-2xl font-bold text-[#cca027] tracking-tight leading-tight">
                     {site.name}
                   </h3>
@@ -191,7 +191,7 @@ export default function WorkDevelopment() {
 
               {/* Bottom Caption Details */}
               <div className="flex justify-between items-center mt-6 px-2 text-[#C08860] tracking-wider text-sm sm:text-base">
-                <span className="font-semibold text-[#291b03] group-hover:text-[#D4A574] transition-colors duration-300">
+                <span className="font-semibold text-[#291b03] group-hover:text-[#D4AF37] transition-colors duration-300">
                   {site.name}
                 </span>
                 <span className="font-light text-[#291b03] text-xs sm:text-sm lowercase font-mono">
@@ -206,3 +206,5 @@ export default function WorkDevelopment() {
     </div>
   );
 }
+
+

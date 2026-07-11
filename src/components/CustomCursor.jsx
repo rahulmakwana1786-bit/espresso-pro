@@ -103,7 +103,7 @@ export default function CustomCursor() {
           width="110"
           height="60"
           rx="30"
-          fill="#8a563a"
+          fill="#b08810"
           opacity="0.85"
           mask="url(#view-text-mask)"
         />
@@ -116,7 +116,7 @@ export default function CustomCursor() {
           height="59"
           rx="29.5"
           fill="none"
-          stroke="#8a563a"
+          stroke="#b08810"
           strokeWidth="1"
           opacity="0.95"
         />
@@ -124,3 +124,5 @@ export default function CustomCursor() {
     </motion.div>
   );
 }
+
+

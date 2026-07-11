@@ -15,7 +15,7 @@ import WorkDevelopment from "./pages/WorkDevelopment.jsx";
 import CampaignDetail from "./pages/CampaignDetail.jsx";
 import CustomCursor from "./components/CustomCursor.jsx";
 import Contact from "./pages/Contact.jsx";
-import Services from "./pages/Services.jsx";
+
 import About from "./pages/About.jsx";
 import IntroAnimation from "./components/IntroAnimation.jsx";
 import CaseStudiesPage from "./pages/CaseStudiesPage.jsx";
@@ -27,7 +27,7 @@ function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
-      <div className="bg-[#fbf8f3] text-[#2c1e16] min-h-screen selection:bg-[#B8734E] selection:text-[#fbf8f3]">
+      <div className="bg-[#fbf8f3] text-[#2c1e16] min-h-screen selection:bg-[#cca027] selection:text-[#fbf8f3]">
         {!introFinished && <IntroAnimation onComplete={() => setIntroFinished(true)} />}
         <CustomCursor />
         
@@ -45,7 +45,6 @@ function App() {
             <Route path="/work/web-development" element={<WorkDevelopment />} />
             <Route path="/careers" element={<Careers />} />
             <Route path="/work" element={<Work />} />
-            <Route path="/services" element={<Services />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/case-studies" element={<CaseStudiesPage />} />
@@ -58,3 +57,5 @@ function App() {
 }
 
 export default App;
+
+

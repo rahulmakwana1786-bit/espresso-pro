@@ -52,7 +52,6 @@ function StatCard({ stat, index, progress }) {
   // Interpolating colors
   const borderColor = useTransform(intensity, [0, 1], ["rgba(204,160,39,0.4)", "rgba(249,115,22,0.8)"]);
   const shadow = useTransform(intensity, [0, 1], ["0px 8px 30px rgba(204,160,39,0.15)", "0px 8px 30px rgba(249,115,22,0.4)"]);
-  const titleColor = useTransform(intensity, [0, 1], ["#cca027", "#f97316"]);
   const lineColor = useTransform(intensity, [0, 1], ["rgba(204,160,39,0.4)", "rgba(249,115,22,0.8)"]);
 
   return (
@@ -68,9 +67,9 @@ function StatCard({ stat, index, progress }) {
         style={{ scale, y, borderColor, boxShadow: shadow }}
         className="relative z-10 w-full flex flex-col items-center justify-center py-8 px-6 rounded-3xl border bg-white cursor-default"
       >
-        <motion.div style={{ color: titleColor }} className="text-3xl md:text-5xl font-serif tracking-tighter mb-3">
+        <div className="text-3xl md:text-5xl font-serif tracking-tighter mb-3 text-[#cca027]">
           <Counter from={0} to={stat.value} suffix={stat.suffix} />
-        </motion.div>
+        </div>
         
         <p className="text-[10px] md:text-[11px] font-bold uppercase tracking-[0.2em] text-black/80 text-center leading-relaxed">
           {stat.label}
@@ -121,3 +120,5 @@ export default function Beyond() {
     </section>
   );
 }
+
+

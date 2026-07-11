@@ -57,8 +57,8 @@ const VideoGridCard = ({ video, colSpanClass }) => {
   };
 
   return (
-    <div className={`video-grid-card relative group border rounded-2xl bg-[#090605] overflow-hidden transition-all duration-300 ${colSpanClass}`}>
-      <div className={`w-full ${video.isReel ? 'aspect-[9/16]' : 'aspect-[16/9]'} bg-black overflow-hidden relative group/video`}>
+    <div className={`video-grid-card relative group border border-[#cca027]/20 rounded-2xl bg-white overflow-hidden transition-all duration-300 shadow-sm ${colSpanClass}`}>
+      <div className={`w-full ${video.isReel ? 'aspect-[9/16]' : 'aspect-[16/9]'} bg-gray-100 overflow-hidden relative group/video`}>
         <video
           ref={videoRef}
           src={video.src}
@@ -106,7 +106,7 @@ const VideoGridCard = ({ video, colSpanClass }) => {
             <div className="flex items-center gap-3">
               <button 
                 onClick={togglePlay} 
-                className="text-[#291b03] hover:text-[#B8734E] transition-colors bg-black/40 hover:bg-black/70 backdrop-blur-md p-1.5 sm:p-2 rounded-full border border-white/10"
+                className="text-[#291b03] hover:text-[#cca027] transition-colors bg-black/40 hover:bg-black/70 backdrop-blur-md p-1.5 sm:p-2 rounded-full border border-white/10"
               >
                 {isPlaying ? (
                   <svg className="w-4 h-4 sm:w-5 sm:h-5 fill-current" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
@@ -137,7 +137,7 @@ const VideoGridCard = ({ video, colSpanClass }) => {
               }}
             >
               <div 
-                className="h-full bg-[#B8734E] rounded-full transition-all duration-100 ease-linear pointer-events-none" 
+                className="h-full bg-[#cca027] rounded-full transition-all duration-100 ease-linear pointer-events-none" 
                 style={{ width: `${progress}%` }} 
               />
             </div>
@@ -384,7 +384,7 @@ export default function WorkProduction() {
   return (
     <div
       ref={containerRef}
-      className="w-full min-h-screen bg-[#fbf8f3] text-[#291b03] font-gothic selection:bg-[#B8734E]/30 relative pt-[120px] lg:pt-[150px]"
+      className="w-full min-h-screen bg-[#fbf8f3] text-[#291b03] font-gothic selection:bg-[#cca027]/30 relative pt-[120px] lg:pt-[150px]"
     >
       {/* Background radial glows */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
@@ -400,17 +400,17 @@ export default function WorkProduction() {
             <div className="flex flex-col items-start lg:justify-center">
               <Link
                 to="/work"
-                className="text-[#A8A8A8] text-xs tracking-[0.2em] uppercase hover:text-[#B8734E] transition-colors flex items-center gap-3 mb-10 group"
+                className="text-[#666] text-xs tracking-[0.2em] uppercase hover:text-[#cca027] transition-colors flex items-center gap-3 mb-10 group"
               >
                 <span className="group-hover:-translate-x-1 transition-transform">&larr;</span> BACK TO WORK
               </Link>
 
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#B8734E]/10 border border-[#B8734E]/20 mb-6 backdrop-blur-sm">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#cca027]/10 border border-[#cca027]/20 mb-6 backdrop-blur-sm">
                 <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#B8734E] opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#B8734E]"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#cca027] opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#cca027]"></span>
                 </span>
-                <span className="text-[#B8734E] text-xs font-semibold tracking-wider uppercase">Cinematic Shoots</span>
+                <span className="text-[#cca027] text-xs font-semibold tracking-wider uppercase">Cinematic Shoots</span>
               </div>
 
               <h1 className="font-gothic font-black text-4xl md:text-5xl lg:text-6xl text-[#cca027] leading-[1.1] tracking-tight cursor-default">
@@ -419,7 +419,7 @@ export default function WorkProduction() {
 
               <div className="h-6 lg:h-10 shrink-0" />
 
-              <p className="text-[#D0D0D0] text-lg lg:text-xl leading-relaxed max-w-md font-light mb-8">
+              <p className="text-[#444] text-lg lg:text-xl leading-relaxed max-w-md font-light mb-8">
                 A collection of commercial production projects focused on bringing ideas to life through thoughtful visuals and purposeful storytelling. 
               </p>
 
@@ -438,8 +438,8 @@ export default function WorkProduction() {
             {/* ALL PRODUCTION VIDEOS GRID */}
             <div className="flex flex-col gap-6 text-left">
               <div className="flex items-center gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#B8734E]" />
-                <h3 className="text-xs font-black tracking-[0.25em] text-[#B8734E] uppercase">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#cca027]" />
+                <h3 className="text-xs font-black tracking-[0.25em] text-[#cca027] uppercase">
                   All Production Videos ({playlist.length})
                 </h3>
               </div>
@@ -474,3 +474,5 @@ export default function WorkProduction() {
     </div>
   );
 }
+
+

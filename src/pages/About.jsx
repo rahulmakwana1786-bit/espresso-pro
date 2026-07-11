@@ -36,11 +36,11 @@ export default function About() {
   const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
 
   return (
-    <div ref={containerRef} className="w-full bg-[#050505] relative overflow-clip font-sans text-white selection:bg-[#cca027] selection:text-white">
+    <div ref={containerRef} className="w-full bg-transparent relative overflow-clip font-sans text-[#111] selection:bg-[#cca027] selection:text-white">
       
       {/* Background ambient light */}
       <div className="fixed top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-[#cca027]/10 blur-[150px] pointer-events-none" />
-      <div className="fixed bottom-[-20%] right-[-10%] w-[50%] h-[50%] rounded-full bg-white/5 blur-[150px] pointer-events-none" />
+      <div className="fixed bottom-[-20%] right-[-10%] w-[50%] h-[50%] rounded-full bg-black/5 blur-[150px] pointer-events-none" />
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center pt-24 px-6 md:px-16 overflow-hidden">
@@ -63,23 +63,23 @@ export default function About() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.4 }}
-            className="text-[clamp(3rem,8vw,8rem)] leading-[0.9] font-serif font-bold tracking-tighter text-white"
+            className="text-[clamp(3rem,8vw,8rem)] leading-[0.9] font-serif font-bold tracking-tighter text-[#111]"
           >
-            We don't do <span className="text-white/40 italic">average.</span>
+            We don't do <span className="text-black/30 italic">average.</span>
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.8 }}
-            className="text-[#999] text-lg md:text-2xl max-w-2xl mt-8 leading-relaxed font-light"
+            className="text-[#666] text-lg md:text-2xl max-w-2xl mt-8 leading-relaxed font-light"
           >
             Redefining how brands connect, scale, and thrive in a digital-first world through relentless innovation and precise execution.
           </motion.p>
         </motion.div>
 
         {/* Hero Background Image */}
-        <div className="absolute inset-0 z-0 opacity-20">
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#050505]/80 to-[#050505]" />
+        <div className="absolute inset-0 z-0 opacity-10">
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#fdfbf7]/80 to-[#fdfbf7]" />
           <motion.img 
             initial={{ scale: 1.1 }}
             animate={{ scale: 1 }}
@@ -102,21 +102,21 @@ export default function About() {
               </h2>
             </FadeIn>
             <FadeIn delay={0.2}>
-              <div className="w-12 h-[2px] bg-white/20" />
+              <div className="w-12 h-[2px] bg-black/10" />
             </FadeIn>
             <FadeIn delay={0.3}>
-              <p className="text-[#888] text-lg md:text-xl leading-relaxed font-light">
+              <p className="text-[#666] text-lg md:text-xl leading-relaxed font-light">
                 By merging powerful branding, strategic content, and precise automation, we help ambitious businesses unlock their full revenue potential. We strip away the noise and focus on what actually matters: your bottom line.
               </p>
             </FadeIn>
             <FadeIn delay={0.4}>
-              <div className="grid grid-cols-2 gap-8 mt-8 border-t border-white/10 pt-8">
+              <div className="grid grid-cols-2 gap-8 mt-8 border-t border-black/10 pt-8">
                 <div>
-                  <div className="text-4xl font-serif font-bold text-white mb-2">40+</div>
+                  <div className="text-4xl font-serif font-bold text-[#111] mb-2">40+</div>
                   <div className="text-xs uppercase tracking-widest text-[#cca027]">Brands Scaled</div>
                 </div>
                 <div>
-                  <div className="text-4xl font-serif font-bold text-white mb-2">5x</div>
+                  <div className="text-4xl font-serif font-bold text-[#111] mb-2">5x</div>
                   <div className="text-xs uppercase tracking-widest text-[#cca027]">Average ROI</div>
                 </div>
               </div>
@@ -140,12 +140,12 @@ export default function About() {
           <div className="w-full lg:w-1/2 flex flex-col gap-8 z-10">
             <FadeIn>
               <h2 className="text-4xl md:text-6xl font-serif font-bold leading-tight">
-                Design that <span className="text-white/50">moves</span> <br />
+                Design that <span className="text-black/30">moves</span> <br />
                 <span className="italic">inventory.</span>
               </h2>
             </FadeIn>
             <FadeIn delay={0.2}>
-              <p className="text-[#888] text-lg md:text-xl leading-relaxed font-light bg-black/40 backdrop-blur-md p-8 rounded-3xl border border-white/5 shadow-2xl">
+              <p className="text-[#666] text-lg md:text-xl leading-relaxed font-light bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-black/5 shadow-xl">
                 We believe that aesthetics without performance is just art. Our work lives at the intersection of stunning visual design and ruthless conversion rate optimization. When we build, we build to sell.
               </p>
             </FadeIn>
@@ -156,7 +156,7 @@ export default function About() {
               className="relative aspect-square md:aspect-[4/3] rounded-[2rem] overflow-hidden group shadow-2xl"
             >
               <img src={img3} alt="Strategy session" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 ease-out scale-105 group-hover:scale-100" />
-              <div className="absolute inset-0 border border-white/10 rounded-[2rem] pointer-events-none" />
+              <div className="absolute inset-0 border border-black/5 rounded-[2rem] pointer-events-none" />
             </motion.div>
             
             {/* Floating element */}
@@ -185,7 +185,9 @@ export default function About() {
       </section>
       
       {/* Seamless transition to footer */}
-      <div className="h-40 bg-gradient-to-b from-[#050505] to-[#fbf8f3] w-full" />
+      <div className="h-40 bg-transparent w-full" />
     </div>
   );
 }
+
+

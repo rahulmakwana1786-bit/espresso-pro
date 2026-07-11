@@ -279,8 +279,8 @@ export default function CampaignDetail() {
   if (!project) {
     return (
       <div className="w-full min-h-screen bg-[#fbf8f3] text-[#291b03] flex flex-col items-center justify-center font-sans">
-        <h2 className="text-3xl font-serif text-[#B76E4A] mb-4">Project Not Found</h2>
-        <Link to="/work/content-strategy-and-marketing" className="text-[#291b03] hover:text-[#B76E4A] uppercase text-xs tracking-widest">&larr; BACK TO CAMPAIGNS</Link>
+        <h2 className="text-3xl font-serif text-[#cca027] mb-4">Project Not Found</h2>
+        <Link to="/work/content-strategy-and-marketing" className="text-[#291b03] hover:text-[#cca027] uppercase text-xs tracking-widest">&larr; BACK TO CAMPAIGNS</Link>
       </div>
     );
   }
@@ -293,7 +293,7 @@ export default function CampaignDetail() {
           --fg: #ECEAE6;
           --muted: #8a8580;
           --line: #1a1a1a;
-          --accent: #B8734E;
+          --accent: #cca027;
           --serif: "Times New Roman", Times, serif;
           --sans: "Manrope", "Inter", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
           
@@ -482,7 +482,7 @@ export default function CampaignDetail() {
         <div className="csd-hero-left">
           <Link
             to="/work/content-strategy-and-marketing"
-            className="text-[#A8A8A8] text-xs tracking-[0.25em] uppercase hover:text-[#B76E4A] transition-colors flex items-center gap-2 mb-8 w-fit group font-sans"
+            className="text-[#666] text-xs tracking-[0.25em] uppercase hover:text-[#cca027] transition-colors flex items-center gap-2 mb-8 w-fit group font-sans"
             style={{ textDecoration: 'none' }}
           >
             <span className="group-hover:-translate-x-1 transition-transform">&larr;</span> BACK TO CAMPAIGNS
@@ -578,7 +578,7 @@ export default function CampaignDetail() {
           {project.overview}
         </p>
         <p className="reveal" style={{ marginTop: "20px", transitionDelay: ".15s" }}>
-          <strong style={{ color: "#B8734E" }}>Key Insight:</strong> "{project.insight}"
+          <strong style={{ color: "#cca027" }}>Key Insight:</strong> "{project.insight}"
         </p>
       </section>
 
@@ -645,3 +645,5 @@ export default function CampaignDetail() {
     </div>
   );
 }
+
+

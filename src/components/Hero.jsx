@@ -85,10 +85,9 @@ export default function Hero() {
                   d="M 50, 50 m -42, 0 a 42,42 0 1,1 84,0 a 42,42 0 1,1 -84,0"
                   fill="transparent"
                 />
-                <text className="text-[12px] font-bold tracking-[0.25em] uppercase" fill="currentColor">
-                  {/* Reduced repetitions and added generous spacing to avoid overlap */}
-                  <textPath href="#circlePath" startOffset="0%">
-                    VIEW OUR WORK &nbsp; &nbsp; &nbsp; VIEW OUR WORK &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                <text className="text-[12.5px] font-bold tracking-[0.2em] uppercase" fill="currentColor">
+                  <textPath href="#circlePath" startOffset="0%" textLength="260" lengthAdjust="spacingAndGlyphs">
+                    VIEW OUR WORK • VIEW OUR WORK • VIEW OUR WORK •
                   </textPath>
                 </text>
               </svg>
@@ -123,3 +122,5 @@ export default function Hero() {
     </div>
   );
 }
+
+

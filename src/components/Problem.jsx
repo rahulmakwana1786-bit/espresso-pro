@@ -15,12 +15,12 @@ export default function ProblemStatement() {
           transition={{ duration: 0.6 }}
           className="flex mb-8 max-sm:mb-6"
         >
-          <div className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#B8734E]/10 to-[#8a563a]/10 border border-[#B8734E]/20 backdrop-blur-sm">
+          <div className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#cca027]/10 to-[#b08810]/10 border border-[#cca027]/20 backdrop-blur-sm">
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#B8734E] opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#B8734E]"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#cca027] opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#cca027]"></span>
             </span>
-            <span className="text-[#B8734E] text-sm font-medium tracking-wide">
+            <span className="text-[#cca027] text-sm font-medium tracking-wide">
               The Challenge We Solve
             </span>
           </div>
@@ -37,7 +37,7 @@ export default function ProblemStatement() {
           Espresso Media is built to{" "}
           <span className="relative inline-block">
             <span>solve one</span>
-            <span className="pl-2 bg-gradient-to-r from-[#B8734E] to-[#8a563a] bg-clip-text text-transparent italic font-semibold">
+            <span className="pl-2 bg-gradient-to-r from-[#cca027] to-[#b08810] bg-clip-text text-transparent italic font-semibold">
               problem
             </span>
           </span>
@@ -52,10 +52,10 @@ export default function ProblemStatement() {
           <br />
           real business{" "}
           <span className="relative inline-block group">
-            <span className="bg-gradient-to-r from-[#B8734E] to-[#8a563a] bg-clip-text text-transparent italic font-bold animate-[shimmer_3s_ease-in-out_infinite] bg-[length:200%_auto]">
+            <span className="bg-gradient-to-r from-[#cca027] to-[#b08810] bg-clip-text text-transparent italic font-bold animate-[shimmer_3s_ease-in-out_infinite] bg-[length:200%_auto]">
               growth
             </span>
-            <span className="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#B8734E] to-transparent rounded-full blur-sm"></span>
+            <span className="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#cca027] to-transparent rounded-full blur-sm"></span>
           </span>
           .
         </motion.h2>
@@ -69,7 +69,7 @@ export default function ProblemStatement() {
           className="w-full max-w-5xl my-12 max-sm:my-8 relative"
           style={{ transformOrigin: "left" }}
         >
-          <div className="h-px bg-gradient-to-r from-[#B8734E] via-[#B8734E]/50 to-transparent" />
+          <div className="h-px bg-gradient-to-r from-[#cca027] via-[#cca027]/50 to-transparent" />
         </motion.div>
 
         {/* ================= PARAGRAPHS WITH ENHANCED STYLING ================= */}
@@ -82,7 +82,7 @@ export default function ProblemStatement() {
           >
             {/* Decorative quote mark */}
             <svg
-              className="absolute -left-4 -top-2 w-8 h-8 max-sm:w-6 max-sm:h-6 text-[#B8734E]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              className="absolute -left-4 -top-2 w-8 h-8 max-sm:w-6 max-sm:h-6 text-[#cca027]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
               fill="currentColor"
               viewBox="0 0 24 24"
             >
@@ -100,7 +100,7 @@ export default function ProblemStatement() {
                 <span className="text-espresso">performance</span>, and{" "}
                 <span className="text-espresso">automation</span>. So marketing
                 doesn't just look good, it{" "}
-                <span className="bg-gradient-to-r from-[#B8734E] to-[#8a563a] bg-clip-text text-transparent font-semibold">
+                <span className="bg-gradient-to-r from-[#cca027] to-[#b08810] bg-clip-text text-transparent font-semibold">
                   moves inventory and drives revenue
                 </span>
                 .
@@ -129,7 +129,7 @@ export default function ProblemStatement() {
             <div className="flex flex-wrap gap-4 items-center">
               <a
                 href="#contact"
-                className="group relative px-8 py-4 rounded-full bg-gradient-to-r from-[#B8734E] to-[#8a563a] text-[#291b03] font-semibold tracking-wider overflow-hidden inline-flex items-center gap-3 shadow-lg shadow-[#B8734E]/20 hover:shadow-xl hover:shadow-[#B8734E]/30 transition-all duration-300 hover:scale-105 active:scale-95"
+                className="group relative px-8 py-4 rounded-full bg-gradient-to-r from-[#cca027] to-[#b08810] text-[#291b03] font-semibold tracking-wider overflow-hidden inline-flex items-center gap-3 shadow-lg shadow-[#cca027]/20 hover:shadow-xl hover:shadow-[#cca027]/30 transition-all duration-300 hover:scale-105 active:scale-95"
               >
                 <span className="relative z-10 text-sm md:text-base uppercase">
                   Let's Solve This Together
@@ -186,3 +186,5 @@ export default function ProblemStatement() {
     </section>
   );
 }
+
+

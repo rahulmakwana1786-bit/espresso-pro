@@ -49,16 +49,17 @@ export default function Home() {
         <WhatWeOffer />
       </section>
       <AboutUs />
+      <section id="clients-logos">
+        <ClientLogos />
+      </section>
       <section id="process">
         <OurProcess />
       </section>
       <section id="faq">
         <FAQ />
       </section>
-      <section id="clients-logos">
-        <ClientLogos />
-      </section>
-
     </>
   );
 }
+
+

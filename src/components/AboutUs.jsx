@@ -19,20 +19,7 @@ export default function AboutUs() {
   return (
     <section ref={containerRef} id="about-us" className="relative py-32 md:py-48 bg-transparent text-[#1a1a1a] selection:bg-[#cca027] selection:text-white px-6 md:px-12 lg:px-20 overflow-hidden">
       
-      {/* Decorative Rotating Badge */}
-      <motion.div 
-        style={{ rotate }} 
-        className="absolute top-10 right-10 md:top-20 md:right-20 w-32 h-32 md:w-40 md:h-40 opacity-20 pointer-events-none hidden md:block"
-      >
-        <svg viewBox="0 0 200 200" className="w-full h-full">
-          <path id="textPath" d="M 100, 100 m -75, 0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0" fill="transparent" />
-          <text>
-            <textPath href="#textPath" startOffset="0%" className="text-[22px] font-bold uppercase tracking-[0.22em] fill-[#1a1a1a]">
-              • Espresso Media • Full Funnel Growth
-            </textPath>
-          </text>
-        </svg>
-      </motion.div>
+
 
       <div className="max-w-[1400px] mx-auto flex flex-col lg:flex-row gap-20 lg:gap-12 relative z-10">
         
@@ -74,10 +61,16 @@ export default function AboutUs() {
               <div className="flex flex-col gap-5">
                 <h4 className="text-[10px] uppercase tracking-widest font-bold text-[#888]">Core Capabilities</h4>
                 <div className="flex flex-wrap gap-3">
-                  {['Brand Strategy', 'Performance Ads', 'Content Creation', 'Automation'].map((tag) => (
-                    <span key={tag} className="px-5 py-2.5 rounded-full border border-black/5 text-[10px] font-bold uppercase tracking-widest text-[#1a1a1a] bg-white shadow-sm hover:border-[#cca027] hover:text-[#cca027] transition-colors cursor-default">
-                      {tag}
-                    </span>
+                  {[
+                    { name: 'Content Strategy', slug: 'content-strategy-and-marketing' },
+                    { name: 'Brand Identity', slug: 'branding-and-creative-solutions' },
+                    { name: 'Visual Production', slug: 'commercial-production' },
+                    { name: 'Web & SEO', slug: 'web-development' },
+                    { name: 'Automation', slug: 'ai-automation' }
+                  ].map((service) => (
+                    <Link key={service.name} to={`/service/${service.slug}`} className="px-5 py-2.5 rounded-full border border-black/5 text-[10px] font-bold uppercase tracking-widest text-[#1a1a1a] bg-white shadow-sm hover:border-[#cca027] hover:text-[#cca027] transition-colors cursor-pointer block">
+                      {service.name}
+                    </Link>
                   ))}
                 </div>
               </div>
@@ -127,3 +120,5 @@ export default function AboutUs() {
     </section>
   );
 }
+
+

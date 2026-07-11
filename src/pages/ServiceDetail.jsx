@@ -191,15 +191,15 @@ const serviceResults = {
     textHtml: (
       <>
         A clear and consistent growth system where{" "}
-        <span className="text-[#B8734E] not-italic font-normal">every piece of content</span> and{" "}
-        <span className="text-[#B8734E] not-italic font-normal">every marketing effort</span> works toward{" "}
-        <span className="bg-gradient-to-r from-[#B8734E] via-[#C08860] to-[#8a563a] bg-clip-text text-transparent not-italic font-bold">
+        <span className="text-[#cca027] not-italic font-bold">every piece of content</span> and{" "}
+        <span className="text-[#cca027] not-italic font-bold">every marketing effort</span> works toward{" "}
+        <span className="bg-gradient-to-r from-[#cca027] to-[#b08810] bg-clip-text text-transparent not-italic font-bold">
           building brand visibility
         </span>,{" "}
-        <span className="bg-gradient-to-r from-[#B8734E] via-[#C08860] to-[#8a563a] bg-clip-text text-transparent not-italic font-bold">
+        <span className="bg-gradient-to-r from-[#cca027] to-[#b08810] bg-clip-text text-transparent not-italic font-bold">
           attracting higher-quality sales
         </span>, and{" "}
-        <span className="bg-gradient-to-r from-[#B8734E] via-[#C08860] to-[#8a563a] bg-clip-text text-transparent not-italic font-bold">
+        <span className="bg-gradient-to-r from-[#cca027] to-[#b08810] bg-clip-text text-transparent not-italic font-bold">
           driving measurable business growth.
         </span>
       </>
@@ -210,15 +210,15 @@ const serviceResults = {
     textHtml: (
       <>
         A premium and unforgettable brand identity where{" "}
-        <span className="text-[#B8734E] not-italic font-normal">every visual asset</span> and{" "}
-        <span className="text-[#B8734E] not-italic font-normal">design element</span> works toward{" "}
-        <span className="bg-gradient-to-r from-[#B8734E] via-[#C08860] to-[#8a563a] bg-clip-text text-transparent not-italic font-bold">
+        <span className="text-[#cca027] not-italic font-bold">every visual asset</span> and{" "}
+        <span className="text-[#cca027] not-italic font-bold">design element</span> works toward{" "}
+        <span className="bg-gradient-to-r from-[#cca027] to-[#b08810] bg-clip-text text-transparent not-italic font-bold">
           establishing market authority
         </span>,{" "}
-        <span className="bg-gradient-to-r from-[#B8734E] via-[#C08860] to-[#8a563a] bg-clip-text text-transparent not-italic font-bold">
+        <span className="bg-gradient-to-r from-[#cca027] to-[#b08810] bg-clip-text text-transparent not-italic font-bold">
           increasing brand recall by 2x
         </span>, and{" "}
-        <span className="bg-gradient-to-r from-[#B8734E] via-[#C08860] to-[#8a563a] bg-clip-text text-transparent not-italic font-bold">
+        <span className="bg-gradient-to-r from-[#cca027] to-[#b08810] bg-clip-text text-transparent not-italic font-bold">
           positioning your business at the top.
         </span>
       </>
@@ -229,15 +229,15 @@ const serviceResults = {
     textHtml: (
       <>
         A cinematic and emotionally resonant visual identity where{" "}
-        <span className="text-[#B8734E] not-italic font-normal">every frame</span> and{" "}
-        <span className="text-[#B8734E] not-italic font-normal">corporate production</span> works toward{" "}
-        <span className="bg-gradient-to-r from-[#B8734E] via-[#C08860] to-[#8a563a] bg-clip-text text-transparent not-italic font-bold">
+        <span className="text-[#cca027] not-italic font-bold">every frame</span> and{" "}
+        <span className="text-[#cca027] not-italic font-bold">corporate production</span> works toward{" "}
+        <span className="bg-gradient-to-r from-[#cca027] to-[#b08810] bg-clip-text text-transparent not-italic font-bold">
           capturing customer attention
         </span>,{" "}
-        <span className="bg-gradient-to-r from-[#B8734E] via-[#C08860] to-[#8a563a] bg-clip-text text-transparent not-italic font-bold">
+        <span className="bg-gradient-to-r from-[#cca027] to-[#b08810] bg-clip-text text-transparent not-italic font-bold">
           amplifying your brand story
         </span>, and{" "}
-        <span className="bg-gradient-to-r from-[#B8734E] via-[#C08860] to-[#8a563a] bg-clip-text text-transparent not-italic font-bold">
+        <span className="bg-gradient-to-r from-[#cca027] to-[#b08810] bg-clip-text text-transparent not-italic font-bold">
           turning viewers into loyal advocates.
         </span>
       </>
@@ -248,15 +248,15 @@ const serviceResults = {
     textHtml: (
       <>
         A high-performing and conversion-optimized digital presence where{" "}
-        <span className="text-[#B8734E] not-italic font-normal">every landing page</span> and{" "}
-        <span className="text-[#B8734E] not-italic font-normal">technical setup</span> works toward{" "}
-        <span className="bg-gradient-to-r from-[#B8734E] via-[#C08860] to-[#8a563a] bg-clip-text text-transparent not-italic font-bold">
+        <span className="text-[#cca027] not-italic font-bold">every landing page</span> and{" "}
+        <span className="text-[#cca027] not-italic font-bold">technical setup</span> works toward{" "}
+        <span className="bg-gradient-to-r from-[#cca027] to-[#b08810] bg-clip-text text-transparent not-italic font-bold">
           doubling loading speeds
         </span>,{" "}
-        <span className="bg-gradient-to-r from-[#B8734E] via-[#C08860] to-[#8a563a] bg-clip-text text-transparent not-italic font-bold">
+        <span className="bg-gradient-to-r from-[#cca027] to-[#b08810] bg-clip-text text-transparent not-italic font-bold">
           ranking #1 on Google search
         </span>, and{" "}
-        <span className="bg-gradient-to-r from-[#B8734E] via-[#C08860] to-[#8a563a] bg-clip-text text-transparent not-italic font-bold">
+        <span className="bg-gradient-to-r from-[#cca027] to-[#b08810] bg-clip-text text-transparent not-italic font-bold">
           converting traffic into revenue.
         </span>
       </>
@@ -267,15 +267,15 @@ const serviceResults = {
     textHtml: (
       <>
         An efficient and frictionless automation system where{" "}
-        <span className="text-[#B8734E] not-italic font-normal">every AI chatbot</span> and{" "}
-        <span className="text-[#B8734E] not-italic font-normal">CRM integration</span> works toward{" "}
-        <span className="bg-gradient-to-r from-[#B8734E] via-[#C08860] to-[#8a563a] bg-clip-text text-transparent not-italic font-bold">
+        <span className="text-[#cca027] not-italic font-bold">every AI chatbot</span> and{" "}
+        <span className="text-[#cca027] not-italic font-bold">CRM integration</span> works toward{" "}
+        <span className="bg-gradient-to-r from-[#cca027] to-[#b08810] bg-clip-text text-transparent not-italic font-bold">
           qualifying leads 24/7
         </span>,{" "}
-        <span className="bg-gradient-to-r from-[#B8734E] via-[#C08860] to-[#8a563a] bg-clip-text text-transparent not-italic font-bold">
+        <span className="bg-gradient-to-r from-[#cca027] to-[#b08810] bg-clip-text text-transparent not-italic font-bold">
           reducing response times to &lt;60s
         </span>, and{" "}
-        <span className="bg-gradient-to-r from-[#B8734E] via-[#C08860] to-[#8a563a] bg-clip-text text-transparent not-italic font-bold">
+        <span className="bg-gradient-to-r from-[#cca027] to-[#b08810] bg-clip-text text-transparent not-italic font-bold">
           booking meetings on autopilot.
         </span>
       </>
@@ -289,6 +289,7 @@ export default function ServiceDetail() {
   const containerRef = useRef(null);
   
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
+  const [activeIndex, setActiveIndex] = useState(0);
   const currentFaqs = serviceFaqs[slug] || [];
   const boxData = serviceBoxes[slug] || null;
   const currentResult = serviceResults[slug] || null;
@@ -306,8 +307,8 @@ export default function ServiceDetail() {
         clearProps: "transform",
       });
 
-      // Animate each card individually as it enters the viewport
-      gsap.utils.toArray(".sub-card").forEach((card) => {
+      // Animate each card individually as it enters the viewport and update activeIndex
+      gsap.utils.toArray(".sub-card").forEach((card, index) => {
         gsap.from(card, {
           opacity: 0,
           y: 40,
@@ -318,6 +319,15 @@ export default function ServiceDetail() {
             start: "top bottom-=5%",
             toggleActions: "play none none none",
           },
+        });
+        
+        ScrollTrigger.create({
+          trigger: card,
+          start: "top center",
+          end: "bottom center",
+          onToggle: (self) => {
+            if (self.isActive) setActiveIndex(index);
+          }
         });
       });
     }, containerRef);
@@ -349,12 +359,12 @@ export default function ServiceDetail() {
   if (!service) {
     return (
       <section className="w-full min-h-screen bg-[#fbf8f3] text-[#291b03] pt-32 pb-20 flex flex-col items-center justify-center font-gothic">
-        <h2 className="font-bold text-4xl mb-4 text-[#B8734E]">
+        <h2 className="font-bold text-4xl mb-4 text-[#cca027]">
           Service Not Found
         </h2>
         <Link
           to="/"
-          className="px-6 py-3 rounded-full bg-[#B8734E]/10 border border-[#B8734E]/30 text-[#B8734E] hover:bg-[#B8734E]/20 transition-colors"
+          className="px-6 py-3 rounded-full bg-[#cca027]/10 border border-[#cca027]/30 text-[#cca027] hover:bg-[#cca027]/20 transition-colors"
         >
           Back to Home
         </Link>
@@ -365,7 +375,7 @@ export default function ServiceDetail() {
   return (
     <div
       ref={containerRef}
-      className="w-full min-h-screen bg-[#fbf8f3] text-[#291b03] font-gothic selection:bg-[#B8734E]/30 relative pt-[120px] lg:pt-[150px]"
+      className="w-full min-h-screen bg-[#fbf8f3] text-[#291b03] font-gothic selection:bg-[#cca027]/30 relative pt-[120px] lg:pt-[150px]"
     >
       {/* Background noise and gradients */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
@@ -384,29 +394,7 @@ export default function ServiceDetail() {
         ></div>
       </div>
 
-      {/* Horizontal Sub-Navigation Header Bar */}
-      <div className="w-full py-4 fixed top-32 lg:top-[132px] z-40 flex justify-center bg-transparent pointer-events-none">
-        <div className="max-w-[95%] mx-auto px-4 md:px-6 pointer-events-auto overflow-x-auto scrollbar-none rounded-full border border-gray-200 bg-white/60 backdrop-blur-md shadow-[0_15px_50px_rgba(0,0,0,0.1)] py-2">
-          <div className="flex items-center justify-start lg:justify-center gap-2 md:gap-4 whitespace-nowrap">
-            {services.map((s) => {
-              const isActive = s.slug === slug;
-              return (
-                <Link
-                  key={s.slug}
-                  to={`/service/${s.slug}`}
-                  className={`px-5 py-2 text-[10px] md:text-[11px] tracking-[0.2em] uppercase transition-all duration-300 font-bold rounded-full hover:scale-[1.03] ${
-                    isActive
-                      ? "text-[#291b03] bg-[#D4AF37] shadow-lg"
-                      : "text-[#291b03]/60 hover:text-[#291b03] hover:bg-[#D4AF37]/10"
-                  }`}
-                >
-                  {s.title}
-                </Link>
-              );
-            })}
-          </div>
-        </div>
-      </div>
+
 
       <main className="w-full max-w-[92%] lg:max-w-[95%] mx-auto px-4 lg:px-6 pt-[120px] pb-12 lg:pb-16 relative z-10">
         <div className="flex flex-col lg:flex-row justify-between items-start gap-12 lg:gap-0">
@@ -414,7 +402,7 @@ export default function ServiceDetail() {
             <div className="flex flex-col items-start lg:min-h-[460px] lg:justify-center">
               <Link
                 to="/#services"
-                className="text-[#A8A8A8] text-xs tracking-[0.2em] uppercase hover:text-[#B8734E] transition-colors flex items-center gap-3 mb-4 group"
+                className="text-[#666] text-xs tracking-[0.2em] uppercase hover:text-[#cca027] transition-colors flex items-center gap-3 mb-4 group"
               >
                 <span className="group-hover:-translate-x-1 transition-transform">
                   &larr;
@@ -456,12 +444,12 @@ export default function ServiceDetail() {
                         }}
                         className={`text-left px-5 py-2.5 border rounded-xl text-xs md:text-sm transition-all duration-300 flex items-center justify-between group backdrop-blur-md 
                           ${isActive 
-                            ? "border-[#cca027] bg-[#cca027] text-white shadow-[0_10px_20px_rgba(204,160,39,0.3)] scale-[1.02]" 
-                            : "border-[#B8734E]/10 bg-white/40 text-[#291b03]/80 hover:bg-white/80 hover:border-[#B8734E]/50 hover:text-[#291b03] hover:scale-[1.03] hover:-translate-y-1 active:scale-95 hover:shadow-[0_15px_30px_rgba(184,115,78,0.15)]"
+                            ? "border-[#cca027] bg-white text-[#291b03] shadow-[0_10px_20px_rgba(204,160,39,0.15)] scale-[1.04]" 
+                            : "border-[#cca027]/20 bg-white shadow-[0_4px_10px_rgba(0,0,0,0.03)] text-[#291b03]/80 hover:border-[#cca027]/50 hover:text-[#291b03] hover:scale-[1.03] hover:-translate-y-1 active:scale-95 hover:shadow-[0_10px_20px_rgba(204,160,39,0.15)]"
                           }`}
                       >
                         <span className="uppercase tracking-widest font-bold">{cap.name}</span>
-                        <span className={`transition-all duration-300 ${isActive ? "opacity-100 text-white translate-x-1" : "opacity-0 group-hover:opacity-100 group-hover:translate-x-1 text-[#B8734E]"}`}>&rarr;</span>
+                        <span className={`transition-all duration-300 ${isActive ? "opacity-100 text-[#cca027] translate-x-1" : "opacity-0 group-hover:opacity-100 group-hover:translate-x-1 text-[#cca027]"}`}>&rarr;</span>
                       </button>
                     );
                   })}
@@ -487,10 +475,8 @@ export default function ServiceDetail() {
                   <div
                     key={i}
                     id={`capability-${i}`}
-                    className="sub-card w-full rounded-3xl border p-10 lg:p-16 sticky top-[240px] lg:top-[300px] overflow-hidden cursor-pointer min-h-[460px] lg:h-[calc(100vh-340px)] lg:min-h-[400px] flex flex-col justify-center bg-white group transition-all duration-500 hover:shadow-[0_30px_60px_rgba(0,0,0,0.08)]"
+                    className="sub-card w-full rounded-3xl border-2 p-10 lg:p-16 sticky top-[240px] lg:top-[300px] overflow-hidden cursor-pointer min-h-[460px] lg:h-[calc(100vh-340px)] lg:min-h-[400px] flex flex-col justify-center bg-white shadow-[0_20px_50px_rgba(0,0,0,0.1)] border-[#cca027]/40 group transition-all duration-500 hover:shadow-[0_30px_60px_rgba(0,0,0,0.15)] hover:border-[#cca027]/80"
                     style={{
-                      borderColor: "rgba(0,0,0,0.04)",
-                      boxShadow: `0 20px 40px rgba(0,0,0,0.04)`,
                       zIndex: i,
                     }}
                   >
@@ -521,7 +507,7 @@ export default function ServiceDetail() {
                 );
               })
             ) : (
-              <div className="text-[#A8A8A8] text-sm italic py-8 text-center">
+              <div className="text-[#666] text-sm italic py-8 text-center">
                 No specific sub-items included. Contact us for details.
               </div>
             )}
@@ -531,7 +517,7 @@ export default function ServiceDetail() {
 
       {/* 2) Ready to Start / Result Section (Requirement 2 & follow-up) */}
       {slug === "content-strategy-and-marketing" && currentResult && (
-        <section className="relative w-full min-h-[60vh] pt-8 pb-20 lg:pt-12 lg:pb-28 flex items-center justify-center bg-[#050505] px-6 overflow-hidden">
+        <section className="relative w-full min-h-[60vh] pt-8 pb-20 lg:pt-12 lg:pb-28 flex items-center justify-center bg-transparent px-6 overflow-hidden">
           {/* Faint radial glow behind text */}
           <div 
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] pointer-events-none rounded-full blur-[80px] z-0"
@@ -710,21 +696,21 @@ export default function ServiceDetail() {
             className="relative z-10 max-w-[1440px] w-full mx-auto flex flex-col items-center gap-8 text-center"
           >
             {/* Centered subtitle badge with dashes */}
-            <p className="text-[#B8734E] text-xs md:text-sm font-semibold tracking-[0.4em] uppercase flex items-center gap-3">
-              <span className="text-[#B8734E]/50">—</span>
+            <p className="text-[#cca027] text-xs md:text-sm font-semibold tracking-[0.4em] uppercase flex items-center gap-3">
+              <span className="text-[#cca027]/50">—</span>
               {currentResult.subtitle}
-              <span className="text-[#B8734E]/50">—</span>
+              <span className="text-[#cca027]/50">—</span>
             </p>
             
             {/* Contrast styled main text wrapped in 2-3 lines inside a large horizontal width area */}
-            <h2 className="font-gothic text-2xl md:text-3xl lg:text-[38px] xl:text-[42px] text-[#cca027] font-light italic leading-[1.6] max-w-[1440px] px-4">
+            <h2 className="font-gothic text-2xl md:text-3xl lg:text-[38px] xl:text-[42px] text-[#291b03] font-light italic leading-[1.6] max-w-[1440px] px-4">
               {currentResult.textHtml}
             </h2>
 
             {/* Explore our services Outline Button */}
             <Link
               to="/#contact"
-              className="mt-6 px-8 py-3.5 border border-[#B8734E]/40 text-[#B8734E] text-xs font-semibold tracking-[0.2em] uppercase rounded-full hover:bg-[#B8734E]/10 hover:border-[#B8734E] hover:text-[#291b03] transition-all duration-300 flex items-center gap-2 z-10 cursor-pointer group"
+              className="mt-6 px-8 py-3.5 border border-[#cca027]/40 text-[#cca027] text-xs font-bold tracking-[0.2em] uppercase rounded-full hover:bg-[#cca027] hover:border-[#cca027] hover:text-white transition-all duration-300 flex items-center gap-2 z-10 cursor-pointer group"
             >
               Start Your Project 
               <span className="group-hover:translate-x-1.5 transition-transform duration-300">&rarr;</span>
@@ -735,7 +721,7 @@ export default function ServiceDetail() {
 
       {/* 3) FAQ Section (Requirement 3) */}
       {currentFaqs && currentFaqs.length > 0 && (
-        <section className="relative w-full bg-black text-[#f5f5f5] px-20 py-24 max-lg:px-10 max-sm:px-5 overflow-hidden border-t border-[#B8734E]/10">
+        <section className="relative w-full bg-[#fdfbf7] text-[#291b03] px-20 py-24 max-lg:px-10 max-sm:px-5 overflow-hidden border-t-2 border-[#cca027]/40">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-[radial-gradient(circle,rgba(200,155,94,0.02)_0%,transparent_70%)] rounded-full blur-[120px] pointer-events-none"></div>
 
           <div className="relative z-10 text-center mb-16">
@@ -746,12 +732,12 @@ export default function ServiceDetail() {
               transition={{ duration: 0.6 }}
               className="flex justify-center mb-6"
             >
-              <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#B8734E]/10 to-[#8a563a]/10 border border-[#B8734E]/20 backdrop-blur-sm">
+              <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#cca027]/10 to-[#b08810]/10 border border-[#cca027]/20 backdrop-blur-sm">
                 <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#B8734E] opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#B8734E]"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#cca027] opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#cca027]"></span>
                 </span>
-                <span className="text-[#B8734E] text-sm font-medium tracking-wide">Got Questions?</span>
+                <span className="text-[#cca027] text-sm font-medium tracking-wide">Got Questions?</span>
               </div>
             </motion.div>
 
@@ -762,7 +748,7 @@ export default function ServiceDetail() {
               transition={{ duration: 0.8 }}
               className="font-serif text-4xl md:text-5xl max-sm:text-3xl mb-4 text-center"
             >
-              <span className="bg-gradient-to-r from-[#B8734E] via-[#C08860] to-[#8a563a] bg-clip-text text-transparent italic font-bold">
+              <span className="bg-gradient-to-r from-[#cca027] to-[#b08810] bg-clip-text text-transparent italic font-bold">
                 Frequently Asked Questions
               </span>
             </motion.h2>
@@ -791,28 +777,28 @@ export default function ServiceDetail() {
                     }
                   }}
                 >
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#B8734E]/5 via-transparent to-[#8a563a]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl blur-xl" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#cca027]/5 via-transparent to-[#cca027]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl blur-xl" />
 
-                  <div className="relative border-t border-[#B8734E]/20 group-hover:border-[#B8734E]/40 transition-all duration-300">
+                  <div className="relative border-t border-[#cca027]/30 group-hover:border-[#cca027]/60 transition-all duration-300">
                     <button
                       onClick={() => setOpenFaqIndex(openFaqIndex === i ? null : i)}
                       className="w-full flex justify-between items-start gap-6 py-6 text-left group/btn cursor-pointer"
                     >
                       <div className="flex items-start gap-4 flex-1">
-                        <span className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-[#B8734E]/20 to-[#8a563a]/20 border border-[#B8734E]/30 flex items-center justify-center text-[#B8734E] text-sm font-semibold group-hover/btn:scale-110 transition-transform duration-300">
+                        <span className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-[#cca027]/20 to-[#cca027]/10 border border-[#cca027]/30 flex items-center justify-center text-[#cca027] text-sm font-semibold group-hover/btn:scale-110 transition-transform duration-300">
                           {i + 1}
                         </span>
                         
-                        <span className="text-[20px] max-sm:text-[18px] font-medium text-[#E8E8E8] group-hover/btn:text-[#B8734E] transition-colors duration-300">
+                        <span className="text-[20px] max-sm:text-[18px] font-medium text-[#291b03] group-hover/btn:text-[#cca027] transition-colors duration-300">
                           {item.q}
                         </span>
                       </div>
 
-                      <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-[#B8734E]/10 to-[#8a563a]/10 flex items-center justify-center group-hover/btn:scale-110 transition-all duration-300">
+                      <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-[#cca027]/10 to-[#cca027]/5 flex items-center justify-center group-hover/btn:scale-110 transition-all duration-300">
                         <motion.span
                           animate={{ rotate: isOpen ? 180 : 0 }}
                           transition={{ duration: 0.3 }}
-                          className="text-[#B8734E] text-2xl font-light"
+                          className="text-[#cca027] text-2xl font-light"
                         >
                           {isOpen ? '−' : '+'}
                         </motion.span>
@@ -828,7 +814,7 @@ export default function ServiceDetail() {
                           transition={{ duration: 0.3, ease: "easeInOut" }}
                           className="overflow-hidden"
                         >
-                          <div className="pb-6 pl-12 pr-6 text-[#A0A0A0] text-base max-sm:text-sm leading-relaxed whitespace-pre-line">
+                          <div className="pb-6 pl-12 pr-6 text-[#444] text-base max-sm:text-sm leading-relaxed whitespace-pre-line">
                             {item.a}
                           </div>
                         </motion.div>
@@ -844,23 +830,23 @@ export default function ServiceDetail() {
 
       {/* 4) Double-CTA Box & Stats Section (Requirement 4) */}
       {boxData && (
-        <section className="relative w-full py-24 bg-[#050505] px-6 overflow-hidden border-t border-[#B8734E]/10">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-[radial-gradient(circle,rgba(200,155,94,0.03)_0%,transparent_70%)] rounded-full blur-[130px] pointer-events-none"></div>
+        <section className="relative w-full py-24 bg-transparent px-6 overflow-hidden border-t-2 border-[#cca027]/40">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-[radial-gradient(circle,rgba(204,160,39,0.03)_0%,transparent_70%)] rounded-full blur-[130px] pointer-events-none"></div>
 
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative z-10 max-w-5xl mx-auto rounded-3xl p-8 md:p-12 lg:p-16 border border-[#B8734E]/20 bg-gradient-to-br from-[#120B08]/90 via-[#050505]/98 to-[#120B08]/90 shadow-[0_20px_50px_rgba(184,115,78,0.05)] hover:border-[#B8734E]/40 hover:shadow-[0_25px_60px_rgba(184,115,78,0.1)] transition-all duration-500 flex flex-col items-center text-center animate-pulse-slow"
+            className="relative z-10 max-w-5xl mx-auto rounded-3xl p-8 md:p-12 lg:p-16 border-2 border-[#cca027]/30 bg-white shadow-[0_20px_60px_rgba(0,0,0,0.1)] hover:border-[#cca027]/60 hover:shadow-[0_25px_60px_rgba(0,0,0,0.15)] transition-all duration-500 flex flex-col items-center text-center animate-pulse-slow"
           >
             {/* Top Pill Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#B8734E]/10 border border-[#B8734E]/20 mb-8 backdrop-blur-sm">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#cca027]/10 border border-[#cca027]/20 mb-8 backdrop-blur-sm">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#B8734E] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#B8734E]"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#cca027] opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#cca027]"></span>
               </span>
-              <span className="text-[#B8734E] text-xs font-semibold tracking-wider uppercase">{boxData.badge}</span>
+              <span className="text-[#cca027] text-xs font-semibold tracking-wider uppercase">{boxData.badge}</span>
             </div>
 
             {/* Title */}
@@ -870,7 +856,7 @@ export default function ServiceDetail() {
                 const isHighlight = wIdx >= totalWords - 2;
                 if (isHighlight) {
                   return (
-                    <span key={wIdx} className="bg-gradient-to-r from-[#B8734E] to-[#8a563a] bg-clip-text text-transparent font-bold">
+                    <span key={wIdx} className="bg-gradient-to-r from-[#cca027] to-[#b08810] bg-clip-text text-transparent font-bold">
                       {" "}{word}
                     </span>
                   );
@@ -880,7 +866,7 @@ export default function ServiceDetail() {
             </h3>
 
             {/* Description */}
-            <p className="text-[#D0D0D0] text-base md:text-lg leading-relaxed max-w-2xl mb-10">
+            <p className="text-[#444] text-base md:text-lg leading-relaxed max-w-2xl mb-10">
               {boxData.desc}
             </p>
 
@@ -890,7 +876,7 @@ export default function ServiceDetail() {
               {boxData.btn1Url.startsWith("/") ? (
                 <Link
                   to={boxData.btn1Url}
-                  className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-[#B8734E] to-[#8a563a] text-[#291b03] text-xs font-bold tracking-[0.2em] uppercase flex items-center justify-center gap-3 transition-all duration-300 hover:scale-[1.05] active:scale-[0.98] hover:shadow-[0_10px_20px_rgba(184,115,78,0.3)] rounded-full group cursor-pointer"
+                  className="w-full sm:w-auto px-8 py-4 bg-[#cca027] text-[#291b03] text-xs font-bold tracking-[0.2em] uppercase flex items-center justify-center gap-3 transition-all duration-300 hover:scale-[1.05] active:scale-[0.98] hover:shadow-[0_10px_20px_rgba(204,160,39,0.3)] rounded-full group cursor-pointer"
                 >
                   {boxData.btn1Text}
                   <span className="group-hover:translate-x-1.5 transition-transform duration-300">&rarr;</span>
@@ -898,7 +884,7 @@ export default function ServiceDetail() {
               ) : (
                 <a
                   href={boxData.btn1Url}
-                  className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-[#B8734E] to-[#8a563a] text-[#291b03] text-xs font-bold tracking-[0.2em] uppercase flex items-center justify-center gap-3 transition-all duration-300 hover:scale-[1.05] active:scale-[0.98] hover:shadow-[0_10px_20px_rgba(184,115,78,0.3)] rounded-full group cursor-pointer"
+                  className="w-full sm:w-auto px-8 py-4 bg-[#cca027] text-[#291b03] text-xs font-bold tracking-[0.2em] uppercase flex items-center justify-center gap-3 transition-all duration-300 hover:scale-[1.05] active:scale-[0.98] hover:shadow-[0_10px_20px_rgba(204,160,39,0.3)] rounded-full group cursor-pointer"
                 >
                   {boxData.btn1Text}
                   <span className="group-hover:translate-x-1.5 transition-transform duration-300">&rarr;</span>
@@ -917,10 +903,10 @@ export default function ServiceDetail() {
                     window.open("https://mail.google.com/mail/?view=cm&fs=1&to=info@espressomedia.in", "_blank");
                   }, 400);
                 }}
-                className="w-full sm:w-auto px-8 py-4 border border-[#B8734E]/30 text-[#291b03] text-xs font-bold tracking-[0.2em] uppercase flex items-center justify-center gap-3 transition-all duration-300 hover:scale-[1.05] hover:bg-[#B8734E]/10 hover:border-[#B8734E] active:scale-[0.98] rounded-full cursor-pointer group"
+                className="w-full sm:w-auto px-8 py-4 border border-[#cca027]/30 text-[#291b03] text-xs font-bold tracking-[0.2em] uppercase flex items-center justify-center gap-3 transition-all duration-300 hover:scale-[1.05] hover:bg-[#cca027]/10 hover:border-[#cca027] active:scale-[0.98] rounded-full cursor-pointer group"
               >
                 {/* Mail Icon */}
-                <svg className="w-4 h-4 text-[#B8734E] group-hover:text-[#291b03] transition-colors" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 text-[#cca027] group-hover:text-[#291b03] transition-colors" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
                 {boxData.btn2Text}
@@ -928,11 +914,11 @@ export default function ServiceDetail() {
             </div>
 
             {/* Statistics at the Bottom */}
-            <div className="w-full border-t border-[#B8734E]/10 pt-10">
+            <div className="w-full border-t border-[#cca027]/10 pt-10">
               <div className="flex flex-col md:flex-row items-center justify-around gap-6 md:gap-4">
                 {boxData.stats.map((stat, sIdx) => (
                   <div key={sIdx} className="flex flex-col items-center">
-                    <div className="text-3xl lg:text-4xl font-bold bg-gradient-to-b from-[#B8734E] to-[#8a563a] bg-clip-text text-transparent mb-2">
+                    <div className="text-3xl lg:text-4xl font-bold bg-gradient-to-b from-[#cca027] to-[#b08810] bg-clip-text text-transparent mb-2">
                       {stat.value}
                     </div>
                     <div className="text-[10px] tracking-[0.2em] text-[#291b03] uppercase font-medium">
@@ -1019,3 +1005,5 @@ export default function ServiceDetail() {
     </div>
   );
 }
+
+

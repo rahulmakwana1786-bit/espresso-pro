@@ -125,8 +125,8 @@ export default function CaseStudiesPage() {
       className="w-full min-h-screen bg-[#fbf8f3] text-[#291b03] py-28 px-6 md:px-12 lg:px-20 xl:px-32 relative overflow-hidden font-gothic"
     >
       {/* Decorative Background Lights */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#B8734E]/5 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#8a563a]/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#cca027]/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#b08810]/5 rounded-full blur-[120px] pointer-events-none" />
 
       {/* Main Layout Wrapper */}
       <div className="max-w-7xl mx-auto relative z-10 mt-8">
@@ -138,7 +138,7 @@ export default function CaseStudiesPage() {
           <div className="w-full lg:w-[50%] flex flex-col items-start text-left header-left-col">
             <Link
               to="/"
-              className="text-[#A8A8A8] text-xs tracking-[0.2em] uppercase hover:text-[#B8734E] transition-colors flex items-center gap-3 mb-8 group"
+              className="text-[#666] text-xs tracking-[0.2em] uppercase hover:text-[#cca027] transition-colors flex items-center gap-3 mb-8 group"
             >
               <span className="group-hover:-translate-x-1 transition-transform">&larr;</span> BACK TO HOME
             </Link>
@@ -164,7 +164,7 @@ export default function CaseStudiesPage() {
             return (
               <div
                 key={site.name}
-                className={`flex flex-col lg:flex-row items-center gap-8 lg:gap-16 w-full border-t border-[#B8734E]/10 pt-16 first:border-0 first:pt-0 ${
+                className={`flex flex-col lg:flex-row items-center gap-8 lg:gap-16 w-full border-t border-[#cca027]/10 pt-16 first:border-0 first:pt-0 ${
                   isEven ? "" : "lg:flex-row-reverse"
                 }`}
               >
@@ -172,7 +172,7 @@ export default function CaseStudiesPage() {
                 <div className="w-full lg:w-[55%]">
                   <Link
                     to={`/work/content-strategy-and-marketing/${site.name.toLowerCase().replace(/ /g, "-")}`}
-                    className="campaign-row-image-link block relative w-full aspect-[16/10] rounded-[24px] overflow-hidden border border-[#B8734E]/10 bg-[#0c0806] transition-all duration-500 hover:border-[#B8734E]/30 hover:shadow-[0_20px_50px_rgba(184,115,78,0.1)] group"
+                    className="campaign-row-image-link block relative w-full aspect-[16/10] rounded-[24px] overflow-hidden border border-[#cca027]/10 bg-[#0c0806] transition-all duration-500 hover:border-[#cca027]/30 hover:shadow-[0_20px_50px_rgba(184,115,78,0.1)] group"
                   >
                     <div className="absolute inset-0 border border-white/5 rounded-[24px] pointer-events-none z-10" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60 pointer-events-none z-10" />
@@ -190,17 +190,17 @@ export default function CaseStudiesPage() {
                 <div className="w-full lg:w-[40%] flex flex-col items-start text-left">
                   {/* Category Pill and Number */}
                   <div className="flex items-center gap-4 mb-4">
-                    <span className="font-mono text-[#B8734E] text-xs font-bold tracking-widest">
+                    <span className="font-mono text-[#cca027] text-xs font-bold tracking-widest">
                       0{index + 1}
                     </span>
                     <span className="text-[#291b03] text-xs">|</span>
-                    <span className="px-3 py-1 rounded-full bg-[#B8734E]/5 border border-[#B8734E]/15 text-[#B8734E] text-[8px] font-bold uppercase tracking-widest">
+                    <span className="px-3 py-1 rounded-full bg-[#cca027]/5 border border-[#cca027]/15 text-[#cca027] text-[8px] font-bold uppercase tracking-widest">
                       {site.tag}
                     </span>
                   </div>
 
                   {/* Title */}
-                  <h3 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-[#cca027] leading-tight tracking-tight mb-4 hover:text-[#B8734E] transition-colors duration-300">
+                  <h3 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-[#cca027] leading-tight tracking-tight mb-4 hover:text-[#cca027] transition-colors duration-300">
                     <Link
                       to={`/work/content-strategy-and-marketing/${site.name.toLowerCase().replace(/ /g, "-")}`}
                       style={{ textDecoration: 'none', color: 'inherit' }}
@@ -218,7 +218,7 @@ export default function CaseStudiesPage() {
                   <div className="flex flex-col gap-5 mt-2">
                     <Link
                       to={`/work/content-strategy-and-marketing/${site.name.toLowerCase().replace(/ /g, "-")}`}
-                      className="campaign-explore-btn inline-flex items-center gap-3 px-6 py-3 rounded-full border border-[#B8734E]/20 text-[#B8734E] text-xs uppercase tracking-widest font-semibold hover:bg-[#B8734E] hover:text-black hover:border-[#B8734E] transition-all duration-300 w-max"
+                      className="campaign-explore-btn inline-flex items-center gap-3 px-6 py-3 rounded-full border border-[#cca027]/20 text-[#cca027] text-xs uppercase tracking-widest font-semibold hover:bg-[#cca027] hover:text-black hover:border-[#cca027] transition-all duration-300 w-max"
                       style={{ textDecoration: 'none' }}
                     >
                       VIEW PROJECT <span>&rarr;</span>
@@ -245,3 +245,5 @@ export default function CaseStudiesPage() {
     </div>
   );
 }
+
+

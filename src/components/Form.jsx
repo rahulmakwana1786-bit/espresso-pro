@@ -45,13 +45,13 @@ export default function ContactForm() {
             </p>
 
             <h2 className="font-serif text-3xl max-sm:text-2xl mb-2">
-              <span className="bg-gradient-to-r from-[#B8734E] to-[#8a563a] bg-clip-text text-transparent italic font-bold animate-[shimmer_3s_ease-in-out_infinite] bg-[length:200%_auto]">
+              <span className="bg-gradient-to-r from-[#cca027] to-[#b08810] bg-clip-text text-transparent italic font-bold animate-[shimmer_3s_ease-in-out_infinite] bg-[length:200%_auto]">
                 Let's Talk
               </span>
             </h2>
 
             {/* Decorative line */}
-            <div className="w-16 h-0.5 bg-gradient-to-r from-[#B8734E] to-transparent rounded-full mt-1" />
+            <div className="w-16 h-0.5 bg-gradient-to-r from-[#cca027] to-transparent rounded-full mt-1" />
           </motion.div>
 
           {/* SUCCESS MESSAGE */}
@@ -61,8 +61,8 @@ export default function ContactForm() {
               animate={{ opacity: 1, scale: 1 }}
               className="text-center py-12"
             >
-              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-[#B8734E]/20 to-[#8a563a]/20 border-2 border-[#B8734E] flex items-center justify-center">
-                <span className="text-[#D4A574] text-3xl">✓</span>
+              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-[#cca027]/20 to-[#b08810]/20 border-2 border-[#cca027] flex items-center justify-center">
+                <span className="text-[#D4AF37] text-3xl">✓</span>
               </div>
               <p className="text-[#291b03] text-xl font-serif mb-2">Thank you for reaching out!</p>
               <p className="text-[#291b03] text-sm">We'll get back to you soon.</p>
@@ -133,7 +133,7 @@ export default function ContactForm() {
                 "
               >
                 {/* Background gradient */}
-                <span className="absolute inset-0 bg-gradient-to-r from-[#B8734E] to-[#8a563a] opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[length:200%_auto] animate-[shimmer_3s_ease-in-out_infinite]" />
+                <span className="absolute inset-0 bg-gradient-to-r from-[#cca027] to-[#b08810] opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[length:200%_auto] animate-[shimmer_3s_ease-in-out_infinite]" />
                 
                 {/* Button content */}
                 <span className="relative z-10 flex items-center justify-center gap-2">
@@ -217,8 +217,8 @@ function FloatingInput({ label, name, type = "text", required = false, errors })
           transition-all duration-300
           pointer-events-none
           peer-placeholder-shown:top-5 peer-placeholder-shown:text-sm peer-placeholder-shown:text-[#291b03]
-          peer-focus:top-0 peer-focus:text-[10px] peer-focus:text-[#D4A574]
-          peer-[:not(:placeholder-shown)]:top-0 peer-[:not(:placeholder-shown)]:text-[10px] peer-[:not(:placeholder-shown)]:text-[#D4A574]
+          peer-focus:top-0 peer-focus:text-[10px] peer-focus:text-[#D4AF37]
+          peer-[:not(:placeholder-shown)]:top-0 peer-[:not(:placeholder-shown)]:text-[10px] peer-[:not(:placeholder-shown)]:text-[#D4AF37]
         "
       >
         {label} {required && <span className="text-[#C08860]">*</span>}
@@ -226,7 +226,7 @@ function FloatingInput({ label, name, type = "text", required = false, errors })
 
       {/* Animated underline */}
       <span className={`
-        absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-[#B8734E] to-[#D4A574]
+        absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-[#cca027] to-[#D4AF37]
         transition-all duration-300
         ${isFocused || hasValue ? 'w-full' : 'w-0'}
       `} />
@@ -236,7 +236,7 @@ function FloatingInput({ label, name, type = "text", required = false, errors })
         <motion.span
           initial={{ scale: 0, rotate: -180 }}
           animate={{ scale: 1, rotate: 0 }}
-          className="absolute right-0 top-5 text-[#D4A574]"
+          className="absolute right-0 top-5 text-[#D4AF37]"
         >
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
@@ -253,3 +253,4 @@ function FloatingInput({ label, name, type = "text", required = false, errors })
     </motion.div>
   );
 }
+

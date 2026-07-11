@@ -91,7 +91,7 @@ export default function BrandIdentityDetail() {
   return (
     <div
       ref={containerRef}
-      className="w-full min-h-screen bg-[#fbf8f3] text-[#291b03] font-gothic selection:bg-[#B8734E]/30 relative pt-[120px] lg:pt-[150px] pb-24"
+      className="w-full min-h-screen bg-[#fbf8f3] text-[#291b03] font-gothic selection:bg-[#cca027]/30 relative pt-[120px] lg:pt-[150px] pb-24"
     >
       {/* Background Glows */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
@@ -104,16 +104,16 @@ export default function BrandIdentityDetail() {
         <div className="mb-20 lg:mb-32 text-center flex flex-col items-center">
           <Link
             to="/work/branding-and-creative-solutions"
-            className="text-[#A8A8A8] text-xs tracking-[0.2em] uppercase hover:text-[#B8734E] transition-colors flex items-center gap-3 mb-8 group hero-text"
+            className="text-[#666] text-xs tracking-[0.2em] uppercase hover:text-[#cca027] transition-colors flex items-center gap-3 mb-8 group hero-text"
           >
             <span className="group-hover:-translate-x-1 transition-transform">&larr;</span> BACK TO BRANDING
           </Link>
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#B8734E]/10 border border-[#B8734E]/20 mb-6 backdrop-blur-sm hero-text">
-            <span className="text-[#B8734E] text-[10px] font-bold tracking-widest uppercase">ESP CAPABILITY SHOWCASE</span>
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#cca027]/10 border border-[#cca027]/20 mb-6 backdrop-blur-sm hero-text">
+            <span className="text-[#cca027] text-[10px] font-bold tracking-widest uppercase">ESP CAPABILITY SHOWCASE</span>
           </div>
           <h1 className="hero-text font-black text-5xl md:text-6xl lg:text-7xl text-[#cca027] leading-tight tracking-tighter mb-6 uppercase">
             Brand Identity<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C89B5E] to-[#8a563a]">Designing</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C89B5E] to-[#b08810]">Designing</span>
           </h1>
           <p className="hero-text text-[#291b03] text-lg md:text-xl font-light leading-relaxed max-w-2xl">
             A comprehensive 5-part approach to establishing market authority through precision-crafted visual identity systems.
@@ -131,7 +131,7 @@ export default function BrandIdentityDetail() {
               >
                 {/* Image Side */}
                 <div className="w-full lg:w-[60%]">
-                  <div className="relative w-full aspect-[4/3] rounded-3xl overflow-hidden border border-[#B8734E]/10 group">
+                  <div className="relative w-full aspect-[4/3] rounded-3xl overflow-hidden border border-[#cca027]/10 group">
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500 z-10 pointer-events-none" />
                     <img 
                       src={part.image} 
@@ -144,13 +144,13 @@ export default function BrandIdentityDetail() {
 
                 {/* Text Side */}
                 <div className="w-full lg:w-[40%] flex flex-col text-left">
-                  <span className="text-[#B8734E] text-6xl lg:text-8xl font-black opacity-20 mb-2 leading-none font-serif tracking-tighter">
+                  <span className="text-[#cca027] text-6xl lg:text-8xl font-black opacity-20 mb-2 leading-none font-serif tracking-tighter">
                     {part.tag}
                   </span>
                   <h3 className="text-3xl lg:text-4xl font-black text-[#cca027] uppercase tracking-tight mb-6">
                     {part.title}
                   </h3>
-                  <div className="w-12 h-1 bg-gradient-to-r from-[#B8734E] to-transparent mb-8" />
+                  <div className="w-12 h-1 bg-gradient-to-r from-[#cca027] to-transparent mb-8" />
                   <p className="text-[#291b03] text-lg leading-relaxed font-light">
                     {part.desc}
                   </p>
@@ -161,13 +161,13 @@ export default function BrandIdentityDetail() {
         </div>
 
         {/* Call to Action */}
-        <div className="mt-32 pt-20 border-t border-[#B8734E]/10 flex flex-col items-center text-center">
+        <div className="mt-32 pt-20 border-t border-[#cca027]/10 flex flex-col items-center text-center">
           <h2 className="text-3xl lg:text-4xl font-black text-[#cca027] uppercase tracking-tight mb-6">
             Ready to build your identity?
           </h2>
           <Link
             to="/contact"
-            className="px-8 py-4 bg-[#B8734E] text-black text-xs font-bold tracking-[0.2em] uppercase hover:bg-white transition-colors duration-300 rounded-full"
+            className="px-8 py-4 bg-[#cca027] text-black text-xs font-bold tracking-[0.2em] uppercase hover:bg-white transition-colors duration-300 rounded-full"
           >
             REQUEST A BRIEF
           </Link>
@@ -177,3 +177,5 @@ export default function BrandIdentityDetail() {
     </div>
   );
 }
+
+

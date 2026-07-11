@@ -134,7 +134,7 @@ export default function WorkBranding() {
   return (
     <div
       ref={containerRef}
-      className="w-full min-h-screen bg-[#fbf8f3] text-[#291b03] font-gothic selection:bg-[#B8734E]/30 relative pt-[120px] lg:pt-[150px]"
+      className="w-full min-h-screen bg-[#fbf8f3] text-[#291b03] font-gothic selection:bg-[#cca027]/30 relative pt-[120px] lg:pt-[150px]"
     >
       {/* Background Glows */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
@@ -150,17 +150,17 @@ export default function WorkBranding() {
             <div className="flex flex-col items-start lg:min-h-[500px] lg:justify-center">
               <Link
                 to="/work"
-                className="text-[#A8A8A8] text-xs tracking-[0.2em] uppercase hover:text-[#B8734E] transition-colors flex items-center gap-3 mb-10 group"
+                className="text-[#666] text-xs tracking-[0.2em] uppercase hover:text-[#cca027] transition-colors flex items-center gap-3 mb-10 group"
               >
                 <span className="group-hover:-translate-x-1 transition-transform">&larr;</span> BACK TO WORK
               </Link>
 
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#B8734E]/10 border border-[#B8734E]/20 mb-6 backdrop-blur-sm">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#cca027]/10 border border-[#cca027]/20 mb-6 backdrop-blur-sm">
                 <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#B8734E] opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#B8734E]"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#cca027] opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#cca027]"></span>
                 </span>
-                <span className="text-[#B8734E] text-xs font-semibold tracking-wider uppercase">Design & Identity</span>
+                <span className="text-[#cca027] text-xs font-semibold tracking-wider uppercase">Design & Identity</span>
               </div>
 
               <h1 className="font-gothic font-black text-4xl md:text-5xl lg:text-6xl text-[#cca027] leading-[1.1] tracking-tight cursor-default">
@@ -194,12 +194,12 @@ export default function WorkBranding() {
                       }}
                     className={`text-left px-6 py-4 border rounded-xl text-sm transition-all duration-300 flex items-center justify-between group backdrop-blur-md
                       ${activeIndex === idx 
-                        ? "border-[#B8734E] bg-[#B8734E]/20 text-[#291b03] shadow-[0_10px_20px_rgba(184,115,78,0.2)] scale-[1.02]"
-                        : "border-white/10 bg-[#0a0604]/90 text-white hover:bg-[#B8734E]/20 hover:border-[#B8734E]/50 hover:text-white hover:scale-[1.03] hover:-translate-y-1 active:scale-95 hover:shadow-[0_15px_30px_rgba(184,115,78,0.15)]"
+                        ? "border-[#cca027] bg-[#cca027]/20 text-[#291b03] shadow-[0_10px_20px_rgba(184,115,78,0.2)] scale-[1.02]"
+                        : "border-white/10 bg-[#0a0604]/90 text-white hover:bg-[#cca027]/20 hover:border-[#cca027]/50 hover:text-white hover:scale-[1.03] hover:-translate-y-1 active:scale-95 hover:shadow-[0_15px_30px_rgba(184,115,78,0.15)]"
                       }`}
                   >
                     <span className="uppercase tracking-widest text-xs font-bold">{cap.name}</span>
-                    <span className={`transition-all duration-300 ${activeIndex === idx ? "opacity-100 text-[#B8734E] translate-x-1" : "opacity-0 group-hover:opacity-100 group-hover:translate-x-1 text-[#B8734E]"}`}>&rarr;</span>
+                    <span className={`transition-all duration-300 ${activeIndex === idx ? "opacity-100 text-[#cca027] translate-x-1" : "opacity-0 group-hover:opacity-100 group-hover:translate-x-1 text-[#cca027]"}`}>&rarr;</span>
                   </button>
                 ))}
               </div>
@@ -244,7 +244,7 @@ export default function WorkBranding() {
                       <h3 className="font-gothic text-2xl lg:text-3xl font-black tracking-tight text-[#cca027] uppercase leading-none mb-1">
                         {item.name}
                       </h3>
-                      <span className="text-[10px] text-[#B8734E] font-bold tracking-widest uppercase">ESP BRANDING CAPABILITY</span>
+                      <span className="text-[10px] text-[#cca027] font-bold tracking-widest uppercase">ESP BRANDING CAPABILITY</span>
                     </div>
 
                     <div className="flex flex-col items-end gap-1.5">
@@ -290,7 +290,7 @@ export default function WorkBranding() {
                                   setIdentityTab(tab);
                                 }}
                                 className={`text-[9px] tracking-wider uppercase pb-1 border-b ${
-                                  identityTab === tab ? "text-[#B8734E] border-[#B8734E]" : "text-white/80 border-transparent"
+                                  identityTab === tab ? "text-[#cca027] border-[#cca027]" : "text-white/80 border-transparent"
                                 }`}
                               >
                                 {tab.split(" ")[0]}
@@ -299,12 +299,12 @@ export default function WorkBranding() {
                           </div>
 
                           {/* Dynamic Swatch Content */}
-                          <div className="flex-1 my-3 flex items-center justify-center bg-[#070504] border border-[#B8734E]/10 rounded-xl relative p-3">
+                          <div className="flex-1 my-3 flex items-center justify-center bg-[#070504] border border-[#cca027]/10 rounded-xl relative p-3">
                             {identityTab === "Logo Guide" && (
                               <div className="w-full h-full flex flex-col justify-center items-center relative">
                                 <span className="absolute left-2 top-2 text-[7px] text-white/80 font-mono">VECTOR MONOGRAM MODEL</span>
                                 {/* Monogram SVG layout */}
-                                <svg className="w-16 h-16 text-[#B8734E]" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <svg className="w-16 h-16 text-[#cca027]" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                                   {/* Grid lines */}
                                   <line x1="10" y1="50" x2="90" y2="50" stroke="rgba(200, 155, 94, 0.15)" strokeWidth="0.5" />
                                   <line x1="50" y1="10" x2="50" y2="90" stroke="rgba(200, 155, 94, 0.15)" strokeWidth="0.5" />
@@ -330,14 +330,14 @@ export default function WorkBranding() {
                                 <div className="grid grid-cols-2 gap-2">
                                   {[
                                     { hex: "#1F140E", name: "Espresso Dark" },
-                                    { hex: "#B8734E", name: "Bronze Glow" },
+                                    { hex: "#cca027", name: "Bronze Glow" },
                                     { hex: "#F5E6D3", name: "Cream Silk" },
                                     { hex: "#0D0D0D", name: "Charcoal Black" },
                                   ].map((swatch) => (
                                     <div
                                       key={swatch.hex}
                                       onClick={() => alert(`Copied hex: ${swatch.hex}`)}
-                                      className="p-1.5 rounded-lg border border-white/5 bg-black/60 flex items-center gap-2 cursor-pointer hover:border-[#B8734E]"
+                                      className="p-1.5 rounded-lg border border-white/5 bg-black/60 flex items-center gap-2 cursor-pointer hover:border-[#cca027]"
                                     >
                                       <div className="w-4 h-4 rounded border border-white/10" style={{ backgroundColor: swatch.hex }} />
                                       <div className="text-[8px] leading-tight">
@@ -355,11 +355,11 @@ export default function WorkBranding() {
                                 <span className="text-[7px] text-white/80 font-mono">TYPE CLASSIFICATION</span>
                                 <div className="space-y-2">
                                   <div>
-                                    <span className="text-[7px] text-[#B8734E] uppercase font-mono block">Primary Serif Header</span>
+                                    <span className="text-[7px] text-[#cca027] uppercase font-mono block">Primary Serif Header</span>
                                     <span className="text-sm font-serif text-white/80 block leading-none">Playfair Display</span>
                                   </div>
                                   <div>
-                                    <span className="text-[7px] text-[#B8734E] uppercase font-mono block">Secondary Sans Body</span>
+                                    <span className="text-[7px] text-[#cca027] uppercase font-mono block">Secondary Sans Body</span>
                                     <span className="text-xs font-sans font-bold text-white/80 block leading-none">Outfit Sans-Serif</span>
                                   </div>
                                   <div className="text-[8px] text-white/80 italic">
@@ -387,7 +387,7 @@ export default function WorkBranding() {
                           </div>
 
                           {/* Animation space */}
-                          <div className="flex-1 my-3 flex items-center justify-center bg-[#070504] border border-[#B8734E]/10 rounded-xl relative p-3">
+                          <div className="flex-1 my-3 flex items-center justify-center bg-[#070504] border border-[#cca027]/10 rounded-xl relative p-3">
                             {/* Rotating vector wireframe cylinder */}
                             <div
                               className="w-14 h-24 border border-[#C89B5E]/50 rounded-lg relative flex flex-col justify-between p-2"
@@ -408,7 +408,7 @@ export default function WorkBranding() {
                               {/* Central axis line */}
                               <div className="absolute inset-y-0 left-1/2 w-[1px] bg-[#C89B5E]/20" />
                               
-                              <span className="text-[6px] text-[#B8734E] text-center font-bold tracking-widest uppercase m-auto z-10">ESP 3D</span>
+                              <span className="text-[6px] text-[#cca027] text-center font-bold tracking-widest uppercase m-auto z-10">ESP 3D</span>
                             </div>
 
                             {/* Angle indicator overlay */}
@@ -426,7 +426,7 @@ export default function WorkBranding() {
                                 setIsPlaying(false);
                                 setRotationAngle(Number(e.target.value));
                               }}
-                              className="w-full h-1 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-[#B8734E]"
+                              className="w-full h-1 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-[#cca027]"
                             />
                             <div className="flex justify-between text-[7px] text-white/80 font-mono">
                               <span>0 SEC</span>
@@ -442,11 +442,11 @@ export default function WorkBranding() {
                         <div className="w-full h-full flex flex-col justify-between font-sans text-xs">
                           <div className="flex justify-between items-center pb-2 border-b border-white/10 shrink-0">
                             <span className="text-[9px] tracking-wider uppercase text-white/80 font-bold">Mesh Renderer</span>
-                            <span className="text-[8px] text-[#B8734E] font-mono">SHADERS ACTIVE</span>
+                            <span className="text-[8px] text-[#cca027] font-mono">SHADERS ACTIVE</span>
                           </div>
 
                           {/* 3D Bottle canvas */}
-                          <div className="flex-1 my-3 flex items-center justify-center bg-[#050505] border border-[#B8734E]/10 rounded-xl relative overflow-hidden">
+                          <div className="flex-1 my-3 flex items-center justify-center bg-white border border-[#cca027]/10 rounded-xl relative overflow-hidden shadow-sm">
                             {/* concentric wireframe mesh circles in background representing wireframe density */}
                             <div
                               className="absolute w-28 h-28 rounded-full border border-blue-500/10 flex items-center justify-center transition-opacity duration-300"
@@ -489,7 +489,7 @@ export default function WorkBranding() {
                                 max="95"
                                 value={metallic * 100}
                                 onChange={(e) => setMetallic(Number(e.target.value) / 100)}
-                                className="w-2/3 h-1 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-[#B8734E]"
+                                className="w-2/3 h-1 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-[#cca027]"
                               />
                             </div>
                             <div className="flex items-center justify-between text-[8px] text-white/80">
@@ -500,7 +500,7 @@ export default function WorkBranding() {
                                 max="90"
                                 value={lightPosition}
                                 onChange={(e) => setLightPosition(Number(e.target.value))}
-                                className="w-2/3 h-1 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-[#B8734E]"
+                                className="w-2/3 h-1 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-[#cca027]"
                               />
                             </div>
                             <div className="flex items-center justify-between text-[8px] text-white/80">
@@ -511,7 +511,7 @@ export default function WorkBranding() {
                                 max="100"
                                 value={wireframeOpacity}
                                 onChange={(e) => setWireframeOpacity(Number(e.target.value))}
-                                className="w-2/3 h-1 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-[#B8734E]"
+                                className="w-2/3 h-1 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-[#cca027]"
                               />
                             </div>
                           </div>
@@ -524,16 +524,16 @@ export default function WorkBranding() {
                           {/* Post Header */}
                           <div className="flex justify-between items-center pb-2 border-b border-white/10 shrink-0">
                             <span className="text-[9px] tracking-wider uppercase text-white/80 font-bold">Instagram Preview</span>
-                            <span className="text-[8px] text-[#B8734E] font-mono">Slide {activeSlide + 1} of 3</span>
+                            <span className="text-[8px] text-[#cca027] font-mono">Slide {activeSlide + 1} of 3</span>
                           </div>
 
                           {/* Carousel viewport */}
-                          <div className="flex-1 my-3 flex items-center justify-center relative bg-gradient-to-tr from-[#0b0806] to-[#040404] border border-[#B8734E]/10 rounded-xl p-4 overflow-hidden">
+                          <div className="flex-1 my-3 flex items-center justify-center relative bg-gradient-to-tr from-[#0b0806] to-[#040404] border border-[#cca027]/10 rounded-xl p-4 overflow-hidden">
                             {/* Slide Content */}
                             <div className="text-center space-y-3 max-w-[90%]">
                               {activeSlide === 0 && (
                                 <div className="space-y-2">
-                                  <span className="text-[7px] text-[#B8734E] uppercase tracking-[0.3em] font-bold block">LAUNCH CARD</span>
+                                  <span className="text-[7px] text-[#cca027] uppercase tracking-[0.3em] font-bold block">LAUNCH CARD</span>
                                   <h4 className="text-lg font-serif text-[#cca027] leading-tight font-black"> 
                                   </h4>
                                   <p className="text-[9px] text-white/80">Swipe to discover our visual creation methodology.</p>
@@ -541,7 +541,7 @@ export default function WorkBranding() {
                               )}
                               {activeSlide === 1 && (
                                 <div className="space-y-2">
-                                  <span className="text-[7px] text-[#B8734E] uppercase tracking-[0.3em] font-bold block">OUR FORMULA</span>
+                                  <span className="text-[7px] text-[#cca027] uppercase tracking-[0.3em] font-bold block">OUR FORMULA</span>
                                   <h4 className="text-lg font-serif text-[#cca027] leading-tight font-black">
                                     Aesthetics Meet Performance.
                                   </h4>
@@ -550,7 +550,7 @@ export default function WorkBranding() {
                               )}
                               {activeSlide === 2 && (
                                 <div className="space-y-2">
-                                  <span className="text-[7px] text-[#B8734E] uppercase tracking-[0.3em] font-bold block">PARTNER WITH US</span>
+                                  <span className="text-[7px] text-[#cca027] uppercase tracking-[0.3em] font-bold block">PARTNER WITH US</span>
                                   <h4 className="text-lg font-serif text-[#cca027] leading-tight font-black">
                                     Let's Get Started.
                                   </h4>
@@ -600,7 +600,7 @@ export default function WorkBranding() {
                                 key={med}
                                 onClick={() => setPrintMedium(med)}
                                 className={`text-[9px] tracking-wider uppercase pb-1 border-b ${
-                                  printMedium === med ? "text-[#B8734E] border-[#B8734E]" : "text-white/80 border-transparent"
+                                  printMedium === med ? "text-[#cca027] border-[#cca027]" : "text-white/80 border-transparent"
                                 }`}
                               >
                                 {med.split(" ")[0]}
@@ -609,18 +609,18 @@ export default function WorkBranding() {
                           </div>
 
                           {/* Print perspective canvas */}
-                          <div className="flex-1 my-3 flex items-center justify-center bg-[#070504] border border-[#B8734E]/10 rounded-xl relative p-3 overflow-hidden">
+                          <div className="flex-1 my-3 flex items-center justify-center bg-[#070504] border border-[#cca027]/10 rounded-xl relative p-3 overflow-hidden">
                             {printMedium === "Billboard" && (
                               <div className="w-full h-full flex flex-col justify-between relative">
                                 <span className="text-[7px] text-white/80 font-mono">OUTDOOR BILLBOARD SIMULATION</span>
                                 {/* Billboard Frame */}
                                 <div className="w-11/12 h-2/3 m-auto border border-zinc-700 bg-zinc-900 rounded relative overflow-hidden flex flex-col justify-end p-2 shadow-inner">
                                   {/* Advertising banner inner */}
-                                  <div className="absolute inset-1.5 bg-gradient-to-tr from-[#120B08] to-[#251811] border border-[#B8734E]/20 rounded flex flex-col justify-center items-center p-2">
+                                  <div className="absolute inset-1.5 bg-gradient-to-tr from-[#120B08] to-[#251811] border border-[#cca027]/20 rounded flex flex-col justify-center items-center p-2">
                                     <h5 className="text-[10px] font-serif font-black text-center text-[#cca027] tracking-wide uppercase leading-tight">
                                       THE ESPRESSO MEDIA
                                     </h5>
-                                    <p className="text-[6px] text-[#B8734E] tracking-widest uppercase mt-0.5">NOW IN CHENNAI & HYDERABAD</p>
+                                    <p className="text-[6px] text-[#cca027] tracking-widest uppercase mt-0.5">NOW IN CHENNAI & HYDERABAD</p>
                                   </div>
                                   {/* Metal supports */}
                                   <div className="absolute bottom-0 left-[20%] w-0.5 h-1.5 bg-zinc-500" />
@@ -639,7 +639,7 @@ export default function WorkBranding() {
                                   {/* Left page */}
                                   <div className="w-[47%] flex flex-col justify-between py-1">
                                     <div className="w-full h-6 bg-zinc-900 border border-white/5 rounded flex items-center justify-center">
-                                      <span className="text-[5px] text-[#B8734E] tracking-widest font-black uppercase">Editorial</span>
+                                      <span className="text-[5px] text-[#cca027] tracking-widest font-black uppercase">Editorial</span>
                                     </div>
                                     <div className="space-y-0.5">
                                       <div className="w-full h-1 bg-zinc-800 rounded-sm" />
@@ -666,13 +666,13 @@ export default function WorkBranding() {
                                 {/* Dieline layout */}
                                 <div className="w-10/12 h-3/4 m-auto border border-dashed border-blue-500/40 relative flex items-center justify-center p-2">
                                   {/* Box silhouette */}
-                                  <div className="w-14 h-14 bg-zinc-950 border border-[#B8734E]/30 relative flex flex-col justify-center items-center shadow-lg">
+                                  <div className="w-14 h-14 bg-zinc-950 border border-[#cca027]/30 relative flex flex-col justify-center items-center shadow-lg">
                                     {/* Folding flaps */}
-                                    <div className="absolute -top-3 left-1 w-12 h-3 border-t border-l border-r border-[#B8734E]/20 bg-zinc-950/40 border-dashed" />
-                                    <div className="absolute -bottom-3 left-1 w-12 h-3 border-b border-l border-r border-[#B8734E]/20 bg-zinc-950/40 border-dashed" />
+                                    <div className="absolute -top-3 left-1 w-12 h-3 border-t border-l border-r border-[#cca027]/20 bg-zinc-950/40 border-dashed" />
+                                    <div className="absolute -bottom-3 left-1 w-12 h-3 border-b border-l border-r border-[#cca027]/20 bg-zinc-950/40 border-dashed" />
                                     
                                     <span className="text-[6px] text-white/40 tracking-wider">BOX FRONT</span>
-                                    <span className="text-[5px] text-[#B8734E] font-bold">50mm x 50mm</span>
+                                    <span className="text-[5px] text-[#cca027] font-bold">50mm x 50mm</span>
                                   </div>
                                 </div>
                               </div>
@@ -693,7 +693,7 @@ export default function WorkBranding() {
                         <Link
                           onClick={(e) => e.stopPropagation()}
                           to="/work/branding-and-creative-solutions/identity-design"
-                          className="text-[10px] text-[#B8734E] hover:text-[#111] font-bold tracking-widest uppercase flex items-center gap-1 transition-colors group/view"
+                          className="text-[10px] text-[#cca027] hover:text-[#111] font-bold tracking-widest uppercase flex items-center gap-1 transition-colors group/view"
                         >
                           VIEW PROJECTS
                           <span className="group-hover/view:translate-x-1.5 transition-transform duration-300">&rarr;</span>
@@ -702,7 +702,7 @@ export default function WorkBranding() {
                       <a
                         onClick={(e) => e.stopPropagation()}
                         href="/#contact"
-                        className="text-[10px] text-[#111] hover:text-[#B8734E] font-bold tracking-widest uppercase flex items-center gap-1 transition-colors group/link"
+                        className="text-[10px] text-[#111] hover:text-[#cca027] font-bold tracking-widest uppercase flex items-center gap-1 transition-colors group/link"
                       >
                         REQUEST BRIEF 
                         <span className="group-hover/link:translate-x-1.5 transition-transform duration-300">&rarr;</span>
@@ -735,4 +735,6 @@ export default function WorkBranding() {
     </div>
   );
 }
+
+
 

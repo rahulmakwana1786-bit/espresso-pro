@@ -17,7 +17,7 @@ const IntroAnimation = ({ onComplete }) => {
     <AnimatePresence onExitComplete={onComplete}>
       {isVisible && (
         <motion.div
-          className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#050505] origin-center"
+          className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#fdfbf7] origin-center"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }} 
           transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1] }}
@@ -53,3 +53,5 @@ const IntroAnimation = ({ onComplete }) => {
 };
 
 export default IntroAnimation;
+
+

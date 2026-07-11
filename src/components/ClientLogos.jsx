@@ -22,12 +22,12 @@ export default function ClientLogos() {
     <section className="w-full bg-transparent py-16 overflow-hidden">
       {/* Animated Badge */}
       <div className="flex justify-center mb-10">
-        <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#B8734E]/10 to-[#8a563a]/10 border border-[#B8734E]/20 backdrop-blur-sm">
+        <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#cca027]/10 to-[#b08810]/10 border border-[#cca027]/20 backdrop-blur-sm">
           <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#B8734E] opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-[#B8734E]"></span>
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#cca027] opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-[#cca027]"></span>
           </span>
-          <span className="text-[#B8734E] text-sm font-medium tracking-wide">Trusted by Leading Brands</span>
+          <span className="text-[#cca027] text-sm font-medium tracking-wide">Trusted by Leading Brands</span>
         </div>
       </div>
 
@@ -52,7 +52,7 @@ export default function ClientLogos() {
           {[...logos, ...logos].map((logo, i) => (
             <div
               key={i}
-              className="w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 rounded-full flex items-center justify-center bg-black flex-shrink-0 border border-white/5"
+              className="w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 rounded-full flex items-center justify-center bg-white flex-shrink-0 border border-[#cca027]/10 shadow-sm"
             >
               <img
                 src={logo}
@@ -66,3 +66,5 @@ export default function ClientLogos() {
     </section>
   );
 }
+
+

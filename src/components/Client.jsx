@@ -42,12 +42,12 @@ export default function Testimonials() {
             transition={{ duration: 0.6 }}
             className="flex justify-center mb-6"
           >
-            <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#B8734E]/10 to-[#8a563a]/10 border border-[#B8734E]/20 backdrop-blur-sm">
+            <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#cca027]/10 to-[#b08810]/10 border border-[#cca027]/20 backdrop-blur-sm">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#B8734E] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#B8734E]"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#cca027] opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#cca027]"></span>
               </span>
-              <span className="text-[#B8734E] text-sm font-medium tracking-wide">
+              <span className="text-[#cca027] text-sm font-medium tracking-wide">
                 Client Success Stories
               </span>
             </div>
@@ -62,10 +62,10 @@ export default function Testimonials() {
           >
             What Our{" "}
             <span className="relative inline-block pb-3">
-              <span className="bg-gradient-to-r from-[#8a563a] via-espresso to-[#8a563a] bg-clip-text text-transparent italic font-bold animate-[shimmer_3s_ease-in-out_infinite] bg-[length:200%_auto]">
+              <span className="bg-gradient-to-r from-[#b08810] via-espresso to-[#b08810] bg-clip-text text-transparent italic font-bold animate-[shimmer_3s_ease-in-out_infinite] bg-[length:200%_auto]">
                 Clients Say
               </span>
-              <span className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#B8734E] to-transparent rounded-full blur-sm"></span>
+              <span className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#cca027] to-transparent rounded-full blur-sm"></span>
             </span>
           </motion.h2>
 
@@ -84,7 +84,7 @@ export default function Testimonials() {
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1, delay: 0.3 }}
-            className="mt-8 mx-auto w-24 h-px bg-gradient-to-r from-transparent via-[#B8734E] to-transparent relative"
+            className="mt-8 mx-auto w-24 h-px bg-gradient-to-r from-transparent via-[#cca027] to-transparent relative"
           />
         </div>
         <div
@@ -135,7 +135,7 @@ export default function Testimonials() {
                 "
                 >
                   {!imagesLoaded[0] && (
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#8a563a]/20 via-[#8a563a]/10 to-[#8a563a]/20 animate-pulse" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#b08810]/20 via-[#b08810]/10 to-[#b08810]/20 animate-pulse" />
                   )}
                   <img
                     src={vinayakImg}
@@ -178,7 +178,7 @@ export default function Testimonials() {
               <div className="flex items-center gap-4 mb-4">
                 <div className="relative w-16 h-16 rounded-full bg-[#1b120f] border border-espresso/40 ring-1 ring-espresso/10 overflow-hidden">
                   {!imagesLoaded[1] && (
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#8a563a]/20 via-[#8a563a]/10 to-[#8a563a]/20 animate-pulse" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#b08810]/20 via-[#b08810]/10 to-[#b08810]/20 animate-pulse" />
                   )}
                   <img
                     src={akshitImg}
@@ -223,7 +223,7 @@ export default function Testimonials() {
               <div className="flex items-center gap-4 mb-4">
                 <div className="relative w-16 h-16 rounded-full bg-[#1b120f] border border-espresso/40 ring-1 ring-espresso/10 overflow-hidden">
                   {!imagesLoaded[2] && (
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#8a563a]/20 via-[#8a563a]/10 to-[#8a563a]/20 animate-pulse" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#b08810]/20 via-[#b08810]/10 to-[#b08810]/20 animate-pulse" />
                   )}
                   <img
                     src={nishaImg}
@@ -266,7 +266,7 @@ export default function Testimonials() {
               <div className="flex items-center gap-4 mb-4">
                 <div className="relative w-16 h-16 rounded-full bg-[#1b120f] border border-espresso/40 ring-1 ring-espresso/10 overflow-hidden">
                   {!imagesLoaded[3] && (
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#8a563a]/20 via-[#8a563a]/10 to-[#8a563a]/20 animate-pulse" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#b08810]/20 via-[#b08810]/10 to-[#b08810]/20 animate-pulse" />
                   )}
                   <img
                     src={dinuImg}
@@ -345,7 +345,7 @@ export default function Testimonials() {
                 "
                 >
                   {!imagesLoaded[0] && (
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#8a563a]/20 via-[#8a563a]/10 to-[#8a563a]/20 animate-pulse" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#b08810]/20 via-[#b08810]/10 to-[#b08810]/20 animate-pulse" />
                   )}
                   <img
                     src={vinayakImg}
@@ -387,7 +387,7 @@ export default function Testimonials() {
               <div className="flex items-center gap-4 mb-4">
                 <div className="relative w-16 h-16 rounded-full bg-[#1b120f] border border-espresso/40 ring-1 ring-espresso/10 overflow-hidden">
                   {!imagesLoaded[1] && (
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#8a563a]/20 via-[#8a563a]/10 to-[#8a563a]/20 animate-pulse" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#b08810]/20 via-[#b08810]/10 to-[#b08810]/20 animate-pulse" />
                   )}
                   <img
                     src={akshitImg}
@@ -431,7 +431,7 @@ export default function Testimonials() {
               <div className="flex items-center gap-4 mb-4">
                 <div className="relative w-16 h-16 rounded-full bg-[#1b120f] border border-espresso/40 ring-1 ring-espresso/10 overflow-hidden">
                   {!imagesLoaded[2] && (
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#8a563a]/20 via-[#8a563a]/10 to-[#8a563a]/20 animate-pulse" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#b08810]/20 via-[#b08810]/10 to-[#b08810]/20 animate-pulse" />
                   )}
                   <img
                     src={nishaImg}
@@ -473,7 +473,7 @@ export default function Testimonials() {
               <div className="flex items-center gap-4 mb-4">
                 <div className="relative w-16 h-16 rounded-full bg-[#1b120f] border border-espresso/40 ring-1 ring-espresso/10 overflow-hidden">
                   {!imagesLoaded[3] && (
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#8a563a]/20 via-[#8a563a]/10 to-[#8a563a]/20 animate-pulse" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#b08810]/20 via-[#b08810]/10 to-[#b08810]/20 animate-pulse" />
                   )}
                   <img
                     src={dinuImg}
@@ -521,3 +521,5 @@ export default function Testimonials() {
     </>
   );
 }
+
+

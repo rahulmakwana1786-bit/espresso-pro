@@ -25,10 +25,10 @@ export default function WorkContentStrategy() {
   }, []);
 
   return (
-    <main className="relative min-h-screen overflow-clip selection:bg-[#B8734E]/30 pt-32 pb-32 transition-colors duration-700 bg-[#fbf8f3] text-[#291b03]">
+    <main className="relative min-h-screen overflow-clip selection:bg-[#cca027]/30 pt-32 pb-32 transition-colors duration-700 bg-[#fbf8f3] text-[#291b03]">
       {/* Page Header */}
       <section className="container mx-auto px-8 lg:px-16 py-12 md:py-20 border-b border-[#C08860]/20">
-        <Link to="/work" className="inline-flex items-center gap-2 transition-colors text-xs font-semibold uppercase tracking-[0.2em] mb-12 text-[#A8A8A8] hover:text-[#B8734E]">
+        <Link to="/work" className="inline-flex items-center gap-2 transition-colors text-xs font-semibold uppercase tracking-[0.2em] mb-12 text-[#666] hover:text-[#cca027]">
           <span>←</span> BACK TO WORK
         </Link>
         
@@ -38,8 +38,8 @@ export default function WorkContentStrategy() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="flex flex-col gap-6 max-w-4xl"
         >
-          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border w-fit text-xs tracking-widest uppercase border-[#B8734E]/20 text-[#B8734E] bg-[#B8734E]/5">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#B8734E]" />
+          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border w-fit text-xs tracking-widest uppercase border-[#cca027]/20 text-[#cca027] bg-[#cca027]/5">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#cca027]" />
             STRATEGY & GROWTH
           </div>
           <h1 className="text-5xl md:text-7xl lg:text-[76px] font-serif tracking-tighter leading-[1.1] text-[#cca027]">
@@ -104,3 +104,5 @@ export default function WorkContentStrategy() {
     </main>
   );
 }
+
+

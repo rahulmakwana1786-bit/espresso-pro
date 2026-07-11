@@ -31,7 +31,13 @@ export default function Navbar() {
     { name: "Case Studies", href: "/case-studies", isRoute: true },
   ];
 
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+
   const handleNavClick = (item) => {
+    if (item.name === "Services") {
+      setMobileServicesOpen(!mobileServicesOpen);
+      return;
+    }
     setOpen(false);
     if (item.isRoute) {
       navigate(item.href);
@@ -89,16 +95,13 @@ export default function Navbar() {
 
   return (
     <motion.header
-      variants={{
-        visible: { y: 0 },
-        hidden: { y: "-150%" }
-      }}
-      animate={hidden ? "hidden" : "visible"}
+      initial={{ y: -100, opacity: 0 }}
+      animate={hidden ? { y: -100, opacity: 0 } : { y: 0, opacity: 1 }}
       transition={{ duration: 0.4, ease: "easeInOut" }}
       className="fixed inset-x-0 top-4 md:top-6 z-[100] flex justify-center px-4 md:px-8 pointer-events-none"
     >
       {/* White Pill Navbar */}
-      <div className="pointer-events-auto bg-white/95 backdrop-blur-xl rounded-full px-5 py-3 md:px-8 md:py-4 flex items-center justify-between w-full max-w-[1200px] shadow-[0_15px_50px_rgba(0,0,0,0.15)]">
+      <div className="pointer-events-auto bg-white/60 backdrop-blur-xl rounded-full px-5 py-3 md:px-8 md:py-4 flex items-center justify-between w-full max-w-[1200px] shadow-[0_15px_50px_rgba(0,0,0,0.15)]">
         
         {/* Logo */}
         <Link to="/" onClick={() => setOpen(false)} className="flex-shrink-0">
@@ -132,7 +135,7 @@ export default function Navbar() {
 
                 {/* Dropdown for Services */}
                 {item.name === "Services" && (
-                  <div className="absolute top-[100%] left-1/2 -translate-x-1/2 w-[280px] bg-white/95 backdrop-blur-md rounded-2xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 overflow-hidden py-3">
+                  <div className="absolute top-[100%] left-1/2 -translate-x-1/2 w-[280px] bg-white/60 backdrop-blur-xl rounded-2xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 overflow-hidden py-3">
                     {services.map((service) => (
                       <Link
                         key={service.slug}
@@ -197,7 +200,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="absolute lg:hidden top-[75px] md:top-[90px] left-4 right-4 pointer-events-auto bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100 max-w-[500px] mx-auto"
+            className="absolute lg:hidden top-[75px] md:top-[90px] left-4 right-4 pointer-events-auto bg-white/60 backdrop-blur-xl rounded-3xl shadow-2xl overflow-hidden border border-gray-100 max-w-[500px] mx-auto"
           >
             <div className="flex flex-col py-4 px-2">
               {navItems.map((item, index) => {
@@ -205,20 +208,51 @@ export default function Navbar() {
                   ? location.pathname === item.href
                   : location.pathname === "/" && activeSection === item.href.substring(1);
                 return (
-                  <motion.button
-                    key={item.name}
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.05 }}
-                    onClick={() => handleNavClick(item)}
-                    className={`w-full text-left text-base py-3 px-6 rounded-xl transition-all duration-200 ${
-                      isActive
-                        ? "bg-gray-100 text-black font-bold"
-                        : "text-gray-700 hover:bg-gray-50 hover:text-black"
-                    }`}
-                  >
-                    {item.name}
-                  </motion.button>
+                  <div key={item.name}>
+                    <motion.button
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.05 }}
+                      onClick={() => handleNavClick(item)}
+                      className={`w-full text-left text-base py-3 px-6 rounded-xl transition-all duration-200 flex justify-between items-center ${
+                        isActive
+                          ? "bg-gray-100 text-black font-bold"
+                          : "text-gray-700 hover:bg-gray-50 hover:text-black"
+                      }`}
+                    >
+                      {item.name}
+                      {item.name === "Services" && (
+                        <span className="text-xs">{mobileServicesOpen ? "▲" : "▼"}</span>
+                      )}
+                    </motion.button>
+
+                    {item.name === "Services" && (
+                      <AnimatePresence>
+                        {mobileServicesOpen && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            className="overflow-hidden bg-gray-50 rounded-xl mx-2 mt-1"
+                          >
+                            {services.map((service) => (
+                              <Link
+                                key={service.slug}
+                                to={`/service/${service.slug}`}
+                                onClick={() => {
+                                  setOpen(false);
+                                  setMobileServicesOpen(false);
+                                }}
+                                className="block px-6 py-3 text-sm text-gray-600 hover:text-black border-b border-gray-100 last:border-b-0"
+                              >
+                                {service.title}
+                              </Link>
+                            ))}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    )}
+                  </div>
                 );
               })}
               <div className="px-4 pt-4 pb-2 mt-2 border-t border-gray-100">
@@ -237,3 +271,5 @@ export default function Navbar() {
     </motion.header>
   );
 }
+
+

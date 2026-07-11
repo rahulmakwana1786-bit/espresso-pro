@@ -78,7 +78,7 @@ const PortfolioCard = ({ project }) => {
           {/* Corner blending removed to keep the image clean */}
 
           {/* Glow effect on hover */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#B8734E]/15 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#cca027]/15 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-30" />
 
           <img
             src={project.image}
@@ -114,7 +114,7 @@ const PortfolioCard = ({ project }) => {
       </Link>
 
       <div className="flex justify-between items-center mt-5 px-2 text-[#C08860] tracking-widest text-sm sm:text-base">
-        <span className="font-semibold text-[#291b03] group-hover:text-[#D4A574] transition-colors duration-300">
+        <span className="font-semibold text-[#291b03] group-hover:text-[#D4AF37] transition-colors duration-300">
           {project.title}
         </span>
         <span className="font-light text-[#291b03]">
@@ -128,8 +128,8 @@ const PortfolioCard = ({ project }) => {
   return (
     <section className="w-full bg-transparent text-[#291b03] py-24 px-4 md:px-8 lg:px-12 xl:px-16 relative overflow-hidden">
       {/* Decorative Background Elements */}
-      <div className="absolute top-1/4 left-10 w-96 h-96 bg-[#B8734E]/5 rounded-full blur-[120px] pointer-events-none z-0" />
-      <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-[#8a563a]/5 rounded-full blur-[120px] pointer-events-none z-0" />
+      <div className="absolute top-1/4 left-10 w-96 h-96 bg-[#cca027]/5 rounded-full blur-[120px] pointer-events-none z-0" />
+      <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-[#b08810]/5 rounded-full blur-[120px] pointer-events-none z-0" />
 
 
 
@@ -178,3 +178,5 @@ const PortfolioCard = ({ project }) => {
     </section>
   );
 }
+
+

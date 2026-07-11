@@ -19,12 +19,12 @@ export default function GetNoticed() {
           transition={{ duration: 0.6 }}
           className="flex justify-center mb-6"
         >
-          <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#B8734E]/10 to-[#8a563a]/10 border border-[#B8734E]/20 backdrop-blur-sm">
+          <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#cca027]/10 to-[#b08810]/10 border border-[#cca027]/20 backdrop-blur-sm">
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#B8734E] opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#B8734E]"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#cca027] opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#cca027]"></span>
             </span>
-            <span className="text-[#B8734E] text-sm font-medium tracking-wide">Real Results</span>
+            <span className="text-[#cca027] text-sm font-medium tracking-wide">Real Results</span>
           </div>
         </motion.div>
 
@@ -37,10 +37,10 @@ export default function GetNoticed() {
         >
           We Help You Get{" "}
           <span className="relative inline-block">
-            <span className="pr-2 bg-gradient-to-r from-[#8a563a] via-espresso to-[#8a563a] bg-clip-text text-transparent italic font-bold animate-[shimmer_3s_ease-in-out_infinite] bg-[length:200%_auto]">
+            <span className="pr-2 bg-gradient-to-r from-[#b08810] via-espresso to-[#b08810] bg-clip-text text-transparent italic font-bold animate-[shimmer_3s_ease-in-out_infinite] bg-[length:200%_auto]">
               Noticed
             </span>
-            <span className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#B8734E] to-transparent rounded-full blur-sm"></span>
+            <span className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#cca027] to-transparent rounded-full blur-sm"></span>
           </span>
         </motion.h2>
 
@@ -147,13 +147,13 @@ function Card({ title, image, size, isLandscape = false }) {
     <div
       className={`
         group relative rounded-3xl overflow-hidden
-        bg-gradient-to-b from-[#8a563a]/40 to-espressoDark
+        bg-gradient-to-b from-[#b08810]/40 to-espressoDark
         backdrop-blur-sm
         shadow-[0_20px_80px_rgba(192,136,96,0.15)]
         hover:shadow-[0_30px_100px_rgba(192,136,96,0.25)]
         transition-all duration-500
         hover:scale-[1.02]
-        hover:border-[#B8734E]/40
+        hover:border-[#cca027]/40
 
         ${
           isCenter
@@ -180,7 +180,7 @@ function Card({ title, image, size, isLandscape = false }) {
         <div
           className={`
             relative rounded-2xl overflow-hidden
-            group-hover:border-[#B8734E]/30
+            group-hover:border-[#cca027]/30
             transition-all duration-500 p-0 m-0
             shadow-inner
             ${
@@ -194,11 +194,11 @@ function Card({ title, image, size, isLandscape = false }) {
         >
           {/* Loading skeleton */}
           {!imageLoaded && (
-            <div className="absolute inset-0 bg-gradient-to-r from-[#8a563a]/20 via-[#8a563a]/10 to-[#8a563a]/20 animate-pulse" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#b08810]/20 via-[#b08810]/10 to-[#b08810]/20 animate-pulse" />
           )}
 
           {/* Image glow effect */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#B8734E]/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#cca027]/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           
           <div className="relative w-full h-full flex items-center justify-center p-4">
             <img
@@ -215,3 +215,4 @@ function Card({ title, image, size, isLandscape = false }) {
     </div>
   );
 }
+
