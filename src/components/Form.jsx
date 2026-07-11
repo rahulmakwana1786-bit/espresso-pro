@@ -1,4 +1,3 @@
-
 import { useForm, ValidationError } from '@formspree/react';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
@@ -7,166 +6,86 @@ export default function ContactForm() {
   const [state, handleSubmit] = useForm("mnjnapry");
 
   return (
-    <section className="relative w-full bg-[#fbf8f3] flex justify-center px-6 py-10 max-sm:py-12 overflow-hidden">
-
-      {/* CARD */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-        className="
-          relative z-10
-          w-full max-w-xl
-          rounded-3xl
-          bg-gradient-to-br from-[#1a1410]/90 to-[#0a0605]/90
-          backdrop-blur-sm
-          p-6 md:p-8
-          shadow-[0_20px_60px_rgba(192,136,96,0.15)]
-          border border-[#C08860]/20
-          hover:border-[#C08860]/40
-          transition-all duration-500
-          group
-        "
-      >
+    <section className="relative w-full bg-transparent px-6 py-20 lg:py-32 overflow-hidden">
+      <div className="max-w-[1200px] mx-auto flex flex-col lg:flex-row justify-between gap-16 lg:gap-24 items-start">
         
-        {/* Content */}
-        <div className="relative z-10">
-          {/* TOP TEXT */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="mb-6"
-          >
-            <p className="text-[#291b03] text-sm mb-2 max-sm:text-xs">
-              Ready to take the next step in your business?
-            </p>
+        {/* Left Column: Heading */}
+        <motion.div 
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="w-full lg:w-5/12 pt-4"
+        >
+          <div className="flex items-center gap-4 mb-8">
+            <div className="w-12 h-px bg-[#cca027]" />
+            <span className="text-xs font-bold tracking-[0.2em] uppercase text-[#666]">
+              Contact Us
+            </span>
+          </div>
+          
+          <h2 className="text-4xl md:text-5xl lg:text-6xl text-[#291b03] font-medium leading-[1.1] mb-4">
+            Ready to take the next step <br className="hidden lg:block" /> in your business?
+          </h2>
+          
+          <h3 className="font-serif text-5xl md:text-6xl lg:text-7xl">
+            <span className="text-[#cca027] italic font-bold">
+              Let's Talk.
+            </span>
+          </h3>
+        </motion.div>
 
-            <h2 className="font-serif text-3xl max-sm:text-2xl mb-2">
-              <span className="bg-gradient-to-r from-[#cca027] to-[#b08810] bg-clip-text text-transparent italic font-bold animate-[shimmer_3s_ease-in-out_infinite] bg-[length:200%_auto]">
-                Let's Talk
-              </span>
-            </h2>
-
-            {/* Decorative line */}
-            <div className="w-16 h-0.5 bg-gradient-to-r from-[#cca027] to-transparent rounded-full mt-1" />
-          </motion.div>
-
-          {/* SUCCESS MESSAGE */}
+        {/* Right Column: Form */}
+        <motion.div 
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="w-full lg:w-7/12"
+        >
           {state.succeeded ? (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              className="text-center py-12"
-            >
-              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-[#cca027]/20 to-[#b08810]/20 border-2 border-[#cca027] flex items-center justify-center">
-                <span className="text-[#D4AF37] text-3xl">✓</span>
+            <div className="text-center py-16 bg-white rounded-3xl border border-[#cca027]/20 shadow-lg">
+              <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-[#cca027]/10 border-2 border-[#cca027] flex items-center justify-center">
+                <span className="text-[#cca027] text-4xl">✓</span>
               </div>
-              <p className="text-[#291b03] text-xl font-serif mb-2">Thank you for reaching out!</p>
-              <p className="text-[#291b03] text-sm">We'll get back to you soon.</p>
-            </motion.div>
+              <p className="text-[#291b03] text-2xl font-serif mb-2">Thank you for reaching out!</p>
+              <p className="text-[#666] text-base">We'll get back to you soon.</p>
+            </div>
           ) : (
-            /* FORM */
-            <form onSubmit={handleSubmit} className="space-y-5">
-              <FloatingInput
-                label="Name"
-                name="name"
-                type="text"
-                required
-                errors={state.errors}
-              />
+            <form onSubmit={handleSubmit} className="w-full">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+                <FloatingInput label="Name" name="name" required errors={state.errors} />
+                <FloatingInput label="Email" name="email" type="email" required errors={state.errors} />
+                
+                <FloatingInput label="Mobile Number" name="mobile" type="tel" required errors={state.errors} />
+                <FloatingInput label="Website/Social Media Link" name="website" errors={state.errors} />
+                
+                <div className="col-span-1 md:col-span-2 mt-4">
+                  <FloatingInput label="Services Interested In" name="services" errors={state.errors} />
+                </div>
+                
+                <div className="col-span-1 md:col-span-2 mt-4">
+                  <FloatingInput label="Your Objective" name="objective" errors={state.errors} />
+                </div>
+              </div>
 
-              <FloatingInput
-                label="Email"
-                name="email"
-                type="email"
-                required
-                errors={state.errors}
-              />
-
-              <FloatingInput
-                label="Mobile Number"
-                name="mobile"
-                type="tel"
-                required
-                errors={state.errors}
-              />
-
-              <FloatingInput
-                label="Website/Social Media Link"
-                name="website"
-                type="text"
-                errors={state.errors}
-              />
-
-              <FloatingInput
-                label="Services Interested In"
-                name="services"
-                type="text"
-                errors={state.errors}
-              />
-
-              <FloatingInput
-                label="Your Objective"
-                name="objective"
-                type="text"
-                errors={state.errors}
-              />
-
-              {/* SUBMIT */}
               <motion.button
                 type="submit"
                 disabled={state.submitting}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="
-                  relative group w-full mt-6 py-3 rounded-full
-                  border-2 border-[#C08860]
-                  text-[#291b03] font-semibold tracking-widest text-sm
-                  overflow-hidden
-                  transition-all duration-300
-                  disabled:opacity-50 disabled:cursor-not-allowed
-                  disabled:hover:scale-100
-                  shadow-lg hover:shadow-[0_10px_40px_rgba(192,136,96,0.3)]
-                "
+                className="mt-16 px-10 py-4 rounded-full border border-[#291b03] text-[#291b03] font-bold tracking-[0.2em] text-xs uppercase transition-all duration-300 hover:bg-[#cca027] hover:border-[#cca027] hover:text-white flex items-center gap-4 group w-fit disabled:opacity-50"
               >
-                {/* Background gradient */}
-                <span className="absolute inset-0 bg-gradient-to-r from-[#cca027] to-[#b08810] opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[length:200%_auto] animate-[shimmer_3s_ease-in-out_infinite]" />
-                
-                {/* Button content */}
-                <span className="relative z-10 flex items-center justify-center gap-2">
-                  {state.submitting ? (
-                    <>
-                      <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                      SUBMITTING...
-                    </>
-                  ) : (
-                    <>
-                      <span>SUBMIT</span>
-                      <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                      </svg>
-                    </>
-                  )}
-                </span>
-
-                {/* Shine effect */}
-                <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                {state.submitting ? 'SUBMITTING...' : 'SUBMIT'}
+                <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
               </motion.button>
             </form>
           )}
-        </div>
+        </motion.div>
 
-      </motion.div>
-
-      <style jsx>{`
-        @keyframes shimmer {
-          0%, 100% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-        }
-      `}</style>
+      </div>
     </section>
   );
 }
@@ -179,8 +98,8 @@ function FloatingInput({ label, name, type = "text", required = false, errors })
 
   return (
     <motion.div
-      initial={{ opacity: 0, x: -20 }}
-      whileInView={{ opacity: 1, x: 0 }}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
       className="relative w-full group"
@@ -200,11 +119,11 @@ function FloatingInput({ label, name, type = "text", required = false, errors })
         className="
           peer
           w-full bg-transparent
-          border-b-2 border-[#C08860]/30
-          text-[#291b03] text-sm pt-5 pb-1.5 px-0
+          border-b border-[#291b03]/20
+          text-[#291b03] text-sm pt-5 pb-2 px-0
           outline-none
-          focus:border-[#C08860]
-          transition-all duration-300
+          focus:border-[#cca027]
+          transition-colors duration-300
           placeholder-transparent
         "
       />
@@ -213,36 +132,23 @@ function FloatingInput({ label, name, type = "text", required = false, errors })
         htmlFor={name}
         className="
           absolute left-0 top-5
-          text-[#291b03] text-sm
+          text-[#291b03]/60 text-sm font-medium
           transition-all duration-300
           pointer-events-none
-          peer-placeholder-shown:top-5 peer-placeholder-shown:text-sm peer-placeholder-shown:text-[#291b03]
-          peer-focus:top-0 peer-focus:text-[10px] peer-focus:text-[#D4AF37]
-          peer-[:not(:placeholder-shown)]:top-0 peer-[:not(:placeholder-shown)]:text-[10px] peer-[:not(:placeholder-shown)]:text-[#D4AF37]
+          peer-placeholder-shown:top-5 peer-placeholder-shown:text-sm peer-placeholder-shown:text-[#291b03]/60
+          peer-focus:top-0 peer-focus:text-[10px] peer-focus:text-[#cca027]
+          peer-[:not(:placeholder-shown)]:top-0 peer-[:not(:placeholder-shown)]:text-[10px] peer-[:not(:placeholder-shown)]:text-[#cca027]
         "
       >
-        {label} {required && <span className="text-[#C08860]">*</span>}
+        {label} {required && <span className="text-[#cca027]">*</span>}
       </label>
 
       {/* Animated underline */}
       <span className={`
-        absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-[#cca027] to-[#D4AF37]
+        absolute bottom-0 left-0 h-0.5 bg-[#cca027]
         transition-all duration-300
         ${isFocused || hasValue ? 'w-full' : 'w-0'}
       `} />
-
-      {/* Icon indicator */}
-      {(isFocused || hasValue) && (
-        <motion.span
-          initial={{ scale: 0, rotate: -180 }}
-          animate={{ scale: 1, rotate: 0 }}
-          className="absolute right-0 top-5 text-[#D4AF37]"
-        >
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-          </svg>
-        </motion.span>
-      )}
 
       <ValidationError
         prefix={label}
@@ -253,4 +159,3 @@ function FloatingInput({ label, name, type = "text", required = false, errors })
     </motion.div>
   );
 }
-
