@@ -408,15 +408,13 @@ export default function ServiceDetail() {
         </div>
       </div>
 
-      {/* Main Split-Screen Content Layout */}
       <main className="w-full max-w-[92%] lg:max-w-[95%] mx-auto px-4 lg:px-6 pt-[120px] pb-12 lg:pb-16 relative z-10">
         <div className="flex flex-col lg:flex-row justify-between items-start gap-12 lg:gap-0">
-          {/* Left Column: Sticky Service Info (remains locked during cards scroll, and scrolls up naturally before the footer to prevent overlap) */}
-          <div className="w-full lg:w-[47%] lg:sticky lg:top-[300px] h-fit left-sticky-content pb-8 lg:pb-12">
+          <div className="w-full lg:w-[47%] lg:sticky lg:top-[220px] h-fit left-sticky-content pb-8 lg:pb-12">
             <div className="flex flex-col items-start lg:min-h-[460px] lg:justify-center">
               <Link
                 to="/#services"
-                className="text-[#A8A8A8] text-xs tracking-[0.2em] uppercase hover:text-[#B8734E] transition-colors flex items-center gap-3 mb-10 group"
+                className="text-[#A8A8A8] text-xs tracking-[0.2em] uppercase hover:text-[#B8734E] transition-colors flex items-center gap-3 mb-4 group"
               >
                 <span className="group-hover:-translate-x-1 transition-transform">
                   &larr;
@@ -424,21 +422,55 @@ export default function ServiceDetail() {
                 ALL SERVICES
               </Link>
 
-              {/* Service Title with Zoom-in & Zoom-out hover scale transition */}
-              <h1 className="font-gothic font-black text-4xl md:text-6xl lg:text-7xl text-[#cca027] leading-[1.1] tracking-tight transition-transform duration-500 hover:scale-[1.02] origin-left block cursor-default">
+              <h1 className="font-gothic font-black text-4xl md:text-5xl lg:text-6xl text-[#cca027] leading-[1.1] tracking-tight transition-transform duration-500 hover:scale-[1.02] origin-left block cursor-default">
                 {service.title}
               </h1>
 
-              {/* Spacing between title and paragraph */}
-              <div className="h-16 lg:h-24 shrink-0" />
+              <div className="h-4 lg:h-6 shrink-0" />
 
-              <p className="text-[#291b03] text-xl lg:text-2xl leading-relaxed max-w-2xl lg:max-w-3xl font-normal mb-16 opacity-80">
+              <p className="text-[#291b03] text-lg lg:text-xl leading-relaxed max-w-2xl lg:max-w-3xl font-medium mb-6 opacity-80">
                 {service.description}
               </p>
 
+              {service.subItems && service.subItems.length > 0 && (
+                <div className="flex flex-col gap-2 w-full max-w-sm mb-6">
+                  {service.subItems.map((cap, idx) => {
+                    const isActive = activeIndex === idx;
+                    return (
+                      <button 
+                        key={idx}
+                        onClick={() => {
+                          const el = document.getElementById(`capability-${idx}`);
+                          if (el) {
+                            const originalPos = el.style.position;
+                            el.style.position = "static";
+                            const targetY = el.getBoundingClientRect().top + window.scrollY - (window.innerWidth >= 1024 ? 280 : 220);
+                            el.style.position = originalPos;
+
+                            if (window.lenis) {
+                              window.lenis.scrollTo(targetY, { duration: 1.2 });
+                            } else {
+                              window.scrollTo({ top: targetY, behavior: "smooth" });
+                            }
+                          }
+                        }}
+                        className={`text-left px-5 py-2.5 border rounded-xl text-xs md:text-sm transition-all duration-300 flex items-center justify-between group backdrop-blur-md 
+                          ${isActive 
+                            ? "border-[#cca027] bg-[#cca027] text-white shadow-[0_10px_20px_rgba(204,160,39,0.3)] scale-[1.02]" 
+                            : "border-[#B8734E]/10 bg-white/40 text-[#291b03]/80 hover:bg-white/80 hover:border-[#B8734E]/50 hover:text-[#291b03] hover:scale-[1.03] hover:-translate-y-1 active:scale-95 hover:shadow-[0_15px_30px_rgba(184,115,78,0.15)]"
+                          }`}
+                      >
+                        <span className="uppercase tracking-widest font-bold">{cap.name}</span>
+                        <span className={`transition-all duration-300 ${isActive ? "opacity-100 text-white translate-x-1" : "opacity-0 group-hover:opacity-100 group-hover:translate-x-1 text-[#B8734E]"}`}>&rarr;</span>
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
+
               <Link 
                 to="/#contact" 
-                className="px-8 py-4 bg-[#D4AF37] text-[#291b03] text-xs font-bold tracking-[0.2em] uppercase flex items-center gap-3 transition-all duration-300 hover:scale-[1.05] active:scale-[0.98] hover:shadow-[0_10px_20px_rgba(212,175,55,0.3)] w-fit rounded-full"
+                className="px-8 py-3.5 bg-[#D4AF37] text-[#291b03] text-xs font-bold tracking-[0.2em] uppercase flex items-center gap-3 transition-all duration-300 hover:scale-[1.05] active:scale-[0.98] hover:shadow-[0_10px_20px_rgba(212,175,55,0.3)] w-fit rounded-full"
               >
                 START A PROJECT <span>&rarr;</span>
               </Link>
@@ -446,55 +478,42 @@ export default function ServiceDetail() {
           </div>
 
           {/* Right Column: Sticky Stackable Cards List */}
-          <div className="w-full lg:w-[47%] flex flex-col gap-16 lg:gap-32 pb-8 lg:pb-12 sub-cards-container">
+          <div className="w-full lg:w-[47%] flex flex-col gap-16 lg:gap-32 pb-8 lg:pb-12 sub-cards-container relative">
             {service.subItems && service.subItems.length > 0 ? (
               service.subItems.map((sub, i) => {
                 const isDark = i % 2 === 0;
 
-                // Suitable light/cream theme colors for the box to match the page
-                const bgGradient = isDark
-                  ? "linear-gradient(135deg, #ffffff 0%, #fbf8f3 100%)"
-                  : "linear-gradient(135deg, #fdfbf7 0%, #f4efe6 100%)";
-                const borderColor = "rgba(204, 160, 39, 0.25)"; // Soft gold border
-
                 return (
                   <div
                     key={i}
-                    className="sub-card w-full rounded-2xl border p-8 lg:p-12 pb-16 lg:pb-16 sticky top-[240px] lg:top-[300px] overflow-hidden cursor-pointer min-h-[460px] lg:h-[calc(100vh-340px)] lg:min-h-[400px] flex flex-col justify-end"
+                    id={`capability-${i}`}
+                    className="sub-card w-full rounded-3xl border p-10 lg:p-16 sticky top-[240px] lg:top-[300px] overflow-hidden cursor-pointer min-h-[460px] lg:h-[calc(100vh-340px)] lg:min-h-[400px] flex flex-col justify-center bg-white group transition-all duration-500 hover:shadow-[0_30px_60px_rgba(0,0,0,0.08)]"
                     style={{
-                      background: bgGradient,
-                      borderColor: borderColor,
-                      boxShadow: `0 15px 40px rgba(41,27,3,0.06)`,
-                      zIndex: i, // Dynamic z-index for stacked scroll slider effect
+                      borderColor: "rgba(0,0,0,0.04)",
+                      boxShadow: `0 20px 40px rgba(0,0,0,0.04)`,
+                      zIndex: i,
                     }}
                   >
-                    {/* Subtle Top Accent Border Glow */}
-                    <div
-                      className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[2px]"
-                      style={{
-                        background: `radial-gradient(ellipse, rgba(204,160,39,0.5), transparent)`,
-                      }}
-                    ></div>
-
-                    {/* Giant background watermark digit to fill empty space beautifully */}
-                    <div
-                      className="absolute left-6 top-0 text-[10rem] lg:text-[14rem] font-black select-none pointer-events-none font-gothic tracking-tighter transition-all duration-500"
-                      style={{
-                        color: "#cca027",
-                        opacity: 0.25,
-                        lineHeight: 1,
-                      }}
-                    >
-                      {String(i + 1).padStart(2, "0")}
-                    </div>
-
                     {/* Main Content Section */}
-                    <div className="flex flex-col gap-6 lg:gap-8 max-w-[90%] relative z-10">
-                      <h3 className="font-gothic text-3xl md:text-4xl lg:text-5xl font-black mb-2 lg:mb-4 leading-tight tracking-tight transition-colors duration-300 text-[#cca027]">
-                        {sub.name}
-                      </h3>
+                    <div className="flex flex-col relative z-10 h-full w-full justify-start">
+                      {/* Highly visible, beautiful solid number */}
+                      <div
+                        className="text-[5rem] lg:text-[8rem] font-black select-none pointer-events-none font-gothic tracking-tighter transition-all duration-500 text-[#cca027]"
+                        style={{
+                          lineHeight: 0.8,
+                          marginBottom: "3rem"
+                        }}
+                      >
+                        {String(i + 1).padStart(2, "0")}
+                      </div>
 
-                      <p className="font-gothic text-lg lg:text-xl font-normal leading-relaxed transition-colors duration-300 text-[#291b03] opacity-90">
+                      <div className="flex flex-col gap-4 lg:gap-6 max-w-[90%]">
+                        <h3 className="font-gothic text-3xl md:text-4xl lg:text-5xl font-black leading-tight tracking-tight text-[#cca027]">
+                          {sub.name}
+                        </h3>
+                      </div>
+
+                      <p className="font-gothic text-lg lg:text-xl font-medium leading-relaxed text-[#444] opacity-90 max-w-2xl">
                         {sub.desc}
                       </p>
                     </div>
@@ -716,7 +735,7 @@ export default function ServiceDetail() {
 
       {/* 3) FAQ Section (Requirement 3) */}
       {currentFaqs && currentFaqs.length > 0 && (
-        <section className="relative w-full bg-black text-[#291b03] px-20 py-24 max-lg:px-10 max-sm:px-5 overflow-hidden border-t border-[#B8734E]/10">
+        <section className="relative w-full bg-black text-[#f5f5f5] px-20 py-24 max-lg:px-10 max-sm:px-5 overflow-hidden border-t border-[#B8734E]/10">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-[radial-gradient(circle,rgba(200,155,94,0.02)_0%,transparent_70%)] rounded-full blur-[120px] pointer-events-none"></div>
 
           <div className="relative z-10 text-center mb-16">
@@ -784,7 +803,7 @@ export default function ServiceDetail() {
                           {i + 1}
                         </span>
                         
-                        <span className="text-[20px] max-sm:text-[18px] font-medium text-[#291b03] group-hover/btn:text-[#B8734E] transition-colors duration-300">
+                        <span className="text-[20px] max-sm:text-[18px] font-medium text-[#E8E8E8] group-hover/btn:text-[#B8734E] transition-colors duration-300">
                           {item.q}
                         </span>
                       </div>
@@ -809,7 +828,7 @@ export default function ServiceDetail() {
                           transition={{ duration: 0.3, ease: "easeInOut" }}
                           className="overflow-hidden"
                         >
-                          <div className="pb-6 pl-12 pr-6 text-[#291b03] text-base max-sm:text-sm leading-relaxed whitespace-pre-line">
+                          <div className="pb-6 pl-12 pr-6 text-[#A0A0A0] text-base max-sm:text-sm leading-relaxed whitespace-pre-line">
                             {item.a}
                           </div>
                         </motion.div>

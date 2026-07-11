@@ -1,122 +1,128 @@
 import { useRef } from "react";
-import { motion, useScroll, useTransform, useInView } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Link } from "react-router-dom";
 import img1 from "../assets/about_1.png";
+import img2 from "../assets/about_2.png"; // New asset utilized for collage
 
 export default function AboutUs() {
   const containerRef = useRef(null);
-  const textRef = useRef(null);
-  const isInView = useInView(textRef, { once: true, margin: "-10% 0px" });
-
+  
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"],
   });
 
-  const imgScale = useTransform(scrollYProgress, [0, 1], [1.2, 1]);
-  const y = useTransform(scrollYProgress, [0, 1], [0, -150]);
-
-  // Animation variants for the text
-  const containerVariants = {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 0.15,
-      },
-    },
-  };
-
-  const lineVariants = {
-    hidden: { y: "120%", opacity: 0, rotate: 2 },
-    visible: { 
-      y: "0%", 
-      opacity: 1, 
-      rotate: 0,
-      transition: { 
-        duration: 1.2, 
-        ease: [0.215, 0.61, 0.355, 1]
-      } 
-    },
-  };
+  const y1 = useTransform(scrollYProgress, [0, 1], [80, -80]);
+  const y2 = useTransform(scrollYProgress, [0, 1], [-40, 40]);
+  const rotate = useTransform(scrollYProgress, [0, 1], [0, 180]);
 
   return (
-    <section ref={containerRef} id="about-us" className="relative bg-transparent text-[#1a1a1a] py-32 md:py-48 overflow-hidden selection:bg-[#cca027] selection:text-white">
-      <div className="container mx-auto px-8 lg:px-16 relative z-10 flex flex-col gap-24 md:gap-40">
-        
-        {/* Top Header */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
-          <h2 className="text-xs md:text-sm tracking-[0.3em] uppercase text-black/50 flex items-center gap-4 font-sans font-bold">
-            <span className="w-12 h-[2px] bg-[#cca027]" />
-            About Espresso
-          </h2>
-          <div className="max-w-md text-[#4a4a4a] font-medium text-lg md:text-xl leading-relaxed font-sans">
-            Built to solve one problem: brands investing in marketing without seeing real business growth.
-          </div>
-        </div>
+    <section ref={containerRef} id="about-us" className="relative py-32 md:py-48 bg-transparent text-[#1a1a1a] selection:bg-[#cca027] selection:text-white px-6 md:px-12 lg:px-20 overflow-hidden">
+      
+      {/* Decorative Rotating Badge */}
+      <motion.div 
+        style={{ rotate }} 
+        className="absolute top-10 right-10 md:top-20 md:right-20 w-32 h-32 md:w-40 md:h-40 opacity-20 pointer-events-none hidden md:block"
+      >
+        <svg viewBox="0 0 200 200" className="w-full h-full">
+          <path id="textPath" d="M 100, 100 m -75, 0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0" fill="transparent" />
+          <text>
+            <textPath href="#textPath" startOffset="0%" className="text-[22px] font-bold uppercase tracking-[0.22em] fill-[#1a1a1a]">
+              • Espresso Media • Full Funnel Growth
+            </textPath>
+          </text>
+        </svg>
+      </motion.div>
 
-        {/* Massive Typography - Animated */}
-        <motion.h3 
-          ref={textRef}
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          className="text-[10vw] md:text-[8vw] font-serif leading-[0.9] tracking-tighter uppercase font-bold"
-        >
-          <div className="overflow-hidden pb-2 md:pb-6">
-            <motion.div variants={lineVariants} className="origin-bottom-left">
-              We design &
-            </motion.div>
-          </div>
-          <div className="overflow-hidden pb-2 md:pb-6">
-            <motion.div variants={lineVariants} className="origin-bottom-left flex items-center flex-wrap">
-              execute full-funnel <span className="text-[#cca027] italic pl-2 md:pl-4">growth.</span>
-            </motion.div>
-          </div>
-        </motion.h3>
+      <div className="max-w-[1400px] mx-auto flex flex-col lg:flex-row gap-20 lg:gap-12 relative z-10">
         
-        {/* Visual & Text Grid */}
-        <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center mt-12 md:mt-0">
+        {/* Left Column: Stacking text content */}
+        <div className="w-full lg:w-5/12 flex flex-col justify-between relative z-20 pt-10">
           
-          {/* Huge Image Reveal */}
-          <div className="w-full lg:w-3/5 relative h-[50vh] md:h-[80vh] rounded-[2rem] md:rounded-[3rem] overflow-hidden group shadow-[0_20px_50px_rgba(0,0,0,0.1)]">
-            <motion.div style={{ scale: imgScale }} className="absolute inset-0 w-full h-full bg-[#f0f0f0]">
-              <img
-                src={img1}
-                alt="Client strategy session"
-                className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-[1.5s] ease-[0.25,1,0.5,1]"
-              />
+          <div className="flex flex-col gap-12">
+            <motion.div 
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <h2 className="text-[10px] md:text-xs tracking-[0.4em] uppercase text-[#cca027] flex items-center gap-4 font-bold mb-8">
+                <span className="w-8 h-[2px] bg-[#cca027]" />
+                The Espresso Difference
+              </h2>
+              <h3 className="text-[13vw] lg:text-[5.5vw] font-serif leading-[0.85] tracking-tighter uppercase font-bold text-[#1a1a1a]">
+                Engineering <br/>
+                Your <span className="text-[#cca027] italic relative">Growth.
+                  <svg className="absolute -bottom-2 left-0 w-full h-3 text-[#cca027]/30" viewBox="0 0 100 20" preserveAspectRatio="none">
+                    <path d="M0 10 Q 50 20 100 10" stroke="currentColor" strokeWidth="4" fill="none" />
+                  </svg>
+                </span>
+              </h3>
             </motion.div>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60 pointer-events-none" />
-            
-            {/* Minimal Play/View Button overlay */}
-            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none">
-              <div className="w-24 h-24 md:w-32 md:h-32 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white tracking-widest text-[10px] md:text-xs uppercase font-bold shadow-lg">
-                Explore
-              </div>
-            </div>
-          </div>
 
-          {/* Floating Text Block */}
-          <div className="w-full lg:w-2/5 flex flex-col gap-10 z-20">
-            <motion.div style={{ y }} className="flex flex-col gap-8 text-xl md:text-2xl leading-relaxed text-[#1a1a1a] font-medium bg-white/80 backdrop-blur-2xl p-8 md:p-12 rounded-3xl border border-white/50 shadow-[0_10px_40px_rgba(0,0,0,0.05)] font-sans">
-              <p>
-                We connect brand, content, performance, and automation. So marketing doesn't just look good, <span className="text-[#cca027] font-bold italic">it moves inventory and drives revenue.</span>
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="pl-6 md:pl-10 border-l-2 border-[#1a1a1a]/10 flex flex-col gap-10 max-w-md mt-4 md:mt-12"
+            >
+              <p className="text-[#444] text-lg md:text-xl leading-relaxed font-medium">
+                We are an elite growth agency. We connect brand, content, performance, and automation. Because aesthetics without performance is just art.
               </p>
-              <div className="flex flex-col gap-2 mt-4">
-                <span className="text-[#1a1a1a] text-5xl md:text-7xl font-serif font-bold">5x</span>
-                <span className="text-[#666] text-[10px] md:text-xs tracking-widest uppercase font-bold">Avg. ROI across 40+ brands</span>
-              </div>
               
-              <Link to="/about" className="mt-8 group relative inline-flex items-center justify-center px-8 py-4 bg-[#1a1a1a] text-white rounded-full overflow-hidden w-fit hover:border-transparent transition-all shadow-lg">
+              <div className="flex flex-col gap-5">
+                <h4 className="text-[10px] uppercase tracking-widest font-bold text-[#888]">Core Capabilities</h4>
+                <div className="flex flex-wrap gap-3">
+                  {['Brand Strategy', 'Performance Ads', 'Content Creation', 'Automation'].map((tag) => (
+                    <span key={tag} className="px-5 py-2.5 rounded-full border border-black/5 text-[10px] font-bold uppercase tracking-widest text-[#1a1a1a] bg-white shadow-sm hover:border-[#cca027] hover:text-[#cca027] transition-colors cursor-default">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <Link to="/about" className="mt-6 group relative inline-flex items-center justify-center px-10 py-5 bg-[#1a1a1a] text-white rounded-full overflow-hidden w-fit transition-all shadow-xl hover:shadow-2xl">
                 <div className="absolute inset-0 w-full h-full bg-[#cca027] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500 ease-out" />
-                <span className="relative font-bold tracking-[0.2em] uppercase text-xs text-white transition-colors duration-500">
-                  Read Our Story
+                <span className="relative font-bold tracking-[0.2em] uppercase text-[10px] md:text-xs transition-colors duration-500 group-hover:text-white">
+                  Discover Our Story
                 </span>
               </Link>
             </motion.div>
           </div>
+        </div>
+
+        {/* Right Column: Editorial Image Collage */}
+        <div className="w-full lg:w-7/12 relative mt-16 lg:mt-0 min-h-[60vh] lg:min-h-[85vh]">
+          
+          {/* Main Large Image */}
+          <motion.div style={{ y: y1 }} className="absolute top-0 right-0 w-[90%] lg:w-[85%] h-[45vh] lg:h-[75vh] rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl z-10 group">
+            <img src={img1} alt="Team strategy" className="w-full h-full object-cover grayscale opacity-90 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-[1.5s] ease-[0.25,1,0.5,1]" />
+            <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-500" />
+          </motion.div>
+
+          {/* Overlapping Smaller Image (Parallax Collage) */}
+          <motion.div style={{ y: y2 }} className="absolute bottom-20 md:bottom-32 left-0 lg:-left-12 w-[60%] lg:w-[50%] h-[30vh] lg:h-[45vh] rounded-[2rem] overflow-hidden shadow-[0_40px_80px_rgba(0,0,0,0.15)] z-20 border-[8px] lg:border-[12px] border-[#fbf8f3] group hidden md:block">
+            <img src={img2} alt="Creative process" className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:scale-110 transition-all duration-[1.5s] ease-[0.25,1,0.5,1]" />
+          </motion.div>
+
+          {/* Floating Stat Card */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="absolute -bottom-10 lg:-bottom-5 right-5 lg:-right-5 z-30 bg-[#1a1a1a] text-white p-8 md:p-12 rounded-[2rem] shadow-[0_30px_60px_rgba(0,0,0,0.3)] flex flex-col gap-2 max-w-[260px] md:max-w-[300px]"
+          >
+            <div className="text-6xl md:text-8xl font-serif font-bold text-[#cca027] tracking-tighter">5x</div>
+            <div className="text-[10px] md:text-xs tracking-[0.2em] uppercase font-bold text-white/90 leading-loose">
+              Average ROI <br/> Across 40+ Brands
+            </div>
+            <div className="w-8 h-1 bg-white/20 mt-4 rounded-full" />
+          </motion.div>
           
         </div>
+        
       </div>
     </section>
   );

@@ -18,6 +18,7 @@ import Contact from "./pages/Contact.jsx";
 import Services from "./pages/Services.jsx";
 import About from "./pages/About.jsx";
 import IntroAnimation from "./components/IntroAnimation.jsx";
+import CaseStudiesPage from "./pages/CaseStudiesPage.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
 
 function App() {
@@ -47,6 +48,7 @@ function App() {
             <Route path="/services" element={<Services />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/case-studies" element={<CaseStudiesPage />} />
           </Routes>
           <Footer />
         </div>

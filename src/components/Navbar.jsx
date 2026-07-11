@@ -28,7 +28,7 @@ export default function Navbar() {
     { name: "Work", href: "/work", isRoute: true },
     { name: "Services", href: "/services", isRoute: true },
     { name: "About", href: "/about", isRoute: true },
-    { name: "Case Studies", href: "/work/content-strategy-and-marketing", isRoute: true },
+    { name: "Case Studies", href: "/case-studies", isRoute: true },
   ];
 
   const handleNavClick = (item) => {
@@ -98,7 +98,7 @@ export default function Navbar() {
       className="fixed inset-x-0 top-4 md:top-6 z-[100] flex justify-center px-4 md:px-8 pointer-events-none"
     >
       {/* White Pill Navbar */}
-      <div className="pointer-events-auto bg-white/60 backdrop-blur-md rounded-full px-5 py-3 md:px-8 md:py-4 flex items-center justify-between w-full max-w-[1200px] shadow-[0_15px_50px_rgba(0,0,0,0.5)]">
+      <div className="pointer-events-auto bg-white/95 backdrop-blur-xl rounded-full px-5 py-3 md:px-8 md:py-4 flex items-center justify-between w-full max-w-[1200px] shadow-[0_15px_50px_rgba(0,0,0,0.15)]">
         
         {/* Logo */}
         <Link to="/" onClick={() => setOpen(false)} className="flex-shrink-0">

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useMotionValue, useTransform, animate } from "framer-motion";
 
 const STATS = [
   { value: 5, suffix: "x", label: "ROI Achieved" },
@@ -18,34 +18,93 @@ function Counter({ from, to, duration = 2, suffix = "" }) {
     if (!isInView) return;
     let startTime;
     let animationFrame;
-    const animate = (timestamp) => {
+    const animateCount = (timestamp) => {
       if (!startTime) startTime = timestamp;
       const progress = Math.min((timestamp - startTime) / (duration * 1000), 1);
       const ease = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
       setCount(Math.floor(ease * (to - from) + from));
       if (progress < 1) {
-        animationFrame = requestAnimationFrame(animate);
+        animationFrame = requestAnimationFrame(animateCount);
       }
     };
-    animationFrame = requestAnimationFrame(animate);
+    animationFrame = requestAnimationFrame(animateCount);
     return () => cancelAnimationFrame(animationFrame);
   }, [from, to, duration, isInView]);
 
   return <span ref={ref}>{count}{suffix}</span>;
 }
 
-export default function Beyond() {
+function StatCard({ stat, index, progress }) {
+  // Center of each box on a scale of 0 to 100.
+  const center = index * 25; // 0, 25, 50, 75, 100
+
+  // Calculate intensity (0 to 1) based on distance from center. Active range is +/- 15.
+  const intensity = useTransform(progress, (p) => {
+    const dist = Math.abs(p - center);
+    if (dist > 15) return 0;
+    return 1 - (dist / 15);
+  });
+
+  // Map intensity to styles
+  const scale = useTransform(intensity, [0, 1], [1, 1.05]);
+  const y = useTransform(intensity, [0, 1], [0, -8]);
+  
+  // Interpolating colors
+  const borderColor = useTransform(intensity, [0, 1], ["rgba(204,160,39,0.4)", "rgba(249,115,22,0.8)"]);
+  const shadow = useTransform(intensity, [0, 1], ["0px 8px 30px rgba(204,160,39,0.15)", "0px 8px 30px rgba(249,115,22,0.4)"]);
+  const titleColor = useTransform(intensity, [0, 1], ["#cca027", "#f97316"]);
+  const lineColor = useTransform(intensity, [0, 1], ["rgba(204,160,39,0.4)", "rgba(249,115,22,0.8)"]);
+
   return (
-    <section className="w-full bg-white py-24 relative overflow-hidden font-sans z-20 flex items-center justify-center min-h-[400px]">
+    <div className="relative w-[140px] md:w-[180px] flex justify-center mt-10 md:mt-0 group">
+      {/* Vertical connection line */}
+      <motion.div 
+        style={{ backgroundColor: lineColor }} 
+        className="hidden md:block absolute bottom-full left-1/2 -translate-x-1/2 w-[1px] h-20 z-0" 
+      />
+
+      {/* Actual Card */}
+      <motion.div 
+        style={{ scale, y, borderColor, boxShadow: shadow }}
+        className="relative z-10 w-full flex flex-col items-center justify-center py-8 px-6 rounded-3xl border bg-white cursor-default"
+      >
+        <motion.div style={{ color: titleColor }} className="text-3xl md:text-5xl font-serif tracking-tighter mb-3">
+          <Counter from={0} to={stat.value} suffix={stat.suffix} />
+        </motion.div>
+        
+        <p className="text-[10px] md:text-[11px] font-bold uppercase tracking-[0.2em] text-black/80 text-center leading-relaxed">
+          {stat.label}
+        </p>
+      </motion.div>
+    </div>
+  );
+}
+
+export default function Beyond() {
+  const progress = useMotionValue(0);
+
+  useEffect(() => {
+    const controls = animate(progress, 100, {
+      duration: 10, // 10s each way (20s full loop), which is slower than before
+      repeat: Infinity,
+      repeatType: "reverse",
+      ease: "easeInOut"
+    });
+    return controls.stop;
+  }, [progress]);
+
+  // Map progress (0-100) to ball's left position
+  const ballLeft = useTransform(progress, [0, 100], ["0%", "100%"]);
+
+  return (
+    <section className="w-full bg-white py-16 md:py-20 relative overflow-hidden font-sans z-20 flex items-center justify-center">
       <div className="w-full max-w-[1200px] mx-auto px-6 md:px-12 flex flex-col items-center">
         
         {/* TRACK & MOVING BALL */}
         <div className="hidden md:block w-full px-8 mb-20">
           <div className="w-full h-[2px] bg-black/15 relative rounded-full">
             <motion.div 
-              animate={{ left: ["0%", "100%", "0%"] }}
-              transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-              style={{ y: "-50%", x: "-50%" }}
+              style={{ left: ballLeft, y: "-50%", x: "-50%" }}
               className="absolute top-1/2 w-6 h-6 rounded-full bg-[#f97316] shadow-[0_0_20px_6px_rgba(249,115,22,0.4)] z-30"
             />
           </div>
@@ -54,23 +113,7 @@ export default function Beyond() {
         {/* STATS CARDS */}
         <div className="flex flex-wrap md:flex-nowrap justify-center md:justify-between gap-6 md:gap-8 w-full">
           {STATS.map((stat, i) => (
-            <div key={i} className="relative w-[140px] md:w-[180px] flex justify-center group mt-10 md:mt-0">
-              
-              {/* Vertical connection line (desktop only) */}
-              <div className="hidden md:block absolute bottom-full left-1/2 -translate-x-1/2 w-[1px] h-20 bg-black/15 group-hover:bg-[#f97316]/40 transition-colors duration-500 z-0"></div>
-
-              {/* Actual Card */}
-              <div className="relative z-10 w-full flex flex-col items-center justify-center py-8 px-6 rounded-3xl border border-black/15 bg-white shadow-[0_8px_30px_rgba(0,0,0,0.06)] transition-all duration-300 group-hover:border-[#f97316]/50 group-hover:shadow-[0_8px_30px_rgba(249,115,22,0.15)] group-hover:-translate-y-2 cursor-default">
-                <div className="text-3xl md:text-5xl font-serif text-[#cca027] tracking-tighter mb-3 group-hover:text-[#f97316] transition-colors duration-300">
-                  <Counter from={0} to={stat.value} suffix={stat.suffix} />
-                </div>
-                
-                <p className="text-[10px] md:text-[11px] font-bold uppercase tracking-[0.2em] text-black/40 text-center leading-relaxed group-hover:text-black/80 transition-colors duration-300">
-                  {stat.label}
-                </p>
-              </div>
-
-            </div>
+            <StatCard key={i} stat={stat} index={i} progress={progress} />
           ))}
         </div>
 

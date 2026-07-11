@@ -169,7 +169,7 @@ export default function WorkBranding() {
 
               <div className="h-8 lg:h-12 shrink-0" />
 
-              <p className="text-[#D0D0D0] text-lg lg:text-xl leading-relaxed max-w-xl font-light mb-10">
+              <p className="text-[#444] text-lg lg:text-xl leading-relaxed max-w-xl font-medium mb-10">
                 A collection of branding and creative projects designed to strengthen brand presence, enhance perception, and support long-term business growth.
               </p>
 
@@ -178,16 +178,28 @@ export default function WorkBranding() {
                   <button 
                     key={idx}
                     onClick={() => {
-                      const el = document.getElementById(`capability-${idx}`);
-                      if (el) {
-                        const y = el.getBoundingClientRect().top + window.scrollY - 150;
-                        window.scrollTo({ top: y, behavior: "smooth" });
-                      }
-                    }}
-                    className="text-left px-6 py-4 border border-white/10 hover:border-[#B8734E]/50 rounded-xl text-sm text-[#291b03] hover:text-[#291b03] transition-all duration-300 flex items-center justify-between group bg-[#0a0604]/60 backdrop-blur-md hover:bg-[#B8734E]/15 hover:scale-[1.03] hover:-translate-y-1 active:scale-95 hover:shadow-[0_15px_30px_rgba(184,115,78,0.15)]"
+                        const el = document.getElementById(`capability-${idx}`);
+                        if (el) {
+                          const originalPos = el.style.position;
+                          el.style.position = "static";
+                          const targetY = el.getBoundingClientRect().top + window.scrollY - (window.innerWidth >= 1024 ? 200 : 160);
+                          el.style.position = originalPos;
+
+                          if (window.lenis) {
+                            window.lenis.scrollTo(targetY, { duration: 1.2 });
+                          } else {
+                            window.scrollTo({ top: targetY, behavior: "smooth" });
+                          }
+                        }
+                      }}
+                    className={`text-left px-6 py-4 border rounded-xl text-sm transition-all duration-300 flex items-center justify-between group backdrop-blur-md
+                      ${activeIndex === idx 
+                        ? "border-[#B8734E] bg-[#B8734E]/20 text-[#291b03] shadow-[0_10px_20px_rgba(184,115,78,0.2)] scale-[1.02]"
+                        : "border-white/10 bg-[#0a0604]/90 text-white hover:bg-[#B8734E]/20 hover:border-[#B8734E]/50 hover:text-white hover:scale-[1.03] hover:-translate-y-1 active:scale-95 hover:shadow-[0_15px_30px_rgba(184,115,78,0.15)]"
+                      }`}
                   >
                     <span className="uppercase tracking-widest text-xs font-bold">{cap.name}</span>
-                    <span className="text-[#B8734E] opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300">&rarr;</span>
+                    <span className={`transition-all duration-300 ${activeIndex === idx ? "opacity-100 text-[#B8734E] translate-x-1" : "opacity-0 group-hover:opacity-100 group-hover:translate-x-1 text-[#B8734E]"}`}>&rarr;</span>
                   </button>
                 ))}
               </div>
@@ -195,7 +207,7 @@ export default function WorkBranding() {
           </div>
 
           {/* Right Column: 5 Stacked Interactive Capability Cards */}
-          <div className="w-full lg:w-[53%] flex flex-col gap-12 lg:gap-24 pb-8 lg:pb-12">
+          <div className="w-full lg:w-[53%] flex flex-col gap-12 lg:gap-24 pb-8 lg:pb-12 sub-cards-container relative">
             {capabilities.map((item, i) => {
               const isDark = i % 2 === 0;
               const bgGradient = isDark ? globalTheme.darkBg : globalTheme.lightBg;
@@ -208,9 +220,9 @@ export default function WorkBranding() {
                   onClick={i === 0 ? () => navigate("/work/branding-and-creative-solutions/identity-design") : undefined}
                   className={`client-card w-full rounded-2xl border p-6 lg:p-10 sticky top-[180px] lg:top-[220px] overflow-hidden min-h-[550px] lg:h-[calc(100vh-260px)] lg:min-h-[500px] flex flex-col justify-between ${i === 0 ? "cursor-pointer" : ""}`}
                   style={{
-                    background: bgGradient,
-                    borderColor: borderColor,
-                    boxShadow: `0 15px 40px rgba(0,0,0,0.6)`,
+                    backgroundColor: "#ffffff",
+                    borderColor: "rgba(0,0,0,0.05)",
+                    boxShadow: `0 20px 50px rgba(0,0,0,0.05)`,
                     zIndex: i,
                   }}
                 >
@@ -222,7 +234,7 @@ export default function WorkBranding() {
                   ></div>
 
                   {/* Watermark Index */}
-                  <div className="absolute right-6 top-4 text-7xl lg:text-9xl font-black select-none pointer-events-none opacity-5 font-gothic tracking-tighter" style={{ color: globalTheme.accent }}>
+                  <div className="absolute right-6 top-4 text-7xl lg:text-9xl font-black select-none pointer-events-none opacity-20 font-gothic tracking-tighter" style={{ color: globalTheme.accent }}>
                     {String(i + 1).padStart(2, "0")}
                   </div>
 
@@ -237,7 +249,7 @@ export default function WorkBranding() {
 
                     <div className="flex flex-col items-end gap-1.5">
                       {item.stats.map((stat, sIdx) => (
-                        <span key={sIdx} className="px-3 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase border border-[#C89B5E]/30 bg-[#C89B5E]/5 text-[#291b03]">
+                        <span key={sIdx} className="px-3 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase border border-[#C89B5E]/30 bg-[#C89B5E]/5 text-[#cca027]">
                           {stat}
                         </span>
                       ))}
@@ -249,13 +261,13 @@ export default function WorkBranding() {
                     
                     {/* Left text portion */}
                     <div className="w-full md:w-[48%] flex flex-col gap-4">
-                      <p className="text-sm lg:text-base text-[#291b03] leading-relaxed font-light">
+                      <p className="text-sm lg:text-base text-[#666] leading-relaxed font-medium">
                         {item.desc}
                       </p>
 
                       <div className="flex flex-wrap gap-2 mt-2">
                         {item.deliverables.map((del, dIdx) => (
-                          <span key={dIdx} className="text-[10px] px-2 py-0.5 rounded bg-black/40 text-[#291b03] border border-gray-800">
+                          <span key={dIdx} className="text-[10px] px-2 py-0.5 rounded bg-black/5 text-[#333] border border-black/10 font-medium">
                             {del}
                           </span>
                         ))}
@@ -278,7 +290,7 @@ export default function WorkBranding() {
                                   setIdentityTab(tab);
                                 }}
                                 className={`text-[9px] tracking-wider uppercase pb-1 border-b ${
-                                  identityTab === tab ? "text-[#B8734E] border-[#B8734E]" : "text-[#291b03] border-transparent"
+                                  identityTab === tab ? "text-[#B8734E] border-[#B8734E]" : "text-white/80 border-transparent"
                                 }`}
                               >
                                 {tab.split(" ")[0]}
@@ -290,7 +302,7 @@ export default function WorkBranding() {
                           <div className="flex-1 my-3 flex items-center justify-center bg-[#070504] border border-[#B8734E]/10 rounded-xl relative p-3">
                             {identityTab === "Logo Guide" && (
                               <div className="w-full h-full flex flex-col justify-center items-center relative">
-                                <span className="absolute left-2 top-2 text-[7px] text-[#291b03] font-mono">VECTOR MONOGRAM MODEL</span>
+                                <span className="absolute left-2 top-2 text-[7px] text-white/80 font-mono">VECTOR MONOGRAM MODEL</span>
                                 {/* Monogram SVG layout */}
                                 <svg className="w-16 h-16 text-[#B8734E]" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                                   {/* Grid lines */}
@@ -314,7 +326,7 @@ export default function WorkBranding() {
 
                             {identityTab === "Color Swatches" && (
                               <div className="w-full h-full flex flex-col justify-around">
-                                <span className="text-[7px] text-[#291b03] font-mono">PRIMARY BRAND PALETTE</span>
+                                <span className="text-[7px] text-white/80 font-mono">PRIMARY BRAND PALETTE</span>
                                 <div className="grid grid-cols-2 gap-2">
                                   {[
                                     { hex: "#1F140E", name: "Espresso Dark" },
@@ -329,8 +341,8 @@ export default function WorkBranding() {
                                     >
                                       <div className="w-4 h-4 rounded border border-white/10" style={{ backgroundColor: swatch.hex }} />
                                       <div className="text-[8px] leading-tight">
-                                        <div className="font-bold text-[#291b03]">{swatch.name}</div>
-                                        <div className="text-[#291b03] font-mono">{swatch.hex}</div>
+                                        <div className="font-bold text-white/80">{swatch.name}</div>
+                                        <div className="text-white/80 font-mono">{swatch.hex}</div>
                                       </div>
                                     </div>
                                   ))}
@@ -340,17 +352,17 @@ export default function WorkBranding() {
 
                             {identityTab === "Typography" && (
                               <div className="w-full h-full flex flex-col justify-around text-left">
-                                <span className="text-[7px] text-[#291b03] font-mono">TYPE CLASSIFICATION</span>
+                                <span className="text-[7px] text-white/80 font-mono">TYPE CLASSIFICATION</span>
                                 <div className="space-y-2">
                                   <div>
                                     <span className="text-[7px] text-[#B8734E] uppercase font-mono block">Primary Serif Header</span>
-                                    <span className="text-sm font-serif text-[#291b03] block leading-none">Playfair Display</span>
+                                    <span className="text-sm font-serif text-white/80 block leading-none">Playfair Display</span>
                                   </div>
                                   <div>
                                     <span className="text-[7px] text-[#B8734E] uppercase font-mono block">Secondary Sans Body</span>
-                                    <span className="text-xs font-sans font-bold text-[#291b03] block leading-none">Outfit Sans-Serif</span>
+                                    <span className="text-xs font-sans font-bold text-white/80 block leading-none">Outfit Sans-Serif</span>
                                   </div>
-                                  <div className="text-[8px] text-[#291b03] italic">
+                                  <div className="text-[8px] text-white/80 italic">
                                     "Visual branding guidelines deliver 100% uniformity across layouts."
                                   </div>
                                 </div>
@@ -365,10 +377,10 @@ export default function WorkBranding() {
                         <div className="w-full h-full flex flex-col justify-between font-sans text-xs">
                           {/* Controller Header */}
                           <div className="flex justify-between items-center pb-2 border-b border-white/10 shrink-0">
-                            <span className="text-[9px] tracking-wider uppercase text-[#291b03] font-bold">Anim Preview Loop</span>
+                            <span className="text-[9px] tracking-wider uppercase text-white/80 font-bold">Anim Preview Loop</span>
                             <button
                               onClick={() => setIsPlaying(!isPlaying)}
-                              className="px-2 py-0.5 rounded border border-[#C89B5E]/30 bg-[#C89B5E]/5 text-[8px] uppercase font-bold text-[#291b03]"
+                              className="px-2 py-0.5 rounded border border-[#C89B5E]/30 bg-[#C89B5E]/5 text-[8px] uppercase font-bold text-white/80"
                             >
                               {isPlaying ? "Pause ❚❚" : "Play ▶"}
                             </button>
@@ -400,7 +412,7 @@ export default function WorkBranding() {
                             </div>
 
                             {/* Angle indicator overlay */}
-                            <span className="absolute right-3 bottom-3 text-[7px] text-[#291b03] font-mono">Y-ROT: {rotationAngle}°</span>
+                            <span className="absolute right-3 bottom-3 text-[7px] text-white/80 font-mono">Y-ROT: {rotationAngle}°</span>
                           </div>
 
                           {/* Scrub bar */}
@@ -416,7 +428,7 @@ export default function WorkBranding() {
                               }}
                               className="w-full h-1 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-[#B8734E]"
                             />
-                            <div className="flex justify-between text-[7px] text-[#291b03] font-mono">
+                            <div className="flex justify-between text-[7px] text-white/80 font-mono">
                               <span>0 SEC</span>
                               <span>PLAYBACK TIMELINE</span>
                               <span>10 SEC</span>
@@ -429,7 +441,7 @@ export default function WorkBranding() {
                       {i === 2 && (
                         <div className="w-full h-full flex flex-col justify-between font-sans text-xs">
                           <div className="flex justify-between items-center pb-2 border-b border-white/10 shrink-0">
-                            <span className="text-[9px] tracking-wider uppercase text-[#291b03] font-bold">Mesh Renderer</span>
+                            <span className="text-[9px] tracking-wider uppercase text-white/80 font-bold">Mesh Renderer</span>
                             <span className="text-[8px] text-[#B8734E] font-mono">SHADERS ACTIVE</span>
                           </div>
 
@@ -463,13 +475,13 @@ export default function WorkBranding() {
                                 <div className="w-full h-[1px] border-b border-dashed border-[#C89B5E]/30" />
                               </div>
 
-                              <span className="text-[5px] text-[#291b03]/50 text-center font-mono py-2 tracking-widest uppercase">M-01</span>
+                              <span className="text-[5px] text-white/50 text-center font-mono py-2 tracking-widest uppercase">M-01</span>
                             </div>
                           </div>
 
                           {/* Interactive Editor Sliders */}
                           <div className="space-y-1.5 shrink-0 pt-2 border-t border-white/5">
-                            <div className="flex items-center justify-between text-[8px] text-[#291b03]">
+                            <div className="flex items-center justify-between text-[8px] text-white/80">
                               <span>Metallic Shader</span>
                               <input
                                 type="range"
@@ -480,7 +492,7 @@ export default function WorkBranding() {
                                 className="w-2/3 h-1 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-[#B8734E]"
                               />
                             </div>
-                            <div className="flex items-center justify-between text-[8px] text-[#291b03]">
+                            <div className="flex items-center justify-between text-[8px] text-white/80">
                               <span>Light X-Pos</span>
                               <input
                                 type="range"
@@ -491,7 +503,7 @@ export default function WorkBranding() {
                                 className="w-2/3 h-1 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-[#B8734E]"
                               />
                             </div>
-                            <div className="flex items-center justify-between text-[8px] text-[#291b03]">
+                            <div className="flex items-center justify-between text-[8px] text-white/80">
                               <span>Mesh Wireframe</span>
                               <input
                                 type="range"
@@ -511,7 +523,7 @@ export default function WorkBranding() {
                         <div className="w-full h-full flex flex-col justify-between font-sans text-xs">
                           {/* Post Header */}
                           <div className="flex justify-between items-center pb-2 border-b border-white/10 shrink-0">
-                            <span className="text-[9px] tracking-wider uppercase text-[#291b03] font-bold">Instagram Preview</span>
+                            <span className="text-[9px] tracking-wider uppercase text-white/80 font-bold">Instagram Preview</span>
                             <span className="text-[8px] text-[#B8734E] font-mono">Slide {activeSlide + 1} of 3</span>
                           </div>
 
@@ -524,7 +536,7 @@ export default function WorkBranding() {
                                   <span className="text-[7px] text-[#B8734E] uppercase tracking-[0.3em] font-bold block">LAUNCH CARD</span>
                                   <h4 className="text-lg font-serif text-[#cca027] leading-tight font-black"> 
                                   </h4>
-                                  <p className="text-[9px] text-[#291b03]">Swipe to discover our visual creation methodology.</p>
+                                  <p className="text-[9px] text-white/80">Swipe to discover our visual creation methodology.</p>
                                 </div>
                               )}
                               {activeSlide === 1 && (
@@ -533,7 +545,7 @@ export default function WorkBranding() {
                                   <h4 className="text-lg font-serif text-[#cca027] leading-tight font-black">
                                     Aesthetics Meet Performance.
                                   </h4>
-                                  <p className="text-[9px] text-[#291b03]">Every graphic is built to elevate trust and double conversions.</p>
+                                  <p className="text-[9px] text-white/80">Every graphic is built to elevate trust and double conversions.</p>
                                 </div>
                               )}
                               {activeSlide === 2 && (
@@ -542,7 +554,7 @@ export default function WorkBranding() {
                                   <h4 className="text-lg font-serif text-[#cca027] leading-tight font-black">
                                     Let's Get Started.
                                   </h4>
-                                  <p className="text-[9px] text-[#291b03]">Claim your custom-branded strategy audit in under 60 seconds.</p>
+                                  <p className="text-[9px] text-white/80">Claim your custom-branded strategy audit in under 60 seconds.</p>
                                 </div>
                               )}
                             </div>
@@ -552,7 +564,7 @@ export default function WorkBranding() {
                           <div className="flex justify-between items-center shrink-0 pt-1 border-t border-white/5">
                             <button
                               onClick={() => setActiveSlide((prev) => (prev - 1 + 3) % 3)}
-                              className="text-[9px] text-[#291b03] hover:text-[#291b03] uppercase font-bold"
+                              className="text-[9px] text-white/80 hover:text-white/80 uppercase font-bold"
                             >
                               &larr; Prev
                             </button>
@@ -570,7 +582,7 @@ export default function WorkBranding() {
                             </div>
                             <button
                               onClick={() => setActiveSlide((prev) => (prev + 1) % 3)}
-                              className="text-[9px] text-[#291b03] hover:text-[#291b03] uppercase font-bold"
+                              className="text-[9px] text-white/80 hover:text-white/80 uppercase font-bold"
                             >
                               Next &rarr;
                             </button>
@@ -588,7 +600,7 @@ export default function WorkBranding() {
                                 key={med}
                                 onClick={() => setPrintMedium(med)}
                                 className={`text-[9px] tracking-wider uppercase pb-1 border-b ${
-                                  printMedium === med ? "text-[#B8734E] border-[#B8734E]" : "text-[#291b03] border-transparent"
+                                  printMedium === med ? "text-[#B8734E] border-[#B8734E]" : "text-white/80 border-transparent"
                                 }`}
                               >
                                 {med.split(" ")[0]}
@@ -600,7 +612,7 @@ export default function WorkBranding() {
                           <div className="flex-1 my-3 flex items-center justify-center bg-[#070504] border border-[#B8734E]/10 rounded-xl relative p-3 overflow-hidden">
                             {printMedium === "Billboard" && (
                               <div className="w-full h-full flex flex-col justify-between relative">
-                                <span className="text-[7px] text-[#291b03] font-mono">OUTDOOR BILLBOARD SIMULATION</span>
+                                <span className="text-[7px] text-white/80 font-mono">OUTDOOR BILLBOARD SIMULATION</span>
                                 {/* Billboard Frame */}
                                 <div className="w-11/12 h-2/3 m-auto border border-zinc-700 bg-zinc-900 rounded relative overflow-hidden flex flex-col justify-end p-2 shadow-inner">
                                   {/* Advertising banner inner */}
@@ -619,7 +631,7 @@ export default function WorkBranding() {
 
                             {printMedium === "Magazine" && (
                               <div className="w-full h-full flex flex-col justify-between text-left">
-                                <span className="text-[7px] text-[#291b03] font-mono">EDITORIAL DOUBLE PAGE SPREAD</span>
+                                <span className="text-[7px] text-white/80 font-mono">EDITORIAL DOUBLE PAGE SPREAD</span>
                                 <div className="w-full h-3/4 border border-zinc-800 bg-[#030303] rounded-lg p-2 flex justify-between gap-2 shadow-2xl relative">
                                   {/* Magazine Spine */}
                                   <div className="absolute left-1/2 top-0 bottom-0 w-[1px] bg-zinc-800" />
@@ -639,10 +651,10 @@ export default function WorkBranding() {
                                   {/* Right page */}
                                   <div className="w-[47%] flex flex-col justify-between py-1 text-right">
                                     <div className="space-y-1">
-                                      <div className="text-[8px] font-serif font-bold text-[#291b03] leading-none">Luxury Living</div>
+                                      <div className="text-[8px] font-serif font-bold text-white/80 leading-none">Luxury Living</div>
                                       <div className="w-10/12 h-1 bg-zinc-800 rounded-sm ml-auto" />
                                     </div>
-                                    <span className="text-[5px] text-[#291b03] block">Page 18</span>
+                                    <span className="text-[5px] text-white/80 block">Page 18</span>
                                   </div>
                                 </div>
                               </div>
@@ -650,7 +662,7 @@ export default function WorkBranding() {
 
                             {printMedium === "Package Box" && (
                               <div className="w-full h-full flex flex-col justify-between">
-                                <span className="text-[7px] text-[#291b03] font-mono">PACKAGING DESIGN DIELINE PREVIEW</span>
+                                <span className="text-[7px] text-white/80 font-mono">PACKAGING DESIGN DIELINE PREVIEW</span>
                                 {/* Dieline layout */}
                                 <div className="w-10/12 h-3/4 m-auto border border-dashed border-blue-500/40 relative flex items-center justify-center p-2">
                                   {/* Box silhouette */}
@@ -659,7 +671,7 @@ export default function WorkBranding() {
                                     <div className="absolute -top-3 left-1 w-12 h-3 border-t border-l border-r border-[#B8734E]/20 bg-zinc-950/40 border-dashed" />
                                     <div className="absolute -bottom-3 left-1 w-12 h-3 border-b border-l border-r border-[#B8734E]/20 bg-zinc-950/40 border-dashed" />
                                     
-                                    <span className="text-[6px] text-[#291b03]/40 tracking-wider">BOX FRONT</span>
+                                    <span className="text-[6px] text-white/40 tracking-wider">BOX FRONT</span>
                                     <span className="text-[5px] text-[#B8734E] font-bold">50mm x 50mm</span>
                                   </div>
                                 </div>
@@ -674,14 +686,14 @@ export default function WorkBranding() {
                   </div>
 
                   {/* Bottom: Card Footer info */}
-                  <div className="flex justify-between items-center w-full relative z-10 pt-4 border-t border-white/5 shrink-0">
-                    <span className="text-[10px] text-[#291b03] font-sans tracking-wide hidden md:block">THE ESPRESSO MEDIA &bull; CREATIVE SERVICES</span>
+                  <div className="flex justify-between items-center w-full relative z-10 pt-4 border-t border-black/5 shrink-0">
+                    <span className="text-[10px] text-black/40 font-sans tracking-wide hidden md:block">THE ESPRESSO MEDIA &bull; CREATIVE SERVICES</span>
                     <div className="flex items-center gap-6 ml-auto">
                       {i === 0 && (
                         <Link
                           onClick={(e) => e.stopPropagation()}
                           to="/work/branding-and-creative-solutions/identity-design"
-                          className="text-[10px] text-[#B8734E] hover:text-[#291b03] font-bold tracking-widest uppercase flex items-center gap-1 transition-colors group/view"
+                          className="text-[10px] text-[#B8734E] hover:text-[#111] font-bold tracking-widest uppercase flex items-center gap-1 transition-colors group/view"
                         >
                           VIEW PROJECTS
                           <span className="group-hover/view:translate-x-1.5 transition-transform duration-300">&rarr;</span>
@@ -690,7 +702,7 @@ export default function WorkBranding() {
                       <a
                         onClick={(e) => e.stopPropagation()}
                         href="/#contact"
-                        className="text-[10px] text-[#291b03] hover:text-[#B8734E] font-bold tracking-widest uppercase flex items-center gap-1 transition-colors group/link"
+                        className="text-[10px] text-[#111] hover:text-[#B8734E] font-bold tracking-widest uppercase flex items-center gap-1 transition-colors group/link"
                       >
                         REQUEST BRIEF 
                         <span className="group-hover/link:translate-x-1.5 transition-transform duration-300">&rarr;</span>
@@ -723,3 +735,4 @@ export default function WorkBranding() {
     </div>
   );
 }
+

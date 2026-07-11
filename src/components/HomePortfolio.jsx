@@ -73,10 +73,9 @@ const PortfolioCard = ({ project }) => {
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
           onMouseMove={handleMouseMove}
-          className={`relative w-full ${project.aspectRatio} rounded-[28px] overflow-hidden bg-black transition-all duration-500 group-hover:shadow-[0_0_40px_rgba(184,115,78,0.15)] cursor-none`}
+          className={`relative w-full ${project.aspectRatio} rounded-none overflow-hidden bg-transparent transition-all duration-500 group-hover:shadow-[0_0_40px_rgba(184,115,78,0.15)] cursor-none`}
         >
-          {/* Edge-blending vignette */}
-          <div className="absolute inset-0 shadow-[inset_0_0_50px_#000000] pointer-events-none z-20" />
+          {/* Corner blending removed to keep the image clean */}
 
           {/* Glow effect on hover */}
           <div className="absolute inset-0 bg-gradient-to-t from-[#B8734E]/15 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-30" />

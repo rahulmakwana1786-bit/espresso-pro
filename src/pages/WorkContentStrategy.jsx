@@ -1,7 +1,5 @@
 import { Link } from "react-router-dom";
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 
 // Import portfolio images for Content Strategy clients
@@ -12,236 +10,97 @@ import tileBazaarImg from "../assets/portfolio/tile_bazaar_detail.png";
 import vinayakToyotaImg from "../assets/portfolio/vinayak_toyota.png";
 import tileLabImg from "../assets/portfolio/tile_lab.png";
 
-gsap.registerPlugin(ScrollTrigger);
+const CONTENT_PROJECTS = [
+  { id: 1, title: "GC TILES CHENNAI", client: "GC Tiles", image: gcTilesChennaiImg, slug: "gc-tiles-chennai" },
+  { id: 2, title: "SHREEJI TILES", client: "Shreeji", image: shreejiTilesImg, slug: "shreeji-tiles" },
+  { id: 3, title: "GC TILES HYDERABAD", client: "GC Tiles", image: gcTilesHyderabadImg, slug: "gc-tiles-hyderabad" },
+  { id: 4, title: "TILE BAZAAR", client: "Tile Bazaar", image: tileBazaarImg, slug: "tile-bazaar" },
+  { id: 5, title: "VINAYAK TOYOTA", client: "Vinayak Toyota", image: vinayakToyotaImg, slug: "vinayak-toyota" },
+  { id: 6, title: "TILE LAB", client: "Tile Lab", image: tileLabImg, slug: "tile-lab" },
+];
 
 export default function WorkContentStrategy() {
-  const containerRef = useRef(null);
-
   useEffect(() => {
-    document.body.classList.add("gothic-only-page");
-
-    let ctx = gsap.context(() => {
-      // Header entrance animations
-      gsap.from(".header-left-col", {
-        opacity: 0,
-        x: -40,
-        duration: 1.2,
-        ease: "power3.out",
-      });
-
-      gsap.from(".header-right-col", {
-        opacity: 0,
-        x: 40,
-        duration: 1.2,
-        ease: "power3.out",
-      });
-
-      // Website cards entrance animations
-      gsap.utils.toArray(".web-grid-card").forEach((card) => {
-        gsap.from(card, {
-          opacity: 0,
-          y: 40,
-          duration: 0.8,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: card,
-            start: "top bottom-=10%",
-            toggleActions: "play none none none",
-          },
-        });
-      });
-    }, containerRef);
-
-    const timer = setTimeout(() => {
-      ScrollTrigger.refresh();
-    }, 150);
-
-    try {
-      if (window.lenis) {
-        window.lenis.scrollTo(0, { immediate: true });
-      } else {
-        window.scrollTo(0, 0);
-      }
-    } catch (e) {
-      window.scrollTo(0, 0);
-    }
-
-    return () => {
-      document.body.classList.remove("gothic-only-page");
-      clearTimeout(timer);
-      ctx.revert();
-      ScrollTrigger.getAll().forEach((t) => t.kill());
-    };
+    window.scrollTo(0, 0);
   }, []);
 
-  const clients = [
-    {
-      name: "GC TILES CHENNAI",
-      url: "https://gcceratiles.com/",
-      image: gcTilesChennaiImg,
-      tag: "Search Marketing",
-      desc: "Content Marketing, Production, Development",
-    },
-    {
-      name: "SHREEJI TILES",
-      url: "https://gcceratiles.com/", // part of GC group showroom
-      image: shreejiTilesImg,
-      tag: "Catalog & Meta Lead Gen",
-      desc: "Content, Performance Marketing, AI Automation",
-    },
-    {
-      name: "GC TILES HYDERABAD",
-      url: "https://www.gctileshyderabad.com/",
-      image: gcTilesHyderabadImg,
-      tag: "Local SEO & Authority",
-      desc: "Content Marketing, Production, Development, AI Automation",
-    },
-    {
-      name: "TILE BAZAAR",
-      url: "https://www.tilebazaar.co.uk/",
-      image: tileBazaarImg,
-      tag: "Automation & Funnels",
-      desc: "E-Commerce Store Development, Google Optimization",
-    },
-    {
-      name: "Vinayak Toyota",
-      url: "https://vinayaktoyota.co.in/",
-      image: vinayakToyotaImg,
-      tag: "Automotive Campaigns",
-      desc: "Content Marketing, Production, AI Automation",
-    },
-    {
-      name: "Tile lab",
-      url: "https://www.gctileshyderabad.com/", // boutique ceramic project link
-      image: tileLabImg,
-      tag: "Boutique Storytelling",
-      desc: "Production, Performance Marketing",
-    },
-  ];
-
   return (
-    <div
-      ref={containerRef}
-      className="w-full min-h-screen bg-[#fbf8f3] text-[#291b03] py-28 px-6 md:px-12 lg:px-20 xl:px-32 relative overflow-hidden font-gothic"
-    >
-      {/* Decorative Background Lights */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#B8734E]/5 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#8a563a]/5 rounded-full blur-[120px] pointer-events-none" />
-
-      {/* Main Layout Wrapper */}
-      <div className="max-w-7xl mx-auto relative z-10 mt-8">
+    <main className="relative min-h-screen overflow-clip selection:bg-[#B8734E]/30 pt-32 pb-32 transition-colors duration-700 bg-[#fbf8f3] text-[#291b03]">
+      {/* Page Header */}
+      <section className="container mx-auto px-8 lg:px-16 py-12 md:py-20 border-b border-[#C08860]/20">
+        <Link to="/work" className="inline-flex items-center gap-2 transition-colors text-xs font-semibold uppercase tracking-[0.2em] mb-12 text-[#A8A8A8] hover:text-[#B8734E]">
+          <span>←</span> BACK TO WORK
+        </Link>
         
-        {/* ================= HEADER SECTION: SPLIT LAYOUT ================= */}
-        <div className="flex flex-col lg:flex-row justify-between items-center gap-12 lg:gap-24 w-full mb-24 py-12 border-y border-[#C08860]/20">
-          
-          {/* Left Column: Giant Title & Subtitle */}
-          <div className="w-full lg:w-[50%] flex flex-col items-start text-left header-left-col">
-            <Link
-              to="/work"
-              className="text-[#A8A8A8] text-xs tracking-[0.2em] uppercase hover:text-[#B8734E] transition-colors flex items-center gap-3 mb-8 group"
-            >
-              <span className="group-hover:-translate-x-1 transition-transform">&larr;</span> BACK TO WORK
-            </Link>
-
-            <h1 className="font-serif text-[42px] sm:text-[62px] lg:text-[76px] font-light text-[#cca027] leading-[1.08] tracking-tight">
-              Content Strategy<br />& Marketing
-            </h1>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="flex flex-col gap-6 max-w-4xl"
+        >
+          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border w-fit text-xs tracking-widest uppercase border-[#B8734E]/20 text-[#B8734E] bg-[#B8734E]/5">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#B8734E]" />
+            STRATEGY & GROWTH
           </div>
+          <h1 className="text-5xl md:text-7xl lg:text-[76px] font-serif tracking-tighter leading-[1.1] text-[#cca027]">
+            Content Strategy & Marketing
+          </h1>
+          <p className="text-lg md:text-xl font-light mt-4 max-w-2xl leading-relaxed text-[#291b03]/70">
+            Data-driven storytelling that drives measurable business growth and engages your audience at every touchpoint.
+          </p>
+        </motion.div>
+      </section>
 
-          {/* Right Column: Paragraph */}
-          <div className="w-full lg:w-[40%] flex flex-col text-left header-right-col">
-            <p className="text-[#291b03] text-lg md:text-xl font-light leading-relaxed">
-              A customized overview of results generated for our premium clients. We design strategic content plans and localized organic funnels that translate interest into bookings, footfalls, and wholesale inquiries.
-            </p>
-          </div>
-
-        </div>
-
-        {/* ================= CAMPAIGNS EDITORIAL SECTION ================= */}
-        <div id="campaigns-grid" className="w-full flex flex-col gap-20 md:gap-28 mt-12">
-          {clients.map((site, index) => {
-            const isEven = index % 2 === 0;
-            return (
-              <div
-                key={site.name}
-                className={`flex flex-col lg:flex-row items-center gap-8 lg:gap-16 w-full border-t border-[#B8734E]/10 pt-16 first:border-0 first:pt-0 ${
-                  isEven ? "" : "lg:flex-row-reverse"
+      {/* Dynamic Content */}
+      <section className="container mx-auto px-8 lg:px-16 mt-12 pb-32">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-24">
+          {CONTENT_PROJECTS.map((project, index) => {
+            const cardContent = (
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.8, delay: index % 2 === 0 ? 0 : 0.2 }}
+                className={`flex flex-col gap-6 group cursor-pointer ${
+                  index % 2 !== 0 ? "md:mt-32" : ""
                 }`}
               >
-                {/* Image Showcase Column */}
-                <div className="w-full lg:w-[55%]">
-                  <Link
-                    to={`/work/content-strategy-and-marketing/${site.name.toLowerCase().replace(/ /g, "-")}`}
-                    className="campaign-row-image-link block relative w-full aspect-[16/10] rounded-[24px] overflow-hidden border border-[#B8734E]/10 bg-[#0c0806] transition-all duration-500 hover:border-[#B8734E]/30 hover:shadow-[0_20px_50px_rgba(184,115,78,0.1)] group"
+                <div className="relative w-full rounded-[24px] overflow-hidden flex aspect-[4/5] bg-[#e0e0e0] shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-black/5">
+                  <motion.div 
+                    className="absolute inset-[-10%] w-[120%] h-[120%]"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 1.5, ease: [0.215, 0.61, 0.355, 1] }}
                   >
-                    <div className="absolute inset-0 border border-white/5 rounded-[24px] pointer-events-none z-10" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60 pointer-events-none z-10" />
-                    
-                    <img
-                      src={site.image}
-                      alt={site.name}
-                      className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-                      loading="lazy"
+                    <img 
+                      src={project.image} 
+                      alt={project.title}
+                      className="w-full h-full object-cover grayscale opacity-90 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000"
                     />
-                  </Link>
+                  </motion.div>
+                  <div className="absolute inset-0 bg-gradient-to-t opacity-40 group-hover:opacity-10 transition-opacity duration-700 pointer-events-none from-black/60 via-transparent" />
                 </div>
-
-                {/* Details Column */}
-                <div className="w-full lg:w-[40%] flex flex-col items-start text-left">
-                  {/* Category Pill and Number */}
-                  <div className="flex items-center gap-4 mb-4">
-                    <span className="font-mono text-[#B8734E] text-xs font-bold tracking-widest">
-                      0{index + 1}
-                    </span>
-                    <span className="text-[#291b03] text-xs">|</span>
-                    <span className="px-3 py-1 rounded-full bg-[#B8734E]/5 border border-[#B8734E]/15 text-[#B8734E] text-[8px] font-bold uppercase tracking-widest">
-                      {site.tag}
-                    </span>
+                
+                <div className="flex flex-col gap-2 mt-2">
+                  <div className="flex items-center gap-4 text-xs font-bold tracking-[0.2em] uppercase text-[#cca027]">
+                    <span>{project.client}</span>
+                    <span className="w-8 h-[1px] bg-[#cca027]/30" />
+                    <span className="text-black/40">0{index + 1}</span>
                   </div>
-
-                  {/* Title */}
-                  <h3 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-[#cca027] leading-tight tracking-tight mb-4 hover:text-[#B8734E] transition-colors duration-300">
-                    <Link
-                      to={`/work/content-strategy-and-marketing/${site.name.toLowerCase().replace(/ /g, "-")}`}
-                      style={{ textDecoration: 'none', color: 'inherit' }}
-                    >
-                      {site.name}
-                    </Link>
+                  <h3 className="text-3xl md:text-4xl font-serif transition-colors duration-500 text-[#111] group-hover:text-[#cca027]">
+                    {project.title}
                   </h3>
-
-                  {/* Description */}
-                  <p className="text-[#291b03] text-base md:text-lg font-medium leading-relaxed mb-6 capitalize">
-                    {site.desc}
-                  </p>
-
-                  {/* Domain Link & Action Button */}
-                  <div className="flex flex-col gap-5 mt-2">
-                    <Link
-                      to={`/work/content-strategy-and-marketing/${site.name.toLowerCase().replace(/ /g, "-")}`}
-                      className="campaign-explore-btn inline-flex items-center gap-3 px-6 py-3 rounded-full border border-[#B8734E]/20 text-[#B8734E] text-xs uppercase tracking-widest font-semibold hover:bg-[#B8734E] hover:text-black hover:border-[#B8734E] transition-all duration-300 w-max"
-                      style={{ textDecoration: 'none' }}
-                    >
-                      VIEW PROJECT <span>&rarr;</span>
-                    </Link>
-                  </div>
                 </div>
-              </div>
+              </motion.div>
+            );
+
+            return (
+              <Link key={project.id} to={`/work/content-strategy-and-marketing/${project.slug}`} className="block">
+                {cardContent}
+              </Link>
             );
           })}
         </div>
-
-        <style>{`
-          .campaign-row-image-link {
-            transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.4s ease, box-shadow 0.4s ease;
-          }
-          .campaign-row-image-link:hover {
-            transform: translateY(-4px);
-            border-color: rgba(184, 115, 78, 0.35);
-            box-shadow: 0 25px 50px -15px rgba(184, 115, 78, 0.12);
-          }
-        `}</style>
-
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }
