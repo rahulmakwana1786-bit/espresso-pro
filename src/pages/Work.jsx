@@ -58,7 +58,7 @@ export default function Work() {
   ];
 
   return (
-    <div className="w-full min-h-screen bg-[#fbf8f3] text-[#291b03] pt-[180px] md:pt-[240px] pb-20 px-6 md:px-12 lg:px-20 xl:px-32 relative overflow-clip">
+    <div className="w-full min-h-screen bg-[#fbf8f3] text-[#291b03] pt-[180px] md:pt-[240px] pb-20 px-4 sm:px-6 md:px-12 lg:px-20 xl:px-32 relative overflow-clip">
       
       {/* Decorative background lights */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-[#cca027]/5 rounded-full blur-[120px] pointer-events-none" />

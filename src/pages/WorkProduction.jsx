@@ -7,82 +7,55 @@ gsap.registerPlugin(ScrollTrigger);
 
 const VideoGridCard = ({ video, colSpanClass }) => {
   const videoRef = useRef(null);
-  const [isPlaying, setIsPlaying] = useState(true);
-  const [isMuted, setIsMuted] = useState(true);
-  const [progress, setProgress] = useState(0);
-  const [duration, setDuration] = useState(0);
-  const [currentTime, setCurrentTime] = useState(0);
+  const containerRef = useRef(null);
+  const [hasLoaded, setHasLoaded] = useState(false);
 
-  const togglePlay = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    if (videoRef.current) {
-      if (isPlaying) {
-        videoRef.current.pause();
-      } else {
-        videoRef.current.play().catch(() => {});
-      }
-      setIsPlaying(!isPlaying);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setHasLoaded(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "300px" }
+    );
+    
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
     }
-  };
-
-  const toggleMute = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setIsMuted(!isMuted);
-  };
-
-  const handleTimeUpdate = () => {
-    if (videoRef.current) {
-      const current = videoRef.current.currentTime;
-      const total = videoRef.current.duration;
-      setCurrentTime(current);
-      if (total) {
-        setProgress((current / total) * 100);
-      }
-    }
-  };
-
-  const handleLoadedMetadata = () => {
-    if (videoRef.current) {
-      setDuration(videoRef.current.duration);
-    }
-  };
-
-  const formatTime = (timeInSeconds) => {
-    if (isNaN(timeInSeconds) || !timeInSeconds) return "0:00";
-    const m = Math.floor(timeInSeconds / 60);
-    const s = Math.floor(timeInSeconds % 60);
-    return `${m}:${s < 10 ? '0' : ''}${s}`;
-  };
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <div className={`video-grid-card relative group border border-[#cca027]/20 rounded-2xl bg-white overflow-hidden transition-all duration-300 shadow-sm ${colSpanClass}`}>
+    <div ref={containerRef} className={`video-grid-card relative group border border-[#cca027]/20 rounded-2xl bg-white overflow-hidden transition-all duration-300 shadow-sm ${colSpanClass}`}>
       <div className={`w-full ${video.isReel ? 'aspect-[9/16]' : 'aspect-[16/9]'} bg-gray-100 overflow-hidden relative group/video`}>
-        <video
-          ref={videoRef}
-          src={video.src}
-          loop
-          muted
-          playsInline
-          onMouseEnter={(e) => {
-            e.currentTarget.muted = false;
-            e.currentTarget.play().catch(()=>{});
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.pause();
-            e.currentTarget.muted = true;
-          }}
-          className="w-full h-full object-cover relative z-20 grayscale group-hover/video:grayscale-0 transition-[filter] duration-500 ease-in-out"
-          controls
-          onError={(e) => {
-            if (e.currentTarget.src !== video.fallback) {
-              e.currentTarget.src = video.fallback;
-            }
-          }}
-        />
-        
-
+        {hasLoaded && (
+          <video
+            ref={videoRef}
+            src={video.src}
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            onMouseEnter={(e) => {
+              e.currentTarget.muted = false;
+              e.currentTarget.play().catch(()=>{});
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.pause();
+              e.currentTarget.muted = true;
+            }}
+            className="w-full h-full object-cover relative z-20 grayscale group-hover/video:grayscale-0 transition-[filter] duration-500 ease-in-out"
+            controls
+            controlsList="nodownload"
+            onError={(e) => {
+              if (e.currentTarget.src !== video.fallback) {
+                e.currentTarget.src = video.fallback;
+              }
+            }}
+          />
+        )}
       </div>
     </div>
   );

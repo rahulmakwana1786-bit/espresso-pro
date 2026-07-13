@@ -96,7 +96,7 @@ export default function Beyond() {
   const ballLeft = useTransform(progress, [0, 100], ["0%", "100%"]);
 
   return (
-    <section className="w-full bg-white py-16 md:py-20 relative overflow-hidden font-sans z-20 flex items-center justify-center">
+    <section className="w-full bg-transparent py-16 md:py-20 relative overflow-hidden font-sans z-20 flex items-center justify-center">
       <div className="w-full max-w-[1200px] mx-auto px-6 md:px-12 flex flex-col items-center">
         
         {/* TRACK & MOVING BALL */}
