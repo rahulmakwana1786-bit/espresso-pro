@@ -18,6 +18,7 @@ export default function WorkBranding() {
 
   // Brand Identity States
   const [identityTab, setIdentityTab] = useState("Logo Guide");
+  const [activeIndex, setActiveIndex] = useState(0);
   
   // Animation States
   const [isPlaying, setIsPlaying] = useState(true);
@@ -146,16 +147,16 @@ export default function WorkBranding() {
         <div className="flex flex-col lg:flex-row justify-between items-start gap-12 lg:gap-0">
           
           {/* Left Column: Sticky Title */}
-          <div className="w-full lg:w-[42%] lg:sticky lg:top-[200px] h-fit left-sticky-content pb-8 lg:pb-12">
+          <div className="w-full lg:w-[42%] lg:sticky lg:top-[120px] xl:top-[160px] h-fit left-sticky-content pb-8 lg:pb-12 max-h-[calc(100vh-120px)] overflow-y-auto overflow-x-hidden" style={{ scrollbarWidth: 'none' }}>
             <div className="flex flex-col items-start lg:min-h-[500px] lg:justify-center">
               <Link
                 to="/work"
-                className="text-[#666] text-xs tracking-[0.2em] uppercase hover:text-[#cca027] transition-colors flex items-center gap-3 mb-10 group"
+                className="text-[#666] text-xs tracking-[0.2em] uppercase hover:text-[#cca027] transition-colors flex items-center gap-3 mb-6 lg:mb-8 group"
               >
                 <span className="group-hover:-translate-x-1 transition-transform">&larr;</span> BACK TO WORK
               </Link>
 
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#cca027]/10 border border-[#cca027]/20 mb-6 backdrop-blur-sm">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#cca027]/10 border border-[#cca027]/20 mb-4 lg:mb-5 backdrop-blur-sm">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#cca027] opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-[#cca027]"></span>
@@ -167,42 +168,12 @@ export default function WorkBranding() {
                 Branding & Creative Solutions
               </h1>
 
-              <div className="h-8 lg:h-12 shrink-0" />
+              <div className="h-6 lg:h-8 shrink-0" />
 
-              <p className="text-[#444] text-lg lg:text-xl leading-relaxed max-w-xl font-medium mb-10">
+              <p className="text-[#444] text-base lg:text-lg leading-relaxed max-w-xl font-medium mb-6 lg:mb-8">
                 A collection of branding and creative projects designed to strengthen brand presence, enhance perception, and support long-term business growth.
               </p>
 
-              <div className="flex flex-col gap-3 w-full max-w-sm mt-4">
-                {capabilities.map((cap, idx) => (
-                  <button 
-                    key={idx}
-                    onClick={() => {
-                        const el = document.getElementById(`capability-${idx}`);
-                        if (el) {
-                          const originalPos = el.style.position;
-                          el.style.position = "static";
-                          const targetY = el.getBoundingClientRect().top + window.scrollY - (window.innerWidth >= 1024 ? 200 : 160);
-                          el.style.position = originalPos;
-
-                          if (window.lenis) {
-                            window.lenis.scrollTo(targetY, { duration: 1.2 });
-                          } else {
-                            window.scrollTo({ top: targetY, behavior: "smooth" });
-                          }
-                        }
-                      }}
-                    className={`text-left px-6 py-4 border rounded-xl text-sm transition-all duration-300 flex items-center justify-between group backdrop-blur-md
-                      ${activeIndex === idx 
-                        ? "border-[#cca027] bg-[#cca027]/20 text-[#291b03] shadow-[0_10px_20px_rgba(184,115,78,0.2)] scale-[1.02]"
-                        : "border-white/10 bg-[#0a0604]/90 text-white hover:bg-[#cca027]/20 hover:border-[#cca027]/50 hover:text-white hover:scale-[1.03] hover:-translate-y-1 active:scale-95 hover:shadow-[0_15px_30px_rgba(184,115,78,0.15)]"
-                      }`}
-                  >
-                    <span className="uppercase tracking-widest text-xs font-bold">{cap.name}</span>
-                    <span className={`transition-all duration-300 ${activeIndex === idx ? "opacity-100 text-[#cca027] translate-x-1" : "opacity-0 group-hover:opacity-100 group-hover:translate-x-1 text-[#cca027]"}`}>&rarr;</span>
-                  </button>
-                ))}
-              </div>
             </div>
           </div>
 

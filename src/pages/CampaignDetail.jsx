@@ -368,7 +368,7 @@ export default function CampaignDetail() {
           display: grid;
           grid-template-columns: 1fr 1fr;
           gap: 14px;
-          padding: 14px 48px;
+          padding: 14px 16vw;
           align-items: start;
         }
         .csd-page .csd-sticky-col {
@@ -387,7 +387,7 @@ export default function CampaignDetail() {
           flex-direction: column;
           gap: 14px;
         }
-        .csd-page .csd-wide { padding: 14px 48px; }
+        .csd-page .csd-wide { padding: 14px 16vw; }
         .csd-page .csd-wide .csd-tile { aspect-ratio: 21/9; }
 
         .csd-page .csd-tile { margin: 0; overflow: hidden; border-radius: 8px; aspect-ratio: 4/5; position: relative; }

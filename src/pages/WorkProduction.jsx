@@ -62,13 +62,19 @@ const VideoGridCard = ({ video, colSpanClass }) => {
         <video
           ref={videoRef}
           src={video.src}
-          autoPlay
           loop
-          muted={isMuted}
+          muted
           playsInline
-          onTimeUpdate={handleTimeUpdate}
-          onLoadedMetadata={handleLoadedMetadata}
-          className="w-full h-full object-cover relative z-20 pointer-events-none"
+          onMouseEnter={(e) => {
+            e.currentTarget.muted = false;
+            e.currentTarget.play().catch(()=>{});
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.pause();
+            e.currentTarget.muted = true;
+          }}
+          className="w-full h-full object-cover relative z-20 grayscale group-hover/video:grayscale-0 transition-[filter] duration-500 ease-in-out"
+          controls
           onError={(e) => {
             if (e.currentTarget.src !== video.fallback) {
               e.currentTarget.src = video.fallback;
@@ -76,73 +82,7 @@ const VideoGridCard = ({ video, colSpanClass }) => {
           }}
         />
         
-        {/* Controls Overlay (Appears on hover) */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 opacity-0 group-hover/video:opacity-100 transition-opacity duration-300 z-30 flex flex-col justify-between p-4 sm:p-5">
-          
-          {/* Top: Mute Toggle */}
-          <div className="flex justify-end">
-            <button 
-              onClick={toggleMute} 
-              className="bg-black/40 hover:bg-black/70 backdrop-blur-md text-[#291b03] p-2 sm:p-2.5 rounded-full border border-white/10 transition-colors shadow-lg"
-            >
-              {isMuted ? (
-                <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
-                  <line x1="23" y1="9" x2="17" y2="15"></line>
-                  <line x1="17" y1="9" x2="23" y2="15"></line>
-                </svg>
-              ) : (
-                <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
-                  <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-                  <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
-                </svg>
-              )}
-            </button>
-          </div>
 
-          {/* Bottom: Play/Pause & Progress */}
-          <div className="flex flex-col gap-2">
-            <div className="flex items-center gap-3">
-              <button 
-                onClick={togglePlay} 
-                className="text-[#291b03] hover:text-[#cca027] transition-colors bg-black/40 hover:bg-black/70 backdrop-blur-md p-1.5 sm:p-2 rounded-full border border-white/10"
-              >
-                {isPlaying ? (
-                  <svg className="w-4 h-4 sm:w-5 sm:h-5 fill-current" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
-                ) : (
-                  <svg className="w-4 h-4 sm:w-5 sm:h-5 fill-current transform translate-x-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                )}
-              </button>
-              
-              <div className="text-[#291b03] text-[10px] sm:text-xs font-mono tracking-wider drop-shadow-md">
-                {formatTime(currentTime)} / {formatTime(duration)}
-              </div>
-            </div>
-            
-            {/* Progress Bar (Clickable for Seeking) */}
-            <div 
-              className="w-full h-1.5 sm:h-2 bg-white/20 rounded-full overflow-hidden shadow-inner cursor-pointer"
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                if (videoRef.current && duration) {
-                  const rect = e.currentTarget.getBoundingClientRect();
-                  const clickX = e.clientX - rect.left;
-                  const newTime = (clickX / rect.width) * duration;
-                  videoRef.current.currentTime = newTime;
-                  setProgress((clickX / rect.width) * 100);
-                  setCurrentTime(newTime);
-                }
-              }}
-            >
-              <div 
-                className="h-full bg-[#cca027] rounded-full transition-all duration-100 ease-linear pointer-events-none" 
-                style={{ width: `${progress}%` }} 
-              />
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   );
@@ -154,6 +94,7 @@ export default function WorkProduction() {
   const sectionPlayerRef = useRef(null);
 
   // Active Video State
+  const [activeFilter, setActiveFilter] = useState("All");
   const [activeIdx, setActiveIdx] = useState(0);
   const [autoPlayNext, setAutoPlayNext] = useState(true);
   const [isMuted, setIsMuted] = useState(true);
@@ -166,8 +107,8 @@ export default function WorkProduction() {
       id: "01",
       title: "Commercial Project 01",
       tag: "Commercial",
-      src: "/videos/01.mp4",
-      fallback: "/videos/01.mp4",
+      src: "/videos/001.mp4",
+      fallback: "/videos/001.mp4",
       duration: "0:15",
       desc: "Commercial Production Video 1."
     },
@@ -201,7 +142,7 @@ export default function WorkProduction() {
     {
       id: "05",
       title: "Vertical Project 01",
-      tag: "Reels",
+      tag: "Commercial",
       isReel: true,
       src: "/videos/05.mp4",
       fallback: "/videos/05.mp4",
@@ -213,15 +154,15 @@ export default function WorkProduction() {
       title: "Vertical Project 02",
       tag: "Reels",
       isReel: true,
-      src: "/videos/06.mp4",
-      fallback: "/videos/06.mp4",
+      src: "/videos/13.mp4",
+      fallback: "/videos/13.mp4",
       duration: "0:15",
       desc: "Vertical Video 2"
     },
     {
       id: "07",
       title: "Vertical Project 03",
-      tag: "Reels",
+      tag: "Commercial",
       isReel: true,
       src: "/videos/07.mp4",
       fallback: "/videos/07.mp4",
@@ -277,6 +218,66 @@ export default function WorkProduction() {
       fallback: "/videos/12.mp4",
       duration: "0:15",
       desc: "Vertical Video 8"
+    },
+    {
+      id: "13",
+      title: "Vertical Project 09",
+      tag: "Reels",
+      isReel: true,
+      src: "/videos/14.mp4",
+      fallback: "/videos/14.mp4",
+      duration: "0:15",
+      desc: "Vertical Video 9"
+    },
+    {
+      id: "14",
+      title: "Vertical Project 10",
+      tag: "Reels",
+      isReel: true,
+      src: "/videos/15.mp4",
+      fallback: "/videos/15.mp4",
+      duration: "0:15",
+      desc: "Vertical Video 10"
+    },
+    {
+      id: "15",
+      title: "Vertical Project 11",
+      tag: "Reels",
+      isReel: true,
+      src: "/videos/16.mp4",
+      fallback: "/videos/16.mp4",
+      duration: "0:15",
+      desc: "Vertical Video 11"
+    },
+    {
+      id: "16",
+      title: "Vertical Project 12",
+      tag: "Reels",
+      isReel: true,
+      src: "/videos/17.mp4",
+      fallback: "/videos/17.mp4",
+      duration: "0:15",
+      desc: "Vertical Video 12"
+    },
+    {
+      id: "17",
+      title: "Vertical Project 13",
+      tag: "Reels",
+      isReel: true,
+      src: "/videos/18.mp4",
+      fallback: "/videos/18.mp4",
+      duration: "0:15",
+      desc: "Vertical Video 13"
+    },
+    {
+      id: "18",
+      title: "Vertical Project 14",
+      tag: "Commercial",
+      isReel: true,
+      src: "/videos/19.mp4",
+      fallback: "/videos/19.mp4",
+      duration: "0:15",
+      desc: "Vertical Video 14"
     }
   ];
 
@@ -423,9 +424,22 @@ export default function WorkProduction() {
                 A collection of commercial production projects focused on bringing ideas to life through thoughtful visuals and purposeful storytelling. 
               </p>
 
-
-
-
+              <div className="flex flex-col gap-3 w-full max-w-sm mt-4">
+                {["All", "Commercial Shoot", "UGC Ads"].map((filterName) => (
+                  <button 
+                    key={filterName}
+                    onClick={() => setActiveFilter(filterName)}
+                    className={`text-left px-5 py-3 border rounded-xl text-xs md:text-sm transition-all duration-300 flex items-center justify-between group backdrop-blur-md 
+                      ${activeFilter === filterName
+                        ? "border-[#cca027] bg-[#cca027]/10 text-[#cca027] shadow-[0_10px_20px_rgba(204,160,39,0.1)] scale-[1.02] font-bold" 
+                        : "border-[#cca027]/20 bg-white/50 shadow-sm text-[#291b03]/80 hover:border-[#cca027]/50 hover:text-[#cca027] hover:scale-[1.01] hover:-translate-y-0.5 active:scale-95"
+                      }`}
+                  >
+                    <span className="uppercase tracking-widest">{filterName}</span>
+                    {activeFilter === filterName && <span className="opacity-100 text-[#cca027]">&bull;</span>}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
 
@@ -440,13 +454,18 @@ export default function WorkProduction() {
               <div className="flex items-center gap-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#cca027]" />
                 <h3 className="text-xs font-black tracking-[0.25em] text-[#cca027] uppercase">
-                  All Production Videos ({playlist.length})
+                  All Production Videos
                 </h3>
               </div>
               
               <div className="grid grid-cols-2 gap-4 items-start">
-                {playlist.map((video, idx) => {
-                  const isActive = idx === activeIdx;
+                {playlist
+                  .filter((video) => {
+                    if (activeFilter === "Commercial Shoot") return video.tag === "Commercial";
+                    if (activeFilter === "UGC Ads") return video.tag === "Reels";
+                    return true;
+                  })
+                  .map((video, idx) => {
                   const colSpanClass = video.isReel ? "col-span-1" : "col-span-2";
                   return <VideoGridCard key={video.id} video={video} colSpanClass={colSpanClass} />;
                 })}
@@ -469,6 +488,18 @@ export default function WorkProduction() {
         }
         .left-sticky-content {
           backface-visibility: hidden;
+        }
+        video:fullscreen {
+          filter: none !important;
+        }
+        video:-webkit-full-screen {
+          filter: none !important;
+        }
+        video:-moz-full-screen {
+          filter: none !important;
+        }
+        video:-ms-fullscreen {
+          filter: none !important;
         }
       `}</style>
     </div>

@@ -420,44 +420,12 @@ export default function ServiceDetail() {
                 {service.description}
               </p>
 
-              {service.subItems && service.subItems.length > 0 && (
-                <div className="flex flex-col gap-2 w-full max-w-sm mb-6">
-                  {service.subItems.map((cap, idx) => {
-                    const isActive = activeIndex === idx;
-                    return (
-                      <button 
-                        key={idx}
-                        onClick={() => {
-                          const el = document.getElementById(`capability-${idx}`);
-                          if (el) {
-                            const originalPos = el.style.position;
-                            el.style.position = "static";
-                            const targetY = el.getBoundingClientRect().top + window.scrollY - (window.innerWidth >= 1024 ? 280 : 220);
-                            el.style.position = originalPos;
-
-                            if (window.lenis) {
-                              window.lenis.scrollTo(targetY, { duration: 1.2 });
-                            } else {
-                              window.scrollTo({ top: targetY, behavior: "smooth" });
-                            }
-                          }
-                        }}
-                        className={`text-left px-5 py-2.5 border rounded-xl text-xs md:text-sm transition-all duration-300 flex items-center justify-between group backdrop-blur-md 
-                          ${isActive 
-                            ? "border-[#cca027] bg-white text-[#291b03] shadow-[0_10px_20px_rgba(204,160,39,0.15)] scale-[1.04]" 
-                            : "border-[#cca027]/20 bg-white shadow-[0_4px_10px_rgba(0,0,0,0.03)] text-[#291b03]/80 hover:border-[#cca027]/50 hover:text-[#291b03] hover:scale-[1.03] hover:-translate-y-1 active:scale-95 hover:shadow-[0_10px_20px_rgba(204,160,39,0.15)]"
-                          }`}
-                      >
-                        <span className="uppercase tracking-widest font-bold">{cap.name}</span>
-                        <span className={`transition-all duration-300 ${isActive ? "opacity-100 text-[#cca027] translate-x-1" : "opacity-0 group-hover:opacity-100 group-hover:translate-x-1 text-[#cca027]"}`}>&rarr;</span>
-                      </button>
-                    );
-                  })}
-                </div>
-              )}
+              <p className="text-[#291b03] text-sm lg:text-base leading-relaxed max-w-2xl font-light mb-8 opacity-75">
+                Our comprehensive approach ensures every aspect of your brand's digital presence is meticulously crafted and executed. We combine creative innovation with data-driven strategies to deliver measurable results and sustainable growth for your business.
+              </p>
 
               <Link 
-                to="/#contact" 
+                to="/contact" 
                 className="px-8 py-3.5 bg-[#D4AF37] text-[#291b03] text-xs font-bold tracking-[0.2em] uppercase flex items-center gap-3 transition-all duration-300 hover:scale-[1.05] active:scale-[0.98] hover:shadow-[0_10px_20px_rgba(212,175,55,0.3)] w-fit rounded-full"
               >
                 START A PROJECT <span>&rarr;</span>
