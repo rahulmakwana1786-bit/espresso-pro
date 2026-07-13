@@ -55,7 +55,7 @@ function StatCard({ stat, index, progress }) {
   const lineColor = useTransform(intensity, [0, 1], ["rgba(204,160,39,0.4)", "rgba(249,115,22,0.8)"]);
 
   return (
-    <div className="relative w-[140px] md:w-[180px] flex justify-center mt-10 md:mt-0 group">
+    <div className="relative w-[46%] sm:w-[220px] md:w-[180px] flex justify-center mt-4 md:mt-0 group">
       {/* Vertical connection line */}
       <motion.div 
         style={{ backgroundColor: lineColor }} 
@@ -65,13 +65,13 @@ function StatCard({ stat, index, progress }) {
       {/* Actual Card */}
       <motion.div 
         style={{ scale, y, borderColor, boxShadow: shadow }}
-        className="relative z-10 w-full flex flex-col items-center justify-center py-8 px-6 rounded-3xl border bg-white cursor-default"
+        className="relative z-10 w-full flex flex-col items-center justify-center py-6 md:py-8 px-4 md:px-6 rounded-2xl md:rounded-3xl border bg-white cursor-default"
       >
-        <div className="text-3xl md:text-5xl font-serif tracking-tighter mb-3 text-[#cca027]">
+        <div className="text-[28px] md:text-5xl font-serif tracking-tighter mb-2 md:mb-3 text-[#cca027]">
           <Counter from={0} to={stat.value} suffix={stat.suffix} />
         </div>
         
-        <p className="text-[10px] md:text-[11px] font-bold uppercase tracking-[0.2em] text-black/80 text-center leading-relaxed">
+        <p className="text-[9px] md:text-[11px] font-bold uppercase tracking-[0.15em] md:tracking-[0.2em] text-black/80 text-center leading-relaxed max-w-[100px] md:max-w-none mx-auto">
           {stat.label}
         </p>
       </motion.div>

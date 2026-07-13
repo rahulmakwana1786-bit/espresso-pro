@@ -106,11 +106,11 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="absolute -bottom-16 lg:-bottom-12 xl:-bottom-10 lg:right-0 xl:right-10 z-30"
+            className="mt-8 lg:mt-0 lg:absolute lg:-bottom-12 xl:-bottom-10 lg:right-0 xl:right-10 z-30"
           >
             <Link
               to="/work/content-strategy-and-marketing"
-              className="inline-block px-5 py-2 rounded-md bg-[#EFE8D0] hover:bg-white text-black text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-[0_5px_15px_rgba(0,0,0,0.3)] cursor-pointer"
+              className="inline-block px-6 py-3 lg:px-5 lg:py-2 rounded-lg lg:rounded-md bg-[#EFE8D0] hover:bg-white text-black text-xs md:text-sm font-bold uppercase tracking-wider transition-all duration-300 shadow-[0_5px_15px_rgba(0,0,0,0.3)] cursor-pointer text-center"
             >
               Explore Case Studies
             </Link>
