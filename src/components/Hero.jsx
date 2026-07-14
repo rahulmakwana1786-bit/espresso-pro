@@ -72,49 +72,51 @@ export default function Hero() {
           transition={{ duration: 1.2, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
           className="relative lg:w-[35%] flex flex-col items-center justify-center z-20 mt-10 lg:mt-0"
         >
-          {/* Badge Container */}
-          <Link to="/work" className="relative block w-[180px] h-[180px] lg:w-[250px] lg:h-[250px] xl:w-[320px] xl:h-[320px] lg:translate-x-10 xl:translate-x-20 group cursor-pointer hover:scale-105 transition-transform duration-500">
-            {/* The rotating text circle */}
-            <div 
-              ref={badgeRef}
-              className="absolute inset-0 w-full h-full text-[#E0CD94] opacity-80 group-hover:opacity-100 transition-opacity duration-300"
-            >
-              <svg viewBox="0 0 100 100" className="w-full h-full overflow-visible">
-                <path
-                  id="circlePath"
-                  d="M 50, 50 m -42, 0 a 42,42 0 1,1 84,0 a 42,42 0 1,1 -84,0"
-                  fill="transparent"
-                />
-                <text className="text-[12.5px] font-bold tracking-[0.2em] uppercase" fill="currentColor">
-                  <textPath href="#circlePath" startOffset="0%" textLength="260" lengthAdjust="spacingAndGlyphs">
-                    VIEW OUR WORK • VIEW OUR WORK • VIEW OUR WORK •
-                  </textPath>
-                </text>
-              </svg>
-            </div>
-            
-            {/* 4-Pointed Star Icon in center */}
-            <div className="absolute inset-0 flex items-center justify-center text-[#E0CD94] opacity-90 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
-              <svg width="45" height="45" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <path d="M12 2L13.5 10.5L22 12L13.5 13.5L12 22L10.5 13.5L2 12L10.5 10.5L12 2Z" fill="currentColor" stroke="none" />
-              </svg>
-            </div>
-          </Link>
-
-          {/* Explore Case Studies Button positioned below the badge like the image */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-8 lg:mt-0 lg:absolute lg:-bottom-12 xl:-bottom-10 lg:right-0 xl:right-10 z-30"
-          >
-            <Link
-              to="/work/content-strategy-and-marketing"
-              className="inline-block px-6 py-3 lg:px-5 lg:py-2 rounded-lg lg:rounded-md bg-[#EFE8D0] hover:bg-white text-black text-xs md:text-sm font-bold uppercase tracking-wider transition-all duration-300 shadow-[0_5px_15px_rgba(0,0,0,0.3)] cursor-pointer text-center"
-            >
-              Explore Case Studies
+          <div className="flex flex-col items-center lg:translate-x-10 xl:translate-x-20">
+            {/* Badge Container */}
+            <Link to="/work" className="relative block w-[180px] h-[180px] lg:w-[250px] lg:h-[250px] xl:w-[320px] xl:h-[320px] group cursor-pointer hover:scale-105 transition-transform duration-500">
+              {/* The rotating text circle */}
+              <div 
+                ref={badgeRef}
+                className="absolute inset-0 w-full h-full text-[#E0CD94] opacity-80 group-hover:opacity-100 transition-opacity duration-300"
+              >
+                <svg viewBox="0 0 100 100" className="w-full h-full overflow-visible">
+                  <path
+                    id="circlePath"
+                    d="M 50, 50 m -42, 0 a 42,42 0 1,1 84,0 a 42,42 0 1,1 -84,0"
+                    fill="transparent"
+                  />
+                  <text className="text-[12.5px] font-bold tracking-[0.2em] uppercase" fill="currentColor">
+                    <textPath href="#circlePath" startOffset="0%" textLength="260" lengthAdjust="spacingAndGlyphs">
+                      VIEW OUR WORK • VIEW OUR WORK • VIEW OUR WORK •
+                    </textPath>
+                  </text>
+                </svg>
+              </div>
+              
+              {/* 4-Pointed Star Icon in center */}
+              <div className="absolute inset-0 flex items-center justify-center text-[#E0CD94] opacity-90 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
+                <svg width="45" height="45" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <path d="M12 2L13.5 10.5L22 12L13.5 13.5L12 22L10.5 13.5L2 12L10.5 10.5L12 2Z" fill="currentColor" stroke="none" />
+                </svg>
+              </div>
             </Link>
-          </motion.div>
+
+            {/* Explore Case Studies Button positioned below the badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              className="mt-6 z-30"
+            >
+              <Link
+                to="/work/content-strategy-and-marketing"
+                className="inline-block px-6 py-3 lg:px-5 lg:py-2 rounded-lg lg:rounded-md bg-[#EFE8D0] hover:bg-white text-black text-xs md:text-sm font-bold uppercase tracking-wider transition-all duration-300 shadow-[0_5px_15px_rgba(0,0,0,0.3)] cursor-pointer text-center"
+              >
+                Explore Case Studies
+              </Link>
+            </motion.div>
+          </div>
 
         </motion.div>
         

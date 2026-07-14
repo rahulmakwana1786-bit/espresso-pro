@@ -1,0 +1,196 @@
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { services } from "../data/services";
+
+export default function ServicesPage() {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const elements = document.querySelectorAll('.service-section');
+      let currentActive = 0;
+      
+      elements.forEach((el, index) => {
+        const rect = el.getBoundingClientRect();
+        // Calculate the sticky top position in pixels for the container
+        // We consider an element active when it reaches the top half of the screen
+        const triggerPoint = window.innerHeight * 0.4;
+        
+        if (rect.top <= triggerPoint) {
+          currentActive = index;
+        }
+      });
+      
+      setActiveIndex(currentActive);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // Check on mount
+    
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  return (
+    <div className="w-full bg-[#fbf8f3] text-[#291b03] min-h-screen pt-32 pb-24 font-sans selection:bg-[#cca027] selection:text-[#fbf8f3]">
+      
+      {/* ================= HERO SECTION ================= */}
+      <section className="max-w-[1600px] mx-auto px-6 md:px-12 lg:px-20 pt-10 pb-20 border-b border-[#291b03]/10">
+        <motion.h1 
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="font-serif text-[4rem] md:text-[6rem] lg:text-[8rem] leading-[1.05] tracking-tight mb-20 max-w-4xl text-[#111]"
+        >
+          All the ways we <br /> <span className="italic font-light text-[#cca027]">move brands</span>
+        </motion.h1>
+        
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.3 }}
+          className="flex flex-col md:flex-row items-start md:gap-20 lg:gap-40"
+        >
+          <h2 className="text-xl md:text-2xl font-serif text-[#291b03]/80 mb-6 md:mb-0 w-[250px] shrink-0">
+            What we do
+          </h2>
+          <p className="text-2xl md:text-4xl lg:text-[2.5rem] leading-[1.2] font-light max-w-3xl">
+            Strategy sets the direction, design gives it form and development makes it real.
+          </p>
+        </motion.div>
+      </section>
+
+      {/* ================= MAIN CONTENT ================= */}
+      <section className="max-w-[1600px] mx-auto flex flex-col md:flex-row items-start w-full relative">
+        
+        {/* Left Column (Sticky Sidebar) */}
+        <div className="hidden md:flex flex-col w-[35%] lg:w-[30%] h-[100vh] sticky top-0 pt-32 px-6 md:px-12 lg:px-20 border-r border-[#291b03]/10 z-20">
+          {/* Category List */}
+          <ul className="flex flex-col gap-6 mb-16">
+            {services.map((service, idx) => {
+              // Extract a short name for the sidebar (e.g. "STRATEGY" instead of "Content Strategy & Marketing")
+              const shortName = service.title.split(' ')[0] === "Branding" ? "CREATIVE & DESIGN" : 
+                                service.title.split(' ')[0] === "Content" ? "STRATEGY" :
+                                service.title.split(' ')[0] === "Commercial" ? "PRODUCTION" :
+                                service.title.split(' ')[0] === "Web" ? "DEVELOPMENT" : "AI AUTOMATION";
+              
+              return (
+              <li key={service.slug}>
+                <button
+                  onClick={() => {
+                    const el = document.getElementById(`section-${idx}`);
+                    if (el) {
+                      const top = el.getBoundingClientRect().top + window.pageYOffset - 100;
+                      window.scrollTo({ top, behavior: "smooth" });
+                    }
+                  }}
+                  className={`flex items-center gap-4 text-xs md:text-sm tracking-[0.15em] uppercase font-bold text-left transition-colors duration-300 ${
+                    activeIndex === idx ? "text-[#111]" : "text-[#291b03]/30 hover:text-[#291b03]/70"
+                  }`}
+                >
+                  <div className="w-2 h-2 flex-shrink-0 flex items-center justify-center">
+                    {activeIndex === idx && (
+                      <motion.div layoutId="sidebar-active-dot" className="w-2 h-2 rounded-full bg-[#cca027]" />
+                    )}
+                  </div>
+                  {shortName}
+                </button>
+              </li>
+            )})}
+          </ul>
+
+          {/* Active Category Image */}
+          <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden shadow-2xl">
+            <AnimatePresence>
+              <motion.img
+                key={activeIndex}
+                src={services[activeIndex].image}
+                alt={services[activeIndex].title}
+                initial={{ opacity: 0, scale: 1.05 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 1.05, position: "absolute", top: 0, left: 0 }}
+                transition={{ duration: 0.6, ease: "easeInOut" }}
+                className="w-full h-full object-cover"
+              />
+            </AnimatePresence>
+          </div>
+        </div>
+
+        {/* Right Column (Scrolling Content) */}
+        <div className="w-full md:w-[65%] lg:w-[70%] flex flex-col">
+          {services.map((service, index) => (
+            <div 
+              key={service.slug}
+              id={`section-${index}`}
+              className="service-section w-full px-6 md:px-16 lg:px-24 pt-24 md:pt-32 pb-32 border-b border-[#291b03]/10 last:border-b-0 min-h-[100vh]"
+            >
+              {/* Mobile Only Header */}
+              <div className="md:hidden mb-12">
+                <p className="text-[#cca027] tracking-[0.2em] uppercase text-xs font-semibold mb-4">
+                  {service.title.split(' ')[0]}
+                </p>
+                <div className="w-full aspect-video rounded-xl overflow-hidden mb-8">
+                  <img src={service.image} alt={service.title} className="w-full h-full object-cover" />
+                </div>
+              </div>
+
+              {/* Section Content */}
+              <h2 className="font-sans text-[3rem] md:text-[5rem] lg:text-[6rem] leading-[1] font-bold tracking-tight mb-8">
+                {service.title}
+              </h2>
+              
+              <p className="text-lg md:text-xl text-[#291b03]/70 font-light max-w-2xl mb-16 leading-relaxed">
+                {service.description}
+              </p>
+
+              {/* Sub Items List */}
+              <div className="flex flex-col">
+                {service.subItems?.map((item, i) => (
+                  <div key={i} className="group border-t border-[#291b03]/20 py-6 md:py-8 flex flex-col transition-colors hover:bg-black/5 px-4 -mx-4 rounded-xl cursor-default">
+                    <div className="flex justify-between items-center w-full">
+                      <h3 className="font-mono text-sm md:text-base tracking-[0.1em] uppercase font-bold text-[#111] group-hover:text-[#cca027] transition-colors">
+                        {item.name}
+                      </h3>
+                      <span className="text-[#cca027] opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 text-xl font-light">
+                        →
+                      </span>
+                    </div>
+                    {/* Expandable Description */}
+                    <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-in-out">
+                      <div className="overflow-hidden">
+                        <p className="text-[#291b03]/60 text-sm md:text-base leading-relaxed max-w-3xl pt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                          {item.desc}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+                {/* Final bottom border */}
+                <div className="border-t border-[#291b03]/20" />
+              </div>
+
+            </div>
+          ))}
+        </div>
+
+      </section>
+
+      {/* ================= FINAL CTA ================= */}
+      <section className="max-w-[1600px] mx-auto px-6 md:px-12 lg:px-20 pt-32 pb-16 text-center flex flex-col items-center justify-center">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="bg-white rounded-3xl w-full py-24 shadow-2xl border border-black/5 flex flex-col items-center"
+        >
+          <h2 className="font-serif text-[3rem] md:text-[4.5rem] text-[#111] leading-tight mb-8">
+            Ready to move <br /> your brand forward?
+          </h2>
+          <a href="/contact" className="px-10 py-5 bg-[#D4AF37] hover:bg-[#C4A252] text-black font-bold uppercase tracking-widest text-sm rounded-full transition-transform hover:scale-105 shadow-xl">
+            Start a Project
+          </a>
+        </motion.div>
+      </section>
+    </div>
+  );
+}

@@ -15,6 +15,7 @@ import WorkDevelopment from "./pages/WorkDevelopment.jsx";
 import CampaignDetail from "./pages/CampaignDetail.jsx";
 import CustomCursor from "./components/CustomCursor.jsx";
 import Contact from "./pages/Contact.jsx";
+import ServicesPage from "./pages/ServicesPage.jsx";
 
 import About from "./pages/About.jsx";
 import IntroAnimation from "./components/IntroAnimation.jsx";
@@ -47,6 +48,7 @@ function App() {
             <Route path="/work" element={<Work />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/services" element={<ServicesPage />} />
             <Route path="/case-studies" element={<CaseStudiesPage />} />
           </Routes>
           <Footer />

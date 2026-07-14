@@ -52,11 +52,17 @@ export default function AboutUs() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="pl-6 md:pl-10 border-l-2 border-[#1a1a1a]/10 flex flex-col gap-10 max-w-md mt-4 md:mt-12"
+              className="pl-6 md:pl-10 border-l-2 border-[#1a1a1a]/10 flex flex-col gap-10 max-w-xl mt-4 md:mt-12"
             >
-              <p className="text-[#444] text-lg md:text-xl leading-relaxed font-medium">
-                We are an elite growth agency. We connect brand, content, performance, and automation. Because aesthetics without performance is just art.
-              </p>
+              <div className="text-[#444] text-lg md:text-xl leading-relaxed font-medium space-y-4">
+                <p>
+                  <strong className="text-[#1a1a1a]">Espresso Media is built to solve one problem:</strong><br/>
+                  Brands investing in marketing without seeing real business growth.
+                </p>
+                <p>
+                  We design and execute full-funnel growth systems that connect brand, content, performance, and automation. So marketing doesn't just look good, it moves inventory and drives revenue.
+                </p>
+              </div>
               
               <div className="flex flex-col gap-5">
                 <h4 className="text-[10px] uppercase tracking-widest font-bold text-[#888]">Core Capabilities</h4>

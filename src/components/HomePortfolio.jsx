@@ -1,5 +1,5 @@
-import { motion, useMotionValue, useSpring } from "framer-motion";
-import { useState, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import contentStrategyImg from "../assets/portfolio/content_strategy.png";
 import brandingImg from "../assets/portfolio/branding.png";
@@ -7,139 +7,68 @@ import commercialImg from "../assets/portfolio/commercial.png";
 import webDevImg from "../assets/portfolio/web_dev.png";
 
 export default function HomePortfolio() {
-  const leftProjects = [
+  const projects = [
     {
       id: "01",
       title: "Content Strategy & Marketing",
       image: contentStrategyImg,
-      aspectRatio: "aspect-square",
       slug: "content-strategy-and-marketing",
+    },
+    {
+      id: "02",
+      title: "Branding",
+      image: brandingImg,
+      slug: "branding-and-creative-solutions",
     },
     {
       id: "03",
       title: "Commercial Production",
       image: commercialImg,
-      aspectRatio: "aspect-square",
       slug: "commercial-production",
-    },
-  ];
-
-  const rightProjects = [
-    {
-      id: "02",
-      title: "Branding",
-      image: brandingImg,
-      aspectRatio: "aspect-square",
-      slug: "branding-and-creative-solutions",
     },
     {
       id: "04",
       title: "Web development",
       image: webDevImg,
-      aspectRatio: "aspect-square",
       slug: "web-development",
     },
   ];
 
-const PortfolioCard = ({ project }) => {
-  const containerRef = useRef(null);
-  const [isHovered, setIsHovered] = useState(false);
-  
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  
-  // Smooth spring physics for the cursor following
-  const mouseX = useSpring(x, { stiffness: 150, damping: 15, mass: 0.5 });
-  const mouseY = useSpring(y, { stiffness: 150, damping: 15, mass: 0.5 });
+  const [activeIndex, setActiveIndex] = useState(0);
 
-  const handleMouseMove = (e) => {
-    if (!containerRef.current) return;
-    const rect = containerRef.current.getBoundingClientRect();
-    x.set(e.clientX - rect.left);
-    y.set(e.clientY - rect.top);
-  };
+  useEffect(() => {
+    const handleScroll = () => {
+      const elements = document.querySelectorAll('.portfolio-item');
+      let currentActive = 0;
+      
+      elements.forEach((el, index) => {
+        const rect = el.getBoundingClientRect();
+        // Trigger when the card reaches 60% of the viewport height from the top
+        const triggerPoint = window.innerHeight * 0.6;
+        
+        if (rect.top <= triggerPoint) {
+          currentActive = index;
+        }
+      });
+      
+      setActiveIndex(currentActive);
+    };
 
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 60 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-      className={`w-full flex flex-col group`}
-    >
-      <Link to={`/work/${project.slug}`} className="block w-full">
-        <div
-          ref={containerRef}
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-          onMouseMove={handleMouseMove}
-          className={`relative w-full ${project.aspectRatio} rounded-none overflow-hidden bg-transparent transition-all duration-500 group-hover:shadow-[0_0_40px_rgba(184,115,78,0.15)] cursor-none`}
-        >
-          {/* Corner blending removed to keep the image clean */}
-
-          {/* Glow effect on hover */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#cca027]/15 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-30" />
-
-          <img
-            src={project.image}
-            alt={project.title}
-            className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-            loading="lazy"
-          />
-
-          {/* Middle Text Strip (Hover) - Size Reduced */}
-          <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 bg-white text-black text-center py-0.5 md:py-1 font-semibold text-[10px] md:text-xs tracking-widest uppercase transform scale-y-0 opacity-0 group-hover:scale-y-100 group-hover:opacity-100 transition-all duration-500 origin-center z-30 pointer-events-none">
-            {project.title}
-          </div>
-
-          {/* VIEW Button (Follows Mouse) */}
-          <motion.div 
-            className="absolute bg-white text-black px-6 py-2 rounded-full font-bold text-sm tracking-widest pointer-events-none z-50 flex items-center justify-center whitespace-nowrap shadow-lg"
-            style={{
-              left: mouseX,
-              top: mouseY,
-              translateX: "-50%",
-              translateY: "-50%",
-              opacity: isHovered ? 1 : 0,
-              scale: isHovered ? 1 : 0.5,
-            }}
-            transition={{
-              opacity: { duration: 0.2 },
-              scale: { duration: 0.2 }
-            }}
-          >
-            VIEW
-          </motion.div>
-        </div>
-      </Link>
-
-      <div className="flex justify-between items-center mt-5 px-2 text-[#C08860] tracking-widest text-sm sm:text-base">
-        <span className="font-semibold text-[#291b03] group-hover:text-[#D4AF37] transition-colors duration-300">
-          {project.title}
-        </span>
-        <span className="font-light text-[#291b03]">
-          ({project.id})
-        </span>
-      </div>
-    </motion.div>
-  );
-};
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // Check on mount
+    
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <section className="w-full bg-transparent text-[#291b03] py-24 px-4 md:px-8 lg:px-12 xl:px-16 relative overflow-hidden">
+    <section className="w-full bg-[#fbf8f3] text-[#291b03] py-24 relative">
       {/* Decorative Background Elements */}
-      <div className="absolute top-1/4 left-10 w-96 h-96 bg-[#cca027]/5 rounded-full blur-[120px] pointer-events-none z-0" />
-      <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-[#b08810]/5 rounded-full blur-[120px] pointer-events-none z-0" />
-
-
+      <div className="absolute top-1/4 left-10 w-96 h-96 bg-[#cca027]/10 rounded-full blur-[120px] pointer-events-none z-0" />
+      <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-[#b08810]/10 rounded-full blur-[120px] pointer-events-none z-0" />
 
       {/* ================= HEADING ================= */}
-      <div className="relative z-10 max-w-[1400px] mx-auto mb-24 max-sm:mb-16">
-        
-
-
-        {/* Marquee Container */}
-        <div className="w-full overflow-hidden flex whitespace-nowrap relative pb-10 border-b border-[#291b03]/20">
+      <div className="relative z-10 w-full mb-24 overflow-hidden">
+        <div className="w-full flex whitespace-nowrap relative pb-10 border-b border-[#291b03]/20">
           <motion.div
             className="flex items-center gap-12 shrink-0 pr-12"
             animate={{ x: ["0%", "-50%"] }}
@@ -157,20 +86,82 @@ const PortfolioCard = ({ project }) => {
         </div>
       </div>
 
-      {/* ================= PORTFOLIO GRID ================= */}
-      <div className="relative z-10 max-w-[1400px] mx-auto flex flex-col md:flex-row items-start justify-between w-full gap-16 md:gap-8">
+      {/* ================= STICKY PORTFOLIO GRID ================= */}
+      <div className="relative z-10 max-w-[1600px] mx-auto flex flex-col md:flex-row items-start w-full px-4 md:px-8 lg:px-12 xl:px-16">
         
-        {/* Left Column */}
-        <div className="w-full md:w-[48%] flex flex-col gap-12 md:gap-16 lg:gap-20">
-          {leftProjects.map((project, index) => (
-            <PortfolioCard key={index} project={project} />
-          ))}
+        {/* Left Column (Sticky Text) */}
+        <div className="hidden md:flex w-[40%] h-[80vh] sticky top-[10vh] flex-col justify-center pr-12 lg:pr-20 z-20">
+          <div>
+            <p className="text-[#cca027] tracking-[0.2em] uppercase text-sm mb-8 font-semibold">Featured Work</p>
+            <div className="min-h-[250px] lg:min-h-[300px] relative w-full">
+              <AnimatePresence>
+                <motion.div
+                  key={activeIndex}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20, position: "absolute", top: 0, left: 0 }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                  className="flex flex-col gap-6 w-full"
+                >
+                  <h3 className="font-serif text-[3.5rem] lg:text-[4.5rem] xl:text-[5.5rem] leading-[1.05] text-[#111]">
+                    {projects[activeIndex].title}
+                  </h3>
+                  
+                  <div className="flex items-center gap-6 mt-6">
+                    <span className="text-2xl font-light text-black/40">
+                      {projects[activeIndex].id}
+                    </span>
+                    <div className="h-[1px] w-16 bg-black/20" />
+                    <Link 
+                      to={`/work/${projects[activeIndex].slug}`}
+                      className="text-sm font-bold uppercase tracking-wider hover:text-[#cca027] transition-colors"
+                    >
+                      View Case Study
+                    </Link>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+          </div>
         </div>
 
-        {/* Right Column (Staggered) */}
-        <div className="w-full md:w-[48%] flex flex-col gap-12 md:gap-16 lg:gap-20 md:mt-[15%]">
-          {rightProjects.map((project, index) => (
-            <PortfolioCard key={index} project={project} />
+        {/* Right Column (Stacked Scrolling Images) */}
+        <div className="w-full md:w-[60%] flex flex-col pb-32">
+          {projects.map((project, index) => (
+            <div 
+              key={index} 
+              data-index={index} 
+              className="portfolio-item w-full flex flex-col sticky"
+              style={{ top: `calc(10vh + ${index * 30}px)`, zIndex: index }}
+            >
+              <div className="bg-[#fbf8f3] pt-8 md:pt-0"> {/* Background wrapper to cover previous cards seamlessly */}
+                {/* Mobile Title (Hidden on Desktop) */}
+                <div className="md:hidden mb-6 flex flex-col gap-3">
+                   <p className="text-[#cca027] tracking-[0.2em] uppercase text-xs font-semibold">Featured Work {project.id}</p>
+                   <h3 className="font-serif text-4xl leading-tight text-[#111]">{project.title}</h3>
+                </div>
+
+                <Link to={`/work/${project.slug}`} className={`block w-full group overflow-hidden relative rounded-2xl bg-[#111] shadow-[0_-10px_40px_rgba(0,0,0,0.15)] ${index === projects.length - 1 ? 'mb-0' : 'md:mb-[40vh]'}`}>
+                  <div className="w-full aspect-[4/5] md:aspect-square xl:aspect-[5/4] relative overflow-hidden">
+                     <img
+                       src={project.image}
+                       alt={project.title}
+                       className="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
+                       loading="lazy"
+                     />
+                     {/* Hover Overlay */}
+                     <div className="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-colors duration-500" />
+                     
+                     {/* View Button on hover */}
+                     <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                       <span className="bg-white text-black px-8 py-4 rounded-full font-bold text-sm tracking-widest pointer-events-none transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 shadow-xl">
+                         VIEW PROJECT
+                       </span>
+                     </div>
+                  </div>
+                </Link>
+              </div>
+            </div>
           ))}
         </div>
         

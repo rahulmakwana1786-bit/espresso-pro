@@ -34,10 +34,6 @@ export default function Navbar() {
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
 
   const handleNavClick = (item) => {
-    if (item.name === "Services") {
-      setMobileServicesOpen(!mobileServicesOpen);
-      return;
-    }
     setOpen(false);
     if (item.isRoute) {
       navigate(item.href);
@@ -133,20 +129,7 @@ export default function Navbar() {
                   }`} />
                 </button>
 
-                {/* Dropdown for Services */}
-                {item.name === "Services" && (
-                  <div className="absolute top-[100%] left-1/2 -translate-x-1/2 w-[280px] bg-white/60 backdrop-blur-xl rounded-2xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 overflow-hidden py-3">
-                    {services.map((service) => (
-                      <Link
-                        key={service.slug}
-                        to={`/service/${service.slug}`}
-                        className="block px-5 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-black transition-colors font-medium border-b border-gray-50 last:border-b-0"
-                      >
-                        {service.title}
-                      </Link>
-                    ))}
-                  </div>
-                )}
+
               </div>
             );
           })}
@@ -221,37 +204,7 @@ export default function Navbar() {
                       }`}
                     >
                       {item.name}
-                      {item.name === "Services" && (
-                        <span className="text-xs">{mobileServicesOpen ? "▲" : "▼"}</span>
-                      )}
                     </motion.button>
-
-                    {item.name === "Services" && (
-                      <AnimatePresence>
-                        {mobileServicesOpen && (
-                          <motion.div
-                            initial={{ height: 0, opacity: 0 }}
-                            animate={{ height: "auto", opacity: 1 }}
-                            exit={{ height: 0, opacity: 0 }}
-                            className="overflow-hidden bg-gray-50 rounded-xl mx-2 mt-1"
-                          >
-                            {services.map((service) => (
-                              <Link
-                                key={service.slug}
-                                to={`/service/${service.slug}`}
-                                onClick={() => {
-                                  setOpen(false);
-                                  setMobileServicesOpen(false);
-                                }}
-                                className="block px-6 py-3 text-sm text-gray-600 hover:text-black border-b border-gray-100 last:border-b-0"
-                              >
-                                {service.title}
-                              </Link>
-                            ))}
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    )}
                   </div>
                 );
               })}

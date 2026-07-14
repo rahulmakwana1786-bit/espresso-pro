@@ -23,8 +23,7 @@ export default function OurProcess() {
               How We Work
             </h2>
             <h3 className="text-5xl md:text-7xl lg:text-[7rem] font-serif leading-[1] tracking-tighter">
-              Our Proven <br />
-              <span className="text-black/30 italic pr-8">Process.</span>
+              Our <span className="text-black/30 italic pr-8">Process.</span>
             </h3>
           </div>
           <div className="max-w-md text-black/50 text-lg md:text-xl font-light leading-relaxed">
