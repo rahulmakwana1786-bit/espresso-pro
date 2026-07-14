@@ -38,8 +38,9 @@ export default function AboutUs() {
                 The Espresso Difference
               </h2>
               <h3 className="text-[13vw] lg:text-[5.5vw] font-serif leading-[0.85] tracking-tighter uppercase font-bold text-[#1a1a1a]">
-                Engineering <br/>
-                Your <span className="text-[#cca027] italic relative">Growth.
+                Espresso Media <br/>
+                is built to solve <br/>
+                <span className="text-[#cca027] italic relative">one problem.
                   <svg className="absolute -bottom-2 left-0 w-full h-3 text-[#cca027]/30" viewBox="0 0 100 20" preserveAspectRatio="none">
                     <path d="M0 10 Q 50 20 100 10" stroke="currentColor" strokeWidth="4" fill="none" />
                   </svg>
@@ -56,8 +57,7 @@ export default function AboutUs() {
             >
               <div className="text-[#444] text-lg md:text-xl leading-relaxed font-medium space-y-4">
                 <p>
-                  <strong className="text-[#1a1a1a]">Espresso Media is built to solve one problem:</strong><br/>
-                  Brands investing in marketing without seeing real business growth.
+                  <strong className="text-[#1a1a1a]">Brands investing in marketing</strong> without seeing real business growth.
                 </p>
                 <p>
                   We design and execute full-funnel growth systems that connect brand, content, performance, and automation. So marketing doesn't just look good, it moves inventory and drives revenue.

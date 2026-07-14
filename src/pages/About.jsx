@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { motion, useScroll, useTransform, useInView } from "framer-motion";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { Link } from "react-router-dom";
 import img1 from "../assets/about_1.png";
 import img2 from "../assets/about_2.png";
@@ -22,19 +22,39 @@ function FadeIn({ children, delay = 0, className = "" }) {
   );
 }
 
+function ScrollRevealText({ text }) {
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start 70%", "start 40%"],
+  });
+
+  const words = text.split(" ");
+
+  return (
+    <p ref={containerRef} className="font-sans text-xl md:text-2xl lg:text-3xl leading-[1.4] font-medium text-[#111]/20 flex flex-wrap gap-x-[0.3em]">
+      {words.map((word, i) => {
+        const start = i / words.length;
+        const end = start + (1 / words.length);
+        const color = useTransform(
+          scrollYProgress, 
+          [start, end], 
+          ["rgba(17,17,17,0.2)", "rgba(17,17,17,1)"]
+        );
+        return (
+          <motion.span key={i} style={{ color }}>
+            {word}
+          </motion.span>
+        );
+      })}
+    </p>
+  );
+}
+
 export default function About() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"],
-  });
-
-  const y1 = useTransform(scrollYProgress, [0, 1], [0, 200]);
-  const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
 
   const values = [
     {
@@ -52,100 +72,76 @@ export default function About() {
   ];
 
   return (
-    <div ref={containerRef} className="w-full bg-[#fbf8f3] relative overflow-clip font-sans text-[#291b03] selection:bg-[#cca027] selection:text-white">
+    <div className="w-full font-sans bg-[#fbf8f3] text-[#111] selection:bg-[#cca027] selection:text-white">
       
-      {/* Background ambient light */}
-      <div className="absolute top-0 left-[-10%] w-[50%] h-[50vh] rounded-full bg-[#cca027]/5 blur-[150px] pointer-events-none" />
-
       {/* ================= HERO SECTION ================= */}
-      <section className="relative min-h-screen flex flex-col justify-center pt-32 pb-20 px-6 md:px-16 max-w-[1600px] mx-auto z-10">
-        <motion.div style={{ y: y1, opacity }} className="flex flex-col gap-8 max-w-5xl">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
+      <section className="min-h-screen flex flex-col justify-center items-center pt-32 pb-24 px-6 md:px-12 lg:px-24 xl:px-32 relative text-center overflow-hidden">
+        <div className="w-full max-w-5xl mx-auto flex flex-col items-center gap-12 relative z-10">
+          <motion.div 
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
-            className="flex items-center gap-4"
+            className="flex items-center justify-center gap-3 mb-4"
           >
-            <div className="w-12 h-[1px] bg-[#cca027]" />
-            <h4 className="text-[#cca027] uppercase tracking-[0.3em] text-xs md:text-sm font-bold">
-              Our Philosophy
-            </h4>
+            <div className="w-2 h-2 rounded-full bg-[#cca027]" />
+            <p className="text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] text-[#111]/50">Our Philosophy</p>
           </motion.div>
           
           <motion.h1 
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.2 }}
-            className="text-[clamp(3.5rem,8vw,7rem)] leading-[1.05] font-serif font-bold tracking-tight text-[#111]"
+            transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+            className="font-sans text-[clamp(4rem,7vw,7rem)] leading-[0.9] tracking-tighter font-bold text-[#111]"
           >
-            Every great brand starts with the right <span className="italic text-[#cca027] font-light">foundation.</span>
+            Every great brand starts with the right foundation.
           </motion.h1>
           
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0.6 }}
-            className="flex flex-col md:flex-row gap-10 mt-12 md:mt-20 items-start"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
+            className="text-xl md:text-2xl text-[#111]/70 leading-relaxed max-w-3xl font-light mx-auto"
           >
-            <p className="text-xl md:text-2xl lg:text-3xl max-w-3xl leading-relaxed font-light text-[#291b03]/80">
+            <p>
               Whether it's crafting the perfect espresso or building a brand, exceptional results come from precision, consistency, and getting every element to work together.
             </p>
           </motion.div>
-        </motion.div>
-      </section>
-
-      {/* ================= THE METAPHOR SECTION ================= */}
-      <section className="relative py-24 md:py-40">
-        <div className="w-full h-[60vh] md:h-[80vh] relative overflow-hidden">
-          <div className="absolute inset-0 bg-black/40 z-10" />
-          <motion.img 
-            src={img1} 
-            alt="Espresso making" 
-            className="w-full h-full object-cover grayscale"
-            initial={{ scale: 1.1 }}
-            whileInView={{ scale: 1 }}
-            transition={{ duration: 2, ease: "easeOut" }}
-            viewport={{ once: true }}
-          />
-          
-          <div className="absolute inset-0 z-20 flex items-center justify-center px-6 text-center">
-            <FadeIn className="max-w-4xl">
-              <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif font-light leading-tight text-white">
-                "Just like a great espresso, effective marketing isn't about more — it's about getting the right elements in <span className="italic font-bold text-[#cca027]">perfect balance.</span>"
-              </h2>
-            </FadeIn>
-          </div>
         </div>
       </section>
 
-      {/* ================= THE STANDARD SECTION ================= */}
-      <section className="relative py-32 px-6 md:px-16 max-w-[1600px] mx-auto">
-        <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
-          <div className="w-full lg:w-1/2 flex flex-col gap-10">
-            <FadeIn>
-              <h2 className="text-4xl md:text-6xl font-serif font-bold leading-tight text-[#111]">
-                A single shot is carefully crafted to deliver <span className="italic text-[#cca027] font-light">maximum impact.</span>
+      {/* ================= THE METAPHOR SECTION ================= */}
+      <section className="py-32 md:py-48 px-6 md:px-12 lg:px-24 xl:px-32 relative flex flex-col items-center text-center">
+        <div className="w-full max-w-5xl mx-auto flex flex-col items-center gap-16 md:gap-24">
+          <FadeIn>
+            <div className="flex items-center justify-center gap-3">
+              <div className="w-2 h-2 rounded-full bg-[#cca027]" />
+              <p className="text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] text-[#111]/50">About</p>
+            </div>
+          </FadeIn>
+          
+          <div className="flex flex-col items-center gap-16">
+            <FadeIn delay={0.2}>
+              <h2 className="font-serif text-[clamp(2.5rem,4.5vw,4.5rem)] leading-[1.1] tracking-tight text-[#111] max-w-5xl mx-auto">
+                "Just like a great espresso, effective marketing isn't about more — it's about getting the right elements in <span className="italic text-[#cca027]">perfect balance.</span>"
               </h2>
             </FadeIn>
             
-            <FadeIn delay={0.2} className="flex flex-col gap-6 text-[#291b03]/70 text-lg md:text-xl leading-relaxed font-light">
+            <FadeIn delay={0.4} className="flex flex-col items-center gap-6 text-[#111]/75 text-lg md:text-xl lg:text-2xl leading-[1.6] font-sans max-w-3xl mx-auto">
               <p>
-                Through precision, consistency, and quality. That's the standard we hold ourselves to. We believe great marketing follows the same principle.
+                A single shot is carefully crafted to deliver maximum impact through precision, consistency, and quality. That's the standard we hold ourselves to. We believe great marketing follows the same principle.
               </p>
               <p>
                 It's not about producing endless content or chasing every trend. It's about bringing strategy, creativity, and execution together into a focused system that delivers results.
               </p>
-              <p className="font-bold text-[#111]">
+              <p className="font-medium text-[#111] text-xl md:text-2xl lg:text-3xl mt-6">
                 Every brand has its own blend, and our role is to find it, refine it, and deliver it with consistency.
               </p>
-            </FadeIn>
-          </div>
-          
-          <div className="w-full lg:w-1/2">
-            <FadeIn delay={0.4}>
-              <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl group">
-                <div className="absolute inset-0 bg-[#cca027]/10 z-10 group-hover:bg-transparent transition-colors duration-700" />
-                <img src={img2} alt="Our process" className="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105" />
+              
+              {/* View Work Button */}
+              <div className="mt-12">
+                <Link to="/work" className="inline-flex items-center justify-center px-8 py-4 bg-[#111] text-white rounded-full font-sans font-medium text-sm md:text-base transition-transform duration-300 hover:scale-105">
+                  View Our Work
+                </Link>
               </div>
             </FadeIn>
           </div>
@@ -153,52 +149,113 @@ export default function About() {
       </section>
 
       {/* ================= VALUES SECTION ================= */}
-      <section className="relative py-32 px-6 md:px-16 bg-[#111] text-white">
-        <div className="max-w-[1600px] mx-auto">
-          <FadeIn>
-            <div className="flex items-center gap-6 mb-16">
-              <h2 className="text-4xl md:text-6xl font-serif font-bold tracking-tight">
-                Our Values
-              </h2>
-              <div className="flex-1 h-[1px] bg-white/20" />
-            </div>
-          </FadeIn>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 lg:gap-16">
+      <section className="py-32 pb-48 relative">
+        {/* Subtle separator */}
+        <div className="absolute top-0 left-6 right-6 md:left-12 md:right-12 lg:left-24 lg:right-24 xl:left-32 xl:right-32 h-[1px] bg-[#111]/10" />
+        
+        <div className="w-full max-w-[1600px] mx-auto px-6 md:px-12 lg:px-24 xl:px-32 flex flex-col pt-10">
+          {/* Section Label */}
+          <div className="mb-20 md:mb-32">
+            <FadeIn>
+              <div className="flex items-center justify-center gap-3">
+                <div className="w-2 h-2 rounded-full bg-[#cca027]" />
+                <p className="text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] text-[#111]/50">Core Values</p>
+              </div>
+            </FadeIn>
+          </div>
+          
+          <div className="flex flex-col">
             {values.map((value, index) => (
-              <FadeIn key={value.title} delay={0.2 + (index * 0.1)}>
-                <div className="flex flex-col group h-full">
-                  <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center mb-8 text-sm font-bold tracking-widest text-[#cca027] group-hover:bg-[#cca027] group-hover:text-black transition-colors duration-500">
-                    0{index + 1}
-                  </div>
-                  <h3 className="text-3xl md:text-4xl font-serif font-bold mb-6 group-hover:text-[#cca027] transition-colors duration-300">
-                    {value.title}
-                  </h3>
-                  <div className="w-full h-[1px] bg-white/20 mb-6 group-hover:bg-[#cca027] transition-colors duration-500" />
-                  <p className="text-white/60 text-lg leading-relaxed font-light">
-                    {value.desc}
-                  </p>
+              <div key={value.title} className="flex flex-col md:flex-row items-start relative border-t border-[#111]/10 py-16 md:py-24">
+                {/* Left Side: Number and Title */}
+                <div className="w-full md:w-1/3 lg:w-1/4 flex-shrink-0 sticky top-32 mb-8 md:mb-0">
+                  <p className="font-sans text-lg font-bold text-[#111]/40 mb-4 leading-none">0{index + 1}</p>
+                  <h3 className="font-sans text-4xl md:text-5xl font-medium text-[#111] tracking-tight leading-none">{value.title}</h3>
                 </div>
-              </FadeIn>
+                
+                {/* Right Side: Scroll Reveal Text with Vertical Line */}
+                <div className="w-full md:w-2/3 lg:w-3/4 md:border-l md:border-[#111]/10 md:pl-12 lg:pl-24 pt-2 md:pt-0">
+                  <ScrollRevealText text={value.desc} />
+                </div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
+      {/* ================= IMPACT SECTION ================= */}
+      <section className="py-32 pb-48 px-6 md:px-12 lg:px-24 xl:px-32 relative">
+        <div className="absolute top-0 left-6 right-6 md:left-12 md:right-12 lg:left-24 lg:right-24 xl:left-32 xl:right-32 h-[1px] bg-[#111]/10" />
+        
+        <div className="w-full max-w-[1600px] mx-auto flex flex-col items-center pt-20">
+          {/* Section Label */}
+          <div className="mb-20 md:mb-32">
+            <FadeIn>
+              <div className="flex items-center justify-center gap-3">
+                <div className="w-2 h-2 rounded-full bg-[#cca027]" />
+                <p className="text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] text-[#111]/50">Impact</p>
+              </div>
+            </FadeIn>
+          </div>
+          
+          {/* Right Content */}
+          <div className="w-full">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <FadeIn delay={0.2} className="h-full">
+                <div className="bg-white shadow-[0_10px_40px_rgba(0,0,0,0.04)] p-10 md:p-12 rounded-2xl h-full flex flex-col min-h-[350px] group transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] border border-[#111]/5">
+                  <h3 className="font-sans text-6xl md:text-[5rem] lg:text-[6rem] leading-[0.9] font-bold text-[#111] tracking-tighter mb-auto group-hover:text-[#cca027] transition-colors duration-300">2020</h3>
+                  <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#111]/50 mt-16 group-hover:text-[#111] transition-colors duration-300">Founded</p>
+                </div>
+              </FadeIn>
+              <FadeIn delay={0.3} className="h-full">
+                <div className="bg-white shadow-[0_10px_40px_rgba(0,0,0,0.04)] p-10 md:p-12 rounded-2xl h-full flex flex-col min-h-[350px] group transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] border border-[#111]/5">
+                  <h3 className="font-sans text-6xl md:text-[5rem] lg:text-[6rem] leading-[0.9] font-bold text-[#111] tracking-tighter mb-auto group-hover:text-[#cca027] transition-colors duration-300">5.0/5</h3>
+                  <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#111]/50 mt-16 group-hover:text-[#111] transition-colors duration-300">Client Ratings</p>
+                </div>
+              </FadeIn>
+              <FadeIn delay={0.4} className="h-full">
+                <div className="bg-white shadow-[0_10px_40px_rgba(0,0,0,0.04)] p-10 md:p-12 rounded-2xl h-full flex flex-col min-h-[350px] group transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] border border-[#111]/5">
+                  <h3 className="font-sans text-6xl md:text-[5rem] lg:text-[6rem] leading-[0.9] font-bold text-[#111] tracking-tighter mb-auto group-hover:text-[#cca027] transition-colors duration-300">100+</h3>
+                  <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#111]/50 mt-16 group-hover:text-[#111] transition-colors duration-300">Projects Shipped</p>
+                </div>
+              </FadeIn>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ================= FINAL CTA ================= */}
-      <section className="relative py-40 flex flex-col items-center justify-center text-center px-6 z-10 bg-[#fbf8f3]">
-        <FadeIn>
-          <h2 className="text-[3rem] md:text-[5rem] lg:text-[7rem] font-serif font-bold tracking-tighter mb-12 text-[#111] leading-[1]">
-            Ready to <span className="italic text-[#cca027] font-light">brew</span> <br/> something great?
-          </h2>
-        </FadeIn>
-        <FadeIn delay={0.2}>
-          <Link to="/contact" className="group relative inline-flex items-center justify-center px-12 py-6 bg-[#111] text-white rounded-full overflow-hidden w-fit transition-transform hover:scale-105 shadow-2xl text-sm uppercase tracking-widest font-bold">
-            <span className="relative z-10 group-hover:text-[#cca027] transition-colors duration-500">
-              Start a Project
-            </span>
-          </Link>
-        </FadeIn>
+      <section className="bg-white py-40 px-6 md:px-12 lg:px-24 xl:px-32 rounded-t-[3rem] -mt-12 relative z-20 shadow-[0_-20px_50px_rgba(0,0,0,0.03)] border-t border-[#111]/5">
+        <div className="w-full max-w-[1600px] mx-auto flex flex-col md:flex-row gap-12 md:gap-24 items-center">
+          {/* Left Label */}
+          <div className="w-full md:w-1/4 flex-shrink-0 hidden md:block">
+            <FadeIn>
+              <div className="flex items-center gap-3">
+                <div className="w-2 h-2 rounded-full bg-[#cca027]" />
+                <p className="text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] text-[#111]/50">Next Steps</p>
+              </div>
+            </FadeIn>
+          </div>
+          
+          {/* Right Content */}
+          <div className="w-full md:w-3/4 flex flex-col items-start gap-12 md:gap-16">
+            <FadeIn delay={0.2}>
+              <h2 className="font-sans text-[clamp(3.5rem,7vw,7.5rem)] leading-[0.95] tracking-tight font-bold text-[#111]">
+                Ready to brew <br/> something <span className="italic text-[#cca027] font-serif font-light">great?</span>
+              </h2>
+            </FadeIn>
+            <FadeIn delay={0.4}>
+              <Link to="/contact" className="group flex items-center gap-4 text-xs font-bold uppercase tracking-[0.2em] text-[#111] hover:text-[#cca027] transition-colors">
+                <div className="w-16 h-16 rounded-full border border-[#111]/20 flex items-center justify-center group-hover:bg-[#cca027] group-hover:border-[#cca027] group-hover:text-white transition-all duration-300">
+                  <svg className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </div>
+                Start a Project
+              </Link>
+            </FadeIn>
+          </div>
+        </div>
       </section>
       
     </div>

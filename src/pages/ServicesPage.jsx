@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { services } from "../data/services";
 
@@ -113,6 +114,15 @@ export default function ServicesPage() {
               />
             </AnimatePresence>
           </div>
+          
+          <div className="mt-6 flex items-center justify-center">
+            <Link to="/work" className="group flex items-center gap-2 text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] text-[#291b03]/50 hover:text-[#cca027] transition-colors">
+              View Work
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="transform group-hover:translate-x-1 transition-transform">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </Link>
+          </div>
         </div>
 
         {/* Right Column (Scrolling Content) */}
@@ -175,19 +185,23 @@ export default function ServicesPage() {
       </section>
 
       {/* ================= FINAL CTA ================= */}
-      <section className="max-w-[1600px] mx-auto px-6 md:px-12 lg:px-20 pt-32 pb-16 text-center flex flex-col items-center justify-center">
+      <section className="max-w-[1600px] mx-auto px-6 md:px-12 lg:px-20 py-32 md:py-48 text-center flex flex-col items-center justify-center border-t border-[#291b03]/10 mt-16">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="bg-white rounded-3xl w-full py-24 shadow-2xl border border-black/5 flex flex-col items-center"
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="flex flex-col items-center max-w-5xl"
         >
-          <h2 className="font-serif text-[3rem] md:text-[4.5rem] text-[#111] leading-tight mb-8">
-            Ready to move <br /> your brand forward?
+          <h2 className="font-serif text-[4rem] md:text-[7rem] lg:text-[8rem] text-[#111] leading-[0.9] tracking-tighter mb-16">
+            Ready to <span className="italic text-black/30 font-light">move</span> <br /> your brand?
           </h2>
-          <a href="/contact" className="px-10 py-5 bg-[#D4AF37] hover:bg-[#C4A252] text-black font-bold uppercase tracking-widest text-sm rounded-full transition-transform hover:scale-105 shadow-xl">
-            Start a Project
+          
+          <a href="/contact" className="group relative inline-flex items-center justify-center px-10 py-5 bg-transparent border-2 border-[#111] text-[#111] font-bold uppercase tracking-widest text-xs md:text-sm rounded-full overflow-hidden transition-colors hover:border-transparent">
+            <div className="absolute inset-0 w-full h-full bg-[#111] -translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[0.19,1,0.22,1]" />
+            <span className="relative z-10 group-hover:text-white transition-colors duration-500">
+              Start a Project
+            </span>
           </a>
         </motion.div>
       </section>

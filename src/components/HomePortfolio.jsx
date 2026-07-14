@@ -65,26 +65,29 @@ export default function HomePortfolio() {
       {/* Decorative Background Elements */}
       <div className="absolute top-1/4 left-10 w-96 h-96 bg-[#cca027]/10 rounded-full blur-[120px] pointer-events-none z-0" />
       <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-[#b08810]/10 rounded-full blur-[120px] pointer-events-none z-0" />
-
       {/* ================= HEADING ================= */}
-      <div className="relative z-10 w-full mb-24 overflow-hidden">
-        <div className="w-full flex whitespace-nowrap relative pb-10 border-b border-[#291b03]/20">
-          <motion.div
-            className="flex items-center gap-12 shrink-0 pr-12"
-            animate={{ x: ["0%", "-50%"] }}
-            transition={{ ease: "linear", duration: 25, repeat: Infinity }}
-          >
-            {[...Array(4)].map((_, i) => (
-              <h2
-                key={i}
-                className="font-sans text-[clamp(4rem,12vw,10rem)] leading-none font-bold tracking-tighter text-[#cca027]"
-              >
-                Works Featured
-              </h2>
-            ))}
-          </motion.div>
+      <div className="relative z-10 w-full mb-24 flex justify-center">
+        <div className="max-w-[1600px] w-full mx-auto px-12 md:px-24 lg:px-48 xl:px-64 overflow-hidden">
+          <div className="w-full flex whitespace-nowrap relative pt-10 pb-10 border-t border-b border-[#291b03]/20">
+            <motion.div
+              className="flex items-center gap-12 shrink-0 pr-12"
+              animate={{ x: ["0%", "-50%"] }}
+              transition={{ ease: "linear", duration: 25, repeat: Infinity }}
+            >
+              {[...Array(4)].map((_, i) => (
+                <h2
+                  key={i}
+                  className="font-sans text-[clamp(4rem,12vw,10rem)] leading-none font-bold tracking-tighter text-[#cca027]"
+                >
+                  Featured Work
+                </h2>
+              ))}
+            </motion.div>
+          </div>
         </div>
       </div>
+
+
 
       {/* ================= STICKY PORTFOLIO GRID ================= */}
       <div className="relative z-10 max-w-[1600px] mx-auto flex flex-col md:flex-row items-start w-full px-4 md:px-8 lg:px-12 xl:px-16">
