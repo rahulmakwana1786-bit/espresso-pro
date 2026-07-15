@@ -67,10 +67,10 @@ export default function HomePortfolio() {
       <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-[#b08810]/10 rounded-full blur-[120px] pointer-events-none z-0" />
       {/* ================= HEADING ================= */}
       <div className="relative z-10 w-full mb-24 flex justify-center">
-        <div className="max-w-[1600px] w-full mx-auto px-12 md:px-24 lg:px-48 xl:px-64 overflow-hidden">
+        <div className="max-w-[1600px] w-full mx-auto px-4 md:px-8 overflow-hidden">
           <div className="w-full flex whitespace-nowrap relative pt-10 pb-10 border-t border-b border-[#291b03]/20">
             <motion.div
-              className="flex items-center gap-12 shrink-0 pr-12"
+              className="flex items-center gap-32 shrink-0 pr-32"
               animate={{ x: ["0%", "-50%"] }}
               transition={{ ease: "linear", duration: 25, repeat: Infinity }}
             >

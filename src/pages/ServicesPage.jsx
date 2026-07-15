@@ -32,10 +32,52 @@ export default function ServicesPage() {
   }, []);
 
   return (
-    <div className="w-full bg-[#fbf8f3] text-[#291b03] min-h-screen pt-32 pb-24 font-sans selection:bg-[#cca027] selection:text-[#fbf8f3]">
+    <div className="w-full bg-[#fbf8f3] text-[#291b03] min-h-screen pt-32 pb-24 font-sans selection:bg-[#cca027] selection:text-[#fbf8f3] relative overflow-hidden">
       
+      {/* ================= DECORATIVE TOP WAVES ================= */}
+      <div className="absolute top-0 left-0 w-full h-[50vh] md:h-[60vh] pointer-events-none z-0 mix-blend-multiply [mask-image:linear-gradient(to_bottom,black_0%,transparent_100%)] overflow-hidden">
+        
+        {/* Scrolling Wave Container (Flows left to right) */}
+        <motion.div 
+          animate={{ x: ["-50%", "0%"] }}
+          transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+          className="absolute top-0 left-0 w-[200%] h-full"
+        >
+          {/* Blue - Block 1 */}
+          <motion.div 
+            animate={{ y: ["-10%", "10%", "-10%"] }}
+            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-[0%] left-[-5%] w-[40%] h-[80%] bg-[#0f172a] rounded-[100%] blur-[90px] opacity-90" 
+          />
+          
+          {/* Gold - Block 1 */}
+          <motion.div 
+            animate={{ y: ["10%", "-10%", "10%"] }}
+            transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-[20%] left-[25%] w-[40%] h-[70%] bg-[#b8860b] rounded-[100%] blur-[90px] opacity-85" 
+          />
+          
+          {/* Blue - Block 2 (Seamless loop copy) */}
+          <motion.div 
+            animate={{ y: ["-10%", "10%", "-10%"] }}
+            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-[0%] left-[45%] w-[40%] h-[80%] bg-[#0f172a] rounded-[100%] blur-[90px] opacity-90" 
+          />
+          
+          {/* Gold - Block 2 (Seamless loop copy) */}
+          <motion.div 
+            animate={{ y: ["10%", "-10%", "10%"] }}
+            transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-[20%] left-[75%] w-[40%] h-[70%] bg-[#b8860b] rounded-[100%] blur-[90px] opacity-85" 
+          />
+        </motion.div>
+        
+        {/* Noise overlay for texture */}
+        <div className="absolute inset-0 opacity-[0.35] mix-blend-overlay" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.8%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }}></div>
+      </div>
+
       {/* ================= HERO SECTION ================= */}
-      <section className="max-w-[1600px] mx-auto px-6 md:px-12 lg:px-20 pt-10 pb-20 border-b border-[#291b03]/10">
+      <section className="max-w-[1600px] mx-auto px-6 md:px-12 lg:px-20 pt-10 pb-20 border-b border-[#291b03]/10 relative z-10">
         <motion.h1 
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -115,7 +157,7 @@ export default function ServicesPage() {
             </AnimatePresence>
           </div>
           
-          <div className="mt-6 flex items-center justify-center">
+          <div className="mt-6 flex items-center justify-start">
             <Link to="/work" className="group flex items-center gap-2 text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] text-[#291b03]/50 hover:text-[#cca027] transition-colors">
               View Work
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="transform group-hover:translate-x-1 transition-transform">

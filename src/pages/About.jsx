@@ -75,7 +75,14 @@ export default function About() {
     <div className="w-full font-sans bg-[#fbf8f3] text-[#111] selection:bg-[#cca027] selection:text-white">
       
       {/* ================= HERO SECTION ================= */}
-      <section className="min-h-screen flex flex-col justify-center items-center pt-32 pb-24 px-6 md:px-12 lg:px-24 xl:px-32 relative text-center overflow-hidden">
+      <section className="min-h-[70vh] flex flex-col justify-center items-center pt-40 pb-12 px-6 md:px-12 lg:px-24 xl:px-32 relative text-center overflow-hidden">
+        
+        {/* Decorative Golden Shape on Top Right */}
+        <div className="absolute top-[-40%] right-[-20%] w-[1200px] h-[1200px] bg-[#d9ad4c] rounded-full blur-[80px] pointer-events-none z-0 opacity-100" />
+        
+        {/* Noise overlay for texture */}
+        <div className="absolute inset-0 opacity-[0.5] pointer-events-none z-0 mix-blend-overlay" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%221.5%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }}></div>
+
         <div className="w-full max-w-5xl mx-auto flex flex-col items-center gap-12 relative z-10">
           <motion.div 
             initial={{ opacity: 0, y: -20 }}
@@ -110,46 +117,59 @@ export default function About() {
       </section>
 
       {/* ================= THE METAPHOR SECTION ================= */}
-      <section className="py-32 md:py-48 px-6 md:px-12 lg:px-24 xl:px-32 relative flex flex-col items-center text-center">
-        <div className="w-full max-w-5xl mx-auto flex flex-col items-center gap-16 md:gap-24">
+      <section className="pt-16 pb-32 md:pt-24 md:pb-40 px-6 md:px-12 lg:px-24 xl:px-32 relative">
+        <div className="w-full max-w-[1600px] mx-auto flex flex-col gap-16 md:gap-24">
+          
           <FadeIn>
-            <div className="flex items-center justify-center gap-3">
+            <div className="flex items-center gap-3">
               <div className="w-2 h-2 rounded-full bg-[#cca027]" />
-              <p className="text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] text-[#111]/50">About</p>
+              <p className="text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] text-[#111]/50">The Standard</p>
             </div>
           </FadeIn>
           
-          <div className="flex flex-col items-center gap-16">
-            <FadeIn delay={0.2}>
-              <h2 className="font-serif text-[clamp(2.5rem,4.5vw,4.5rem)] leading-[1.1] tracking-tight text-[#111] max-w-5xl mx-auto">
-                "Just like a great espresso, effective marketing isn't about more — it's about getting the right elements in <span className="italic text-[#cca027]">perfect balance.</span>"
-              </h2>
-            </FadeIn>
+          <div className="flex flex-col lg:flex-row items-start justify-between gap-16 lg:gap-24">
             
-            <FadeIn delay={0.4} className="flex flex-col items-center gap-6 text-[#111]/75 text-lg md:text-xl lg:text-2xl leading-[1.6] font-sans max-w-3xl mx-auto">
-              <p>
-                A single shot is carefully crafted to deliver maximum impact through precision, consistency, and quality. That's the standard we hold ourselves to. We believe great marketing follows the same principle.
-              </p>
-              <p>
-                It's not about producing endless content or chasing every trend. It's about bringing strategy, creativity, and execution together into a focused system that delivers results.
-              </p>
-              <p className="font-medium text-[#111] text-xl md:text-2xl lg:text-3xl mt-6">
-                Every brand has its own blend, and our role is to find it, refine it, and deliver it with consistency.
-              </p>
+            {/* Left Side: Massive Quote */}
+            <div className="w-full lg:w-1/2">
+              <FadeIn delay={0.2}>
+                <h2 className="font-serif text-[clamp(2.5rem,4.5vw,4.5rem)] leading-[1.1] tracking-tight text-[#111]">
+                  "Just like a great espresso, effective marketing isn't about more — it's about getting the right elements in <span className="italic text-[#cca027]">perfect balance.</span>"
+                </h2>
+              </FadeIn>
+            </div>
+            
+            {/* Right Side: Description & Button */}
+            <div className="w-full lg:w-1/2 flex flex-col items-start gap-8">
+              <FadeIn delay={0.4} className="flex flex-col gap-6 text-[#111]/75 text-lg md:text-xl leading-[1.6] font-sans max-w-2xl">
+                <p>
+                  A single shot is carefully crafted to deliver maximum impact through precision, consistency, and quality. That's the standard we hold ourselves to. We believe great marketing follows the same principle.
+                </p>
+                <p>
+                  It's not about producing endless content or chasing every trend. It's about bringing strategy, creativity, and execution together into a focused system that delivers results.
+                </p>
+                <p className="font-medium text-[#111] text-xl mt-4">
+                  Every brand has its own blend, and our role is to find it, refine it, and deliver it with consistency.
+                </p>
+              </FadeIn>
               
-              {/* View Work Button */}
-              <div className="mt-12">
-                <Link to="/work" className="inline-flex items-center justify-center px-8 py-4 bg-[#111] text-white rounded-full font-sans font-medium text-sm md:text-base transition-transform duration-300 hover:scale-105">
+              <FadeIn delay={0.5}>
+                <Link to="/work" className="group inline-flex items-center gap-4 text-xs font-bold uppercase tracking-[0.2em] text-[#111] hover:text-[#cca027] transition-colors mt-8">
+                  <div className="w-12 h-12 rounded-full border border-[#111]/20 flex items-center justify-center group-hover:border-[#cca027] transition-colors">
+                    <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  </div>
                   View Our Work
                 </Link>
-              </div>
-            </FadeIn>
+              </FadeIn>
+            </div>
+
           </div>
         </div>
       </section>
 
       {/* ================= VALUES SECTION ================= */}
-      <section className="py-32 pb-48 relative">
+      <section className="pt-24 pb-16 relative">
         {/* Subtle separator */}
         <div className="absolute top-0 left-6 right-6 md:left-12 md:right-12 lg:left-24 lg:right-24 xl:left-32 xl:right-32 h-[1px] bg-[#111]/10" />
         
@@ -175,7 +195,9 @@ export default function About() {
                 
                 {/* Right Side: Scroll Reveal Text with Vertical Line */}
                 <div className="w-full md:w-2/3 lg:w-3/4 md:border-l md:border-[#111]/10 md:pl-12 lg:pl-24 pt-2 md:pt-0">
-                  <ScrollRevealText text={value.desc} />
+                  <div className="max-w-3xl">
+                    <ScrollRevealText text={value.desc} />
+                  </div>
                 </div>
               </div>
             ))}
@@ -184,10 +206,10 @@ export default function About() {
       </section>
 
       {/* ================= IMPACT SECTION ================= */}
-      <section className="py-32 pb-48 px-6 md:px-12 lg:px-24 xl:px-32 relative">
+      <section className="pt-16 pb-24 px-6 md:px-12 lg:px-24 xl:px-32 relative">
         <div className="absolute top-0 left-6 right-6 md:left-12 md:right-12 lg:left-24 lg:right-24 xl:left-32 xl:right-32 h-[1px] bg-[#111]/10" />
         
-        <div className="w-full max-w-[1600px] mx-auto flex flex-col items-center pt-20">
+        <div className="w-full max-w-[1600px] mx-auto flex flex-col items-center pt-10">
           {/* Section Label */}
           <div className="mb-20 md:mb-32">
             <FadeIn>
@@ -199,33 +221,29 @@ export default function About() {
           </div>
           
           {/* Right Content */}
-          <div className="w-full">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <FadeIn delay={0.2} className="h-full">
-                <div className="bg-white shadow-[0_10px_40px_rgba(0,0,0,0.04)] p-10 md:p-12 rounded-2xl h-full flex flex-col min-h-[350px] group transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] border border-[#111]/5">
-                  <h3 className="font-sans text-6xl md:text-[5rem] lg:text-[6rem] leading-[0.9] font-bold text-[#111] tracking-tighter mb-auto group-hover:text-[#cca027] transition-colors duration-300">2020</h3>
-                  <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#111]/50 mt-16 group-hover:text-[#111] transition-colors duration-300">Founded</p>
-                </div>
-              </FadeIn>
-              <FadeIn delay={0.3} className="h-full">
-                <div className="bg-white shadow-[0_10px_40px_rgba(0,0,0,0.04)] p-10 md:p-12 rounded-2xl h-full flex flex-col min-h-[350px] group transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] border border-[#111]/5">
-                  <h3 className="font-sans text-6xl md:text-[5rem] lg:text-[6rem] leading-[0.9] font-bold text-[#111] tracking-tighter mb-auto group-hover:text-[#cca027] transition-colors duration-300">5.0/5</h3>
-                  <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#111]/50 mt-16 group-hover:text-[#111] transition-colors duration-300">Client Ratings</p>
-                </div>
-              </FadeIn>
-              <FadeIn delay={0.4} className="h-full">
-                <div className="bg-white shadow-[0_10px_40px_rgba(0,0,0,0.04)] p-10 md:p-12 rounded-2xl h-full flex flex-col min-h-[350px] group transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] border border-[#111]/5">
-                  <h3 className="font-sans text-6xl md:text-[5rem] lg:text-[6rem] leading-[0.9] font-bold text-[#111] tracking-tighter mb-auto group-hover:text-[#cca027] transition-colors duration-300">100+</h3>
-                  <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#111]/50 mt-16 group-hover:text-[#111] transition-colors duration-300">Projects Shipped</p>
-                </div>
-              </FadeIn>
+          <div className="w-full mt-12 border-t border-[#111]/10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 divide-y sm:divide-y-0 sm:divide-x divide-[#111]/10">
+              {[
+                { num: "5x", label: "ROI Achieved", delay: 0.2 },
+                { num: "99K+", label: "Leads Generated", delay: 0.3 },
+                { num: "5m+", label: "Ad Impressions", delay: 0.4 },
+                { num: "97%", label: "Client Retention", delay: 0.5 },
+                { num: "5K+", label: "Assets Crafted", delay: 0.6 }
+              ].map((stat) => (
+                <FadeIn key={stat.label} delay={stat.delay} className="w-full">
+                  <div className="flex flex-col items-center justify-center p-12 lg:p-16 text-center group">
+                    <h3 className="font-sans text-5xl md:text-6xl lg:text-7xl leading-[0.9] font-bold text-[#111] tracking-tighter mb-6 group-hover:text-[#cca027] transition-colors duration-300">{stat.num}</h3>
+                    <p className="text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] text-[#111]/50 group-hover:text-[#111] transition-colors duration-300">{stat.label}</p>
+                  </div>
+                </FadeIn>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
       {/* ================= FINAL CTA ================= */}
-      <section className="bg-white py-40 px-6 md:px-12 lg:px-24 xl:px-32 rounded-t-[3rem] -mt-12 relative z-20 shadow-[0_-20px_50px_rgba(0,0,0,0.03)] border-t border-[#111]/5">
+      <section className="bg-white py-24 px-6 md:px-12 lg:px-24 xl:px-32 rounded-t-[3rem] -mt-12 relative z-20 shadow-[0_-20px_50px_rgba(0,0,0,0.03)] border-t border-[#111]/5">
         <div className="w-full max-w-[1600px] mx-auto flex flex-col md:flex-row gap-12 md:gap-24 items-center">
           {/* Left Label */}
           <div className="w-full md:w-1/4 flex-shrink-0 hidden md:block">
