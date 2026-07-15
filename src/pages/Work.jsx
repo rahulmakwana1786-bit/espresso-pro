@@ -72,8 +72,8 @@ export default function Work() {
           {/* Deep Slate Blue (Base Wave) */}
           <motion.div 
             animate={{ 
-              y: ["0%", "10%", "0%"],
-              rotate: [0, 5, 0],
+              y: ["-15%", "35%", "-15%"],
+              rotate: [0, 8, 0],
               borderRadius: ["40% 60% 70% 30% / 40% 50% 60% 50%", "60% 40% 30% 70% / 50% 60% 50% 40%", "40% 60% 70% 30% / 40% 50% 60% 50%"]
             }}
             transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
@@ -83,8 +83,8 @@ export default function Work() {
           {/* Warm Gold (Middle Wave) */}
           <motion.div 
             animate={{ 
-              y: ["15%", "-5%", "15%"],
-              rotate: [-5, 5, -5],
+              y: ["40%", "-15%", "40%"],
+              rotate: [-5, 10, -5],
               borderRadius: ["60% 40% 30% 70% / 50% 60% 50% 40%", "40% 60% 70% 30% / 40% 50% 60% 50%", "60% 40% 30% 70% / 50% 60% 50% 40%"]
             }}
             transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
@@ -94,8 +94,8 @@ export default function Work() {
           {/* Soft Teal (Top Wave) */}
           <motion.div 
             animate={{ 
-              y: ["-10%", "10%", "-10%"],
-              rotate: [5, -5, 5],
+              y: ["-25%", "30%", "-25%"],
+              rotate: [5, -8, 5],
               borderRadius: ["30% 70% 70% 30% / 30% 30% 70% 70%", "70% 30% 30% 70% / 70% 70% 30% 30%", "30% 70% 70% 30% / 30% 30% 70% 70%"]
             }}
             transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
@@ -106,8 +106,8 @@ export default function Work() {
           {/* Deep Slate Blue (Base Wave) */}
           <motion.div 
             animate={{ 
-              y: ["0%", "10%", "0%"],
-              rotate: [0, 5, 0],
+              y: ["-15%", "35%", "-15%"],
+              rotate: [0, 8, 0],
               borderRadius: ["40% 60% 70% 30% / 40% 50% 60% 50%", "60% 40% 30% 70% / 50% 60% 50% 40%", "40% 60% 70% 30% / 40% 50% 60% 50%"]
             }}
             transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
@@ -117,8 +117,8 @@ export default function Work() {
           {/* Warm Gold (Middle Wave) */}
           <motion.div 
             animate={{ 
-              y: ["15%", "-5%", "15%"],
-              rotate: [-5, 5, -5],
+              y: ["40%", "-15%", "40%"],
+              rotate: [-5, 10, -5],
               borderRadius: ["60% 40% 30% 70% / 50% 60% 50% 40%", "40% 60% 70% 30% / 40% 50% 60% 50%", "60% 40% 30% 70% / 50% 60% 50% 40%"]
             }}
             transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
@@ -128,8 +128,8 @@ export default function Work() {
           {/* Soft Teal (Top Wave) */}
           <motion.div 
             animate={{ 
-              y: ["-10%", "10%", "-10%"],
-              rotate: [5, -5, 5],
+              y: ["-25%", "30%", "-25%"],
+              rotate: [5, -8, 5],
               borderRadius: ["30% 70% 70% 30% / 30% 30% 70% 70%", "70% 30% 30% 70% / 70% 70% 30% 30%", "30% 70% 70% 30% / 30% 30% 70% 70%"]
             }}
             transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
