@@ -59,70 +59,86 @@ export default function Work() {
 
   return (
     <div className="w-full min-h-screen bg-[#fbf8f3] text-[#291b03] pt-[180px] md:pt-[240px] pb-20 px-4 sm:px-6 md:px-12 lg:px-20 xl:px-32 relative overflow-clip">
-      
-      {/* ================= DECORATIVE PATTERNS ================= */}
-      {/* 1. Subtle Diagonal Fine Line Grid Pattern */}
-      <div 
-        className="absolute inset-0 pointer-events-none z-0 opacity-[0.03] mix-blend-multiply" 
-        style={{ 
-          backgroundImage: 'repeating-linear-gradient(45deg, #cca027 0, #cca027 1px, transparent 1px, transparent 40px), repeating-linear-gradient(-45deg, #cca027 0, #cca027 1px, transparent 1px, transparent 40px)', 
-          maskImage: 'radial-gradient(ellipse 100% 100% at 50% 50%, black 0%, transparent 100%)',
-          WebkitMaskImage: 'radial-gradient(ellipse 100% 100% at 50% 50%, black 0%, transparent 100%)'
-        }} 
-      />
-
-      {/* 2. Luxury Spirograph / Rosette Pattern */}
-      <div className="absolute top-[5%] left-[-15%] w-[1000px] h-[1000px] pointer-events-none z-0 opacity-[0.1] md:opacity-[0.12] overflow-hidden mix-blend-multiply">
-        <svg viewBox="0 0 400 400" className="w-full h-full animate-[spin_180s_linear_infinite]">
-          {Array.from({length: 36}).map((_, i) => (
-             <ellipse key={i} cx="200" cy="200" rx="180" ry="40" fill="none" stroke="#cca027" strokeWidth="0.5" transform={`rotate(${i * 10} 200 200)`} />
-          ))}
-        </svg>
-      </div>
-
-      {/* Decorative background swoosh (Gold to Dark Blue with Grain) */}
-      <div className="absolute top-0 left-0 w-full h-[120vh] overflow-hidden pointer-events-none z-0 opacity-100">
-        <svg viewBox="0 0 1440 800" className="w-full h-full object-cover" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-          <defs>
-            {/* Smooth Gradient from Gold to Dark Blue */}
-            <linearGradient id="swooshGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#cca027" />
-              <stop offset="35%" stopColor="#d4b455" />
-              <stop offset="70%" stopColor="#3c5b85" />
-              <stop offset="100%" stopColor="#1a2f4c" />
-            </linearGradient>
-            
-            {/* Grain filter to apply textured noise ONLY to the strokes */}
-            <filter id="strokeGrain" x="-20%" y="-20%" width="140%" height="140%">
-              <feTurbulence type="fractalNoise" baseFrequency="1.5" numOctaves="4" result="noise" />
-              <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.35 0" in="noise" result="coloredNoise" />
-              <feComposite operator="in" in="coloredNoise" in2="SourceGraphic" result="composite" />
-              <feBlend mode="multiply" in="composite" in2="SourceGraphic" />
-            </filter>
-          </defs>
-
-          {/* Main looping swoosh (Animated) */}
-          <motion.path 
-            initial={{ d: "M -200 120 C 300 120, 500 240, 900 200 C 1200 170, 1400 60, 1600 150" }}
-            animate={{ d: "M -200 150 C 350 80, 450 280, 900 160 C 1250 120, 1350 90, 1600 110" }}
-            transition={{ duration: 10, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
-            stroke="url(#swooshGrad)" 
-            strokeWidth="60" 
-            strokeLinecap="round" 
-            filter="url(#strokeGrain)" 
+      {/* ================= DECORATIVE TOP WAVES (Reference Colors, Animated) ================= */}
+      <div className="absolute top-0 left-0 w-full h-[50vh] lg:h-[60vh] pointer-events-none z-0 [mask-image:linear-gradient(to_bottom,black_30%,transparent_100%)] overflow-hidden">
+        
+        {/* Scrolling Wave Container (Flows towards right) */}
+        <motion.div 
+          animate={{ x: ["-50%", "0%"] }}
+          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+          className="absolute top-0 left-0 w-[200%] h-full opacity-90"
+        >
+          {/* --- BLOCK 1 --- */}
+          {/* Deep Slate Blue (Base Wave) */}
+          <motion.div 
+            animate={{ 
+              y: ["0%", "10%", "0%"],
+              rotate: [0, 5, 0],
+              borderRadius: ["40% 60% 70% 30% / 40% 50% 60% 50%", "60% 40% 30% 70% / 50% 60% 50% 40%", "40% 60% 70% 30% / 40% 50% 60% 50%"]
+            }}
+            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-[-20%] left-[-10%] w-[60%] h-[80%] bg-[#0f1a26] blur-[120px] opacity-100" 
           />
           
-          {/* Far right Dark Blue descender (Animated) */}
-          <motion.path 
-            initial={{ d: "M 1100 -50 C 1300 150, 1150 400, 1600 600" }}
-            animate={{ d: "M 1050 -20 C 1350 100, 1100 450, 1600 550" }}
-            transition={{ duration: 12, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 1 }}
-            stroke="#1a2f4c" 
-            strokeWidth="40" 
-            strokeLinecap="round" 
-            filter="url(#strokeGrain)" 
+          {/* Warm Gold (Middle Wave) */}
+          <motion.div 
+            animate={{ 
+              y: ["15%", "-5%", "15%"],
+              rotate: [-5, 5, -5],
+              borderRadius: ["60% 40% 30% 70% / 50% 60% 50% 40%", "40% 60% 70% 30% / 40% 50% 60% 50%", "60% 40% 30% 70% / 50% 60% 50% 40%"]
+            }}
+            transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-[-10%] left-[15%] w-[50%] h-[70%] bg-[#a67c33] blur-[120px] opacity-95" 
           />
-        </svg>
+
+          {/* Soft Teal (Top Wave) */}
+          <motion.div 
+            animate={{ 
+              y: ["-10%", "10%", "-10%"],
+              rotate: [5, -5, 5],
+              borderRadius: ["30% 70% 70% 30% / 30% 30% 70% 70%", "70% 30% 30% 70% / 70% 70% 30% 30%", "30% 70% 70% 30% / 30% 30% 70% 70%"]
+            }}
+            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-[-25%] left-[35%] w-[45%] h-[80%] bg-[#2c465e] blur-[100px] opacity-90" 
+          />
+          
+          {/* --- BLOCK 2 (Seamless loop copy, shifted by +50% left) --- */}
+          {/* Deep Slate Blue (Base Wave) */}
+          <motion.div 
+            animate={{ 
+              y: ["0%", "10%", "0%"],
+              rotate: [0, 5, 0],
+              borderRadius: ["40% 60% 70% 30% / 40% 50% 60% 50%", "60% 40% 30% 70% / 50% 60% 50% 40%", "40% 60% 70% 30% / 40% 50% 60% 50%"]
+            }}
+            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-[-20%] left-[40%] w-[60%] h-[80%] bg-[#0f1a26] blur-[120px] opacity-100" 
+          />
+          
+          {/* Warm Gold (Middle Wave) */}
+          <motion.div 
+            animate={{ 
+              y: ["15%", "-5%", "15%"],
+              rotate: [-5, 5, -5],
+              borderRadius: ["60% 40% 30% 70% / 50% 60% 50% 40%", "40% 60% 70% 30% / 40% 50% 60% 50%", "60% 40% 30% 70% / 50% 60% 50% 40%"]
+            }}
+            transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-[-10%] left-[65%] w-[50%] h-[70%] bg-[#a67c33] blur-[120px] opacity-95" 
+          />
+
+          {/* Soft Teal (Top Wave) */}
+          <motion.div 
+            animate={{ 
+              y: ["-10%", "10%", "-10%"],
+              rotate: [5, -5, 5],
+              borderRadius: ["30% 70% 70% 30% / 30% 30% 70% 70%", "70% 30% 30% 70% / 70% 70% 30% 30%", "30% 70% 70% 30% / 30% 30% 70% 70%"]
+            }}
+            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-[-25%] left-[85%] w-[45%] h-[80%] bg-[#2c465e] blur-[100px] opacity-90" 
+          />
+        </motion.div>
+
+        {/* Heavy Noise Overlay for that specific rough, premium texture */}
+        <div className="absolute inset-0 opacity-[0.6] mix-blend-overlay" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%221.2%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }}></div>
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10 mb-32 px-4 lg:px-8 min-h-[60vh] lg:min-h-[calc(100vh-320px)] flex flex-col justify-center">
