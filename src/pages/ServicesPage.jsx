@@ -290,7 +290,7 @@ export default function ServicesPage() {
           className="flex flex-col items-center max-w-5xl"
         >
           <h2 className="font-serif text-[4rem] md:text-[7rem] lg:text-[8rem] text-[#111] leading-[0.9] tracking-tighter mb-16">
-            Ready to <span className="italic text-black/30 font-light">move</span> <br /> your brand?
+            Ready to <span className="italic text-[#cca027] font-light">move</span> <br /> your brand?
           </h2>
           
           <a href="/contact" className="group relative inline-flex items-center justify-center px-10 py-5 bg-transparent border-2 border-[#111] text-[#111] font-bold uppercase tracking-widest text-xs md:text-sm rounded-full overflow-hidden transition-colors hover:border-transparent">

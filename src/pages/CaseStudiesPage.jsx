@@ -289,16 +289,7 @@ export default function CaseStudiesPage() {
 
                 {/* Details Column */}
                 <div className="w-full lg:w-[45%] flex flex-col items-start text-left">
-                  {/* Category Pill and Number */}
-                  <div className="flex items-center gap-4 mb-6">
-                    <span className="font-mono text-[#cca027] text-sm font-bold tracking-widest">
-                      0{index + 1}
-                    </span>
-                    <span className="text-[#cca027] text-sm">|</span>
-                    <span className="text-[#291b03] text-xs font-bold uppercase tracking-widest">
-                      {site.tag}
-                    </span>
-                  </div>
+                  {/* Category Pill and Number removed as requested */}
 
                   {/* Title (Elegant Serif) */}
                   <h3 className="font-serif text-4xl sm:text-5xl lg:text-[65px] font-light text-[#291b03] leading-[1.05] tracking-tight mb-8 hover:text-[#cca027] transition-colors duration-500">
@@ -311,7 +302,7 @@ export default function CaseStudiesPage() {
                   </h3>
 
                   {/* Description */}
-                  <p className="text-[#291b03] text-lg md:text-xl font-medium leading-relaxed mb-12">
+                  <p className="text-[#291b03]/80 text-sm md:text-base font-light leading-relaxed mb-12">
                     {site.desc}
                   </p>
 
