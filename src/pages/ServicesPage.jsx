@@ -34,108 +34,100 @@ export default function ServicesPage() {
   return (
     <div className="w-full bg-[#fbf8f3] text-[#291b03] min-h-screen pt-32 pb-24 font-sans selection:bg-[#cca027] selection:text-[#fbf8f3] relative overflow-clip">
       
-      {/* ================= DECORATIVE TOP WAVES (Reference Colors, Animated) ================= */}
-      <div className="absolute top-0 left-0 w-full h-[50vh] lg:h-[60vh] pointer-events-none z-0 [mask-image:linear-gradient(to_bottom,black_30%,transparent_100%)] overflow-hidden">
+      {/* ================= ELEGANT AURORA GRADIENT ================= */}
+      <div className="absolute top-0 left-0 w-full h-[60vh] lg:h-[75vh] pointer-events-none z-0 [mask-image:linear-gradient(to_bottom,black_20%,transparent_100%)] overflow-hidden">
         
+        {/* Soft Noise Texture */}
+        <div className="absolute inset-0 z-10 opacity-[0.5] mix-blend-overlay" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.9%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }}></div>
+
         {/* Scrolling Wave Container (Flows towards right) */}
         <motion.div 
           animate={{ x: ["-50%", "0%"] }}
-          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
           className="absolute top-0 left-0 w-[200%] h-full opacity-90"
         >
-          {/* --- BLOCK SET 1 --- */}
-          {/* 1. Rich Blue */}
+          {/* --- BLOCK SET 1 (Left Half) --- */}
+          {/* Deep Slate/Midnight (Provides Depth) */}
           <motion.div 
             animate={{ 
-              y: ["-10%", "30%", "-10%"],
-              rotate: [0, 5, 0],
+              y: ["-10%", "25%", "-10%"],
               borderRadius: ["40% 60% 70% 30% / 40% 50% 60% 50%", "60% 40% 30% 70% / 50% 60% 50% 40%", "40% 60% 70% 30% / 40% 50% 60% 50%"]
             }}
-            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-[-15%] left-[-5%] w-[45%] h-[80%] bg-gradient-to-b from-[#0b1626] to-[#488fb1] blur-[120px] opacity-90" 
+            transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-[-20%] left-[-5%] w-[30%] h-[120%] bg-[#0f172a] blur-[100px] opacity-90" 
           />
           
-          {/* 2. Golden */}
+          {/* Rich Espresso/Dark Brown */}
           <motion.div 
             animate={{ 
-              y: ["30%", "-10%", "30%"],
-              rotate: [-5, 8, -5],
+              y: ["-15%", "25%", "-15%"],
               borderRadius: ["60% 40% 30% 70% / 50% 60% 50% 40%", "40% 60% 70% 30% / 40% 50% 60% 50%", "60% 40% 30% 70% / 50% 60% 50% 40%"]
             }}
-            transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-[-5%] left-[10%] w-[40%] h-[70%] bg-[#cca027] blur-[100px] opacity-85" 
+            transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-[-10%] left-[15%] w-[35%] h-[110%] bg-[#291b03] blur-[130px] opacity-80" 
           />
 
-          {/* 3. Light Brown */}
+          {/* Golden/Amber Accent */}
           <motion.div 
             animate={{ 
-              y: ["-20%", "25%", "-20%"],
-              rotate: [5, -5, 5],
+              y: ["20%", "-20%", "20%"],
               borderRadius: ["30% 70% 70% 30% / 30% 30% 70% 70%", "70% 30% 30% 70% / 70% 70% 30% 30%", "30% 70% 70% 30% / 30% 30% 70% 70%"]
             }}
-            transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-[-20%] left-[25%] w-[35%] h-[75%] bg-[#a67c52] blur-[110px] opacity-85" 
+            transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-[10%] left-[5%] w-[25%] h-[90%] bg-[#e6c56a] blur-[150px] opacity-60 mix-blend-screen" 
           />
           
-          {/* 4. Green */}
+          {/* Subtle Warm Amber Glow for blending */}
           <motion.div 
             animate={{ 
-              y: ["25%", "-20%", "25%"],
-              rotate: [-8, 5, -8],
+              y: ["-25%", "25%", "-25%"],
               borderRadius: ["50% 50% 30% 70% / 40% 60% 40% 60%", "70% 30% 50% 50% / 60% 40% 60% 40%", "50% 50% 30% 70% / 40% 60% 40% 60%"]
             }}
-            transition={{ duration: 17, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-[-10%] left-[38%] w-[35%] h-[80%] bg-[#064e3b] blur-[120px] opacity-90" 
+            transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-[-30%] left-[20%] w-[25%] h-[100%] bg-[#b45309] blur-[120px] opacity-40 mix-blend-screen" 
           />
-          
-          {/* --- BLOCK SET 2 (Seamless loop copy, shifted by +50% left) --- */}
-          {/* 1. Rich Blue */}
+
+          {/* --- BLOCK SET 2 (Right Half) --- */}
+          {/* Deep Slate/Midnight (Provides Depth) */}
           <motion.div 
             animate={{ 
-              y: ["-10%", "30%", "-10%"],
-              rotate: [0, 5, 0],
+              y: ["-10%", "25%", "-10%"],
               borderRadius: ["40% 60% 70% 30% / 40% 50% 60% 50%", "60% 40% 30% 70% / 50% 60% 50% 40%", "40% 60% 70% 30% / 40% 50% 60% 50%"]
             }}
-            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-[-15%] left-[45%] w-[45%] h-[80%] bg-gradient-to-b from-[#0b1626] to-[#488fb1] blur-[120px] opacity-90" 
+            transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-[-20%] left-[45%] w-[30%] h-[120%] bg-[#0f172a] blur-[100px] opacity-90" 
           />
           
-          {/* 2. Golden */}
+          {/* Rich Espresso/Dark Brown */}
           <motion.div 
             animate={{ 
-              y: ["30%", "-10%", "30%"],
-              rotate: [-5, 8, -5],
+              y: ["-15%", "25%", "-15%"],
               borderRadius: ["60% 40% 30% 70% / 50% 60% 50% 40%", "40% 60% 70% 30% / 40% 50% 60% 50%", "60% 40% 30% 70% / 50% 60% 50% 40%"]
             }}
-            transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-[-5%] left-[60%] w-[40%] h-[70%] bg-[#cca027] blur-[100px] opacity-85" 
+            transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-[-10%] left-[65%] w-[35%] h-[110%] bg-[#291b03] blur-[130px] opacity-80" 
           />
 
-          {/* 3. Light Brown */}
+          {/* Golden/Amber Accent */}
           <motion.div 
             animate={{ 
-              y: ["-20%", "25%", "-20%"],
-              rotate: [5, -5, 5],
+              y: ["20%", "-20%", "20%"],
               borderRadius: ["30% 70% 70% 30% / 30% 30% 70% 70%", "70% 30% 30% 70% / 70% 70% 30% 30%", "30% 70% 70% 30% / 30% 30% 70% 70%"]
             }}
-            transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-[-20%] left-[75%] w-[35%] h-[75%] bg-[#a67c52] blur-[110px] opacity-85" 
+            transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-[10%] left-[55%] w-[25%] h-[90%] bg-[#e6c56a] blur-[150px] opacity-60 mix-blend-screen" 
           />
           
-          {/* 4. Green */}
+          {/* Subtle Warm Amber Glow for blending */}
           <motion.div 
             animate={{ 
-              y: ["25%", "-20%", "25%"],
-              rotate: [-8, 5, -8],
+              y: ["-25%", "25%", "-25%"],
               borderRadius: ["50% 50% 30% 70% / 40% 60% 40% 60%", "70% 30% 50% 50% / 60% 40% 60% 40%", "50% 50% 30% 70% / 40% 60% 40% 60%"]
             }}
-            transition={{ duration: 17, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-[-10%] left-[88%] w-[35%] h-[80%] bg-[#064e3b] blur-[120px] opacity-90" 
+            transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-[-30%] left-[70%] w-[25%] h-[100%] bg-[#b45309] blur-[120px] opacity-40 mix-blend-screen" 
           />
         </motion.div>
-
-        {/* Heavy Noise Overlay for that specific rough, premium texture */}
-        <div className="absolute inset-0 opacity-[0.6] mix-blend-overlay" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%221.2%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }}></div>
       </div>
 
       {/* ================= HERO SECTION ================= */}
