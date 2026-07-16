@@ -223,8 +223,8 @@ export default function CaseStudiesPage() {
       {/* Main Layout Wrapper */}
       <div className="max-w-7xl mx-auto relative z-10 flex flex-col justify-start">
         
-        {/* ================= ELEGANT CENTERED HEADER SECTION ================= */}
-        <div className="flex flex-col items-center justify-center w-full mb-32 md:mb-40 text-center">
+        {/* ================= ELEGANT LEFT ALIGNED HEADER SECTION ================= */}
+        <div className="flex flex-col items-start justify-start w-full mb-32 md:mb-40 text-left">
           <Link
             to="/"
             className="text-[#666] text-xs font-bold tracking-[0.2em] uppercase hover:text-[#cca027] transition-colors flex items-center gap-3 mb-10 group"
@@ -236,7 +236,7 @@ export default function CaseStudiesPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="font-serif text-[#291b03] leading-[1.05] text-[60px] sm:text-[90px] lg:text-[120px] font-light tracking-tight max-w-5xl mx-auto mb-8"
+            className="font-serif text-[#291b03] leading-[1.05] text-[60px] sm:text-[90px] lg:text-[120px] font-light tracking-tight max-w-5xl mb-8"
           >
             Selected <br className="hidden md:block" />
             <span className="italic text-[#cca027] pr-4">Case Studies</span>
@@ -246,7 +246,7 @@ export default function CaseStudiesPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.3 }}
-            className="text-[#291b03] text-lg md:text-xl font-medium leading-relaxed max-w-2xl mx-auto"
+            className="text-[#291b03] text-lg md:text-xl font-medium leading-relaxed max-w-2xl"
           >
             A customized overview of results generated for our premium clients. We design strategic content plans and localized organic funnels that translate interest into bookings, footfalls, and wholesale inquiries.
           </motion.p>

@@ -111,9 +111,6 @@ export default function HomePortfolio() {
                   </h3>
                   
                   <div className="flex items-center gap-6 mt-6">
-                    <span className="text-2xl font-light text-black/40">
-                      {projects[activeIndex].id}
-                    </span>
                     <div className="h-[1px] w-16 bg-black/20" />
                     <Link 
                       to={`/work/${projects[activeIndex].slug}`}

@@ -55,7 +55,7 @@ export default function WhatWeOffer() {
                 </div>
                 
                 <div className="w-full md:w-[45%] flex flex-col justify-center">
-                  <p className="text-black text-lg md:text-xl leading-relaxed transition-all duration-500 opacity-0 transform translate-x-4 group-hover:opacity-100 group-hover:translate-x-0">
+                  <p className="text-[#291b03]/60 text-sm md:text-base leading-relaxed transition-all duration-500 opacity-0 transform translate-x-4 group-hover:opacity-100 group-hover:translate-x-0">
                     {service.description}
                   </p>
                 </div>

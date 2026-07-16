@@ -38,7 +38,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="font-sans font-extrabold text-[42px] leading-[1.05] sm:text-[55px] md:text-[70px] lg:text-[80px] xl:text-[95px] tracking-tight text-[#ad7f00] drop-shadow-2xl w-full max-w-[900px]"
+            className="font-serif font-medium text-[42px] leading-[1.05] sm:text-[55px] md:text-[70px] lg:text-[80px] xl:text-[95px] tracking-tight text-[#ad7f00] drop-shadow-2xl w-full max-w-[900px]"
           >
             <span className="block text-transparent bg-clip-text bg-gradient-to-b from-white to-white/70 pb-1 w-full truncate overflow-visible">360° Branding &</span>
             <span className="block mt-1 text-transparent bg-clip-text bg-gradient-to-b from-white to-white/70 pb-2 w-full truncate overflow-visible">
@@ -58,7 +58,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="text-[#ad7f00]/70 text-base md:text-xl max-w-[500px] font-light leading-relaxed"
+            className="text-white/80 text-base md:text-xl max-w-[500px] font-light leading-relaxed"
           >
             End-to-end solutions designed to drive measurable business growth.
           </motion.p>

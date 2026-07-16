@@ -33,14 +33,10 @@ export default function AboutUs() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-[10px] md:text-xs tracking-[0.4em] uppercase text-[#cca027] flex items-center gap-4 font-bold mb-8">
-                <span className="w-8 h-[2px] bg-[#cca027]" />
-                The Espresso Difference
-              </h2>
-              <h3 className="text-[13vw] lg:text-[5.5vw] font-serif leading-[0.85] tracking-tighter uppercase font-bold text-[#1a1a1a]">
+              <h3 className="text-5xl md:text-7xl lg:text-[6rem] font-serif leading-[1.05] tracking-tight font-light text-[#111] mb-8">
                 Espresso Media <br/>
                 is built to solve <br/>
-                <span className="text-[#cca027] italic relative">one problem.
+                <span className="text-[#cca027] font-serif italic font-light relative">one problem.
                   <svg className="absolute -bottom-2 left-0 w-full h-3 text-[#cca027]/30" viewBox="0 0 100 20" preserveAspectRatio="none">
                     <path d="M0 10 Q 50 20 100 10" stroke="currentColor" strokeWidth="4" fill="none" />
                   </svg>

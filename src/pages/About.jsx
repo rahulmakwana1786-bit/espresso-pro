@@ -1,5 +1,5 @@
-import { useEffect, useRef } from "react";
-import { motion, useInView, useScroll, useTransform } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { motion, useInView, useScroll, useTransform, animate } from "framer-motion";
 import { Link } from "react-router-dom";
 import img1 from "../assets/about_1.png";
 import img2 from "../assets/about_2.png";
@@ -19,6 +19,31 @@ function FadeIn({ children, delay = 0, className = "" }) {
     >
       {children}
     </motion.div>
+  );
+}
+
+function AnimatedNumber({ value, suffix = "", prefix = "" }) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-10% 0px" });
+  const [displayValue, setDisplayValue] = useState(0);
+
+  useEffect(() => {
+    if (isInView) {
+      const controls = animate(0, value, {
+        duration: 2,
+        ease: "easeOut",
+        onUpdate: (v) => {
+          setDisplayValue(Math.floor(v));
+        },
+      });
+      return controls.stop;
+    }
+  }, [isInView, value]);
+
+  return (
+    <span ref={ref}>
+      {prefix}{displayValue}{suffix}
+    </span>
   );
 }
 
@@ -137,7 +162,7 @@ export default function About() {
             <FadeIn delay={0.2} className="flex flex-col max-w-5xl">
               <ScrollRevealText 
                 text="Whether it's crafting the perfect espresso or building a brand, exceptional results come from precision, consistency, and getting every element to work together. || It's not about producing endless content or chasing every trend. It's about bringing strategy, creativity, and execution together into a focused system that delivers results. || Every brand has its own blend, and our role is to find it, refine it, and deliver it with consistency."
-                className="text-[clamp(1.5rem,3vw,3rem)] leading-[1.15] tracking-tight text-[#111]"
+                className="font-sans font-light text-[clamp(1.5rem,3vw,3rem)] leading-[1.2] tracking-tight text-[#111]"
                 offset={["start 85%", "end 50%"]}
               />
             </FadeIn>
@@ -163,21 +188,21 @@ export default function About() {
         <div className="absolute top-0 left-6 right-6 md:left-12 md:right-12 lg:left-24 lg:right-24 xl:left-32 xl:right-32 h-[1px] bg-[#111]/10" />
         
         <div className="w-full max-w-[1600px] mx-auto flex flex-col pt-10">
-          {/* Section Label */}
-          <div className="mb-20 md:mb-32">
-            <FadeIn>
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 rounded-full bg-[#cca027]" />
-                <p className="text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] text-[#111]/50">Core Values</p>
-              </div>
-            </FadeIn>
-          </div>
+
           
           <div className="flex flex-col">
             {values.map((value, index) => (
-              <div key={value.title} className="flex flex-col md:flex-row items-start relative border-t border-[#111]/10 py-24 lg:py-40">
+              <div key={value.title} className={`flex flex-col md:flex-row items-start relative border-t border-[#111]/10 ${index === 0 ? 'pt-12 pb-24 lg:pt-16 lg:pb-32' : 'py-24 lg:py-32'}`}>
                 {/* Left Side: Number and Title */}
                 <div className="w-full md:w-1/3 lg:w-1/4 flex-shrink-0 sticky top-40 mb-8 md:mb-0">
+                  {index === 0 && (
+                    <FadeIn>
+                      <div className="flex items-center gap-3 mb-8 md:mb-12">
+                        <div className="w-2 h-2 rounded-full bg-[#cca027]" />
+                        <p className="text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] text-[#111]/50">Core Values</p>
+                      </div>
+                    </FadeIn>
+                  )}
                   <p className="font-sans text-lg font-bold text-[#111]/40 mb-4 leading-none">0{index + 1}</p>
                   <h3 className="font-sans text-4xl md:text-5xl font-medium text-[#111] tracking-tight leading-none">{value.title}</h3>
                 </div>
@@ -198,26 +223,16 @@ export default function About() {
       <section className="pt-16 pb-24 px-6 md:px-12 lg:px-24 xl:px-32 relative">
         <div className="absolute top-0 left-6 right-6 md:left-12 md:right-12 lg:left-24 lg:right-24 xl:left-32 xl:right-32 h-[1px] bg-[#111]/10" />
         
-        <div className="w-full max-w-[1600px] mx-auto flex flex-col items-start pt-10">
-          {/* Section Label */}
-          <div className="mb-16 md:mb-24">
-            <FadeIn>
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 rounded-full bg-[#cca027]" />
-                <p className="text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] text-[#111]/50">Impact</p>
-              </div>
-            </FadeIn>
-          </div>
-          
+        <div className="w-full max-w-[1600px] mx-auto flex flex-col items-start pt-16">
           {/* Right Content */}
-          <div className="w-full mt-12 border-t border-[#111]/10">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-6 mt-8">
+          <div className="w-full">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-6">
               {[
-                { num: "5x", label: "ROI Achieved", delay: 0.2 },
-                { num: "99K+", label: "Leads Generated", delay: 0.3 },
-                { num: "5m+", label: "Ad Impressions", delay: 0.4 },
-                { num: "97%", label: "Client Retention", delay: 0.5 },
-                { num: "5K+", label: "Assets Crafted", delay: 0.6 }
+                { value: 5, suffix: "x", label: "ROI Achieved", delay: 0.2 },
+                { value: 99, suffix: "K+", label: "Leads Generated", delay: 0.3 },
+                { value: 5, suffix: "m+", label: "Ad Impressions", delay: 0.4 },
+                { value: 97, suffix: "%", label: "Client Retention", delay: 0.5 },
+                { value: 5, suffix: "K+", label: "Assets Crafted", delay: 0.6 }
               ].map((stat) => (
                 <FadeIn key={stat.label} delay={stat.delay} className="w-full h-full">
                   <motion.div 
@@ -231,7 +246,9 @@ export default function About() {
                     transition={{ type: "spring", stiffness: 400, damping: 25 }}
                     className="flex flex-col items-center justify-center h-full p-10 py-16 text-center group rounded-[2rem] border border-[#111]/10 bg-transparent cursor-default transition-colors duration-300"
                   >
-                    <h3 className="font-sans text-5xl md:text-6xl lg:text-5xl xl:text-6xl leading-[0.9] font-bold text-[#111] tracking-tighter mb-4 group-hover:text-[#cca027] transition-colors duration-300">{stat.num}</h3>
+                    <h3 className="font-sans text-5xl md:text-6xl lg:text-5xl xl:text-6xl leading-[0.9] font-bold text-[#111] tracking-tighter mb-4 group-hover:text-[#cca027] transition-colors duration-300">
+                      <AnimatedNumber value={stat.value} suffix={stat.suffix} />
+                    </h3>
                     <p className="text-[10px] md:text-[11px] font-bold uppercase tracking-[0.2em] text-[#111]/50 group-hover:text-[#111] transition-colors duration-300 leading-relaxed">{stat.label}</p>
                   </motion.div>
                 </FadeIn>
