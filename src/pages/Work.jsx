@@ -59,86 +59,62 @@ export default function Work() {
 
   return (
     <div className="w-full min-h-screen bg-[#fbf8f3] text-[#291b03] pt-[180px] md:pt-[240px] pb-20 px-4 sm:px-6 md:px-12 lg:px-20 xl:px-32 relative overflow-clip">
-      {/* ================= DECORATIVE TOP WAVES (Reference Colors, Animated) ================= */}
-      <div className="absolute top-0 left-0 w-full h-[50vh] lg:h-[60vh] pointer-events-none z-0 [mask-image:linear-gradient(to_bottom,black_30%,transparent_100%)] overflow-hidden">
+      {/* ================= ELEGANT AURORA GRADIENT ================= */}
+      <div className="absolute top-0 left-0 w-full h-[60vh] lg:h-[75vh] pointer-events-none z-0 [mask-image:linear-gradient(to_bottom,black_20%,transparent_100%)] overflow-hidden">
         
-        {/* Scrolling Wave Container (Flows towards right) */}
-        <motion.div 
-          animate={{ x: ["-50%", "0%"] }}
-          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="absolute top-0 left-0 w-[200%] h-full opacity-90"
-        >
-          {/* --- BLOCK 1 --- */}
-          {/* Deep Slate Blue (Base Wave) */}
+        {/* Soft Noise Texture */}
+        <div className="absolute inset-0 z-10 opacity-[0.5] mix-blend-overlay" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.9%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }}></div>
+
+        {/* Ambient Glows */}
+        <div className="absolute inset-0 w-full h-full">
+          {/* Deep Slate/Midnight (Provides Depth) */}
           <motion.div 
             animate={{ 
-              y: ["-15%", "35%", "-15%"],
-              rotate: [0, 8, 0],
+              x: ["-10%", "25%", "-10%"],
+              y: ["-10%", "20%", "-10%"],
+              rotate: [0, 45, 0],
               borderRadius: ["40% 60% 70% 30% / 40% 50% 60% 50%", "60% 40% 30% 70% / 50% 60% 50% 40%", "40% 60% 70% 30% / 40% 50% 60% 50%"]
             }}
-            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-[-20%] left-[-10%] w-[60%] h-[80%] bg-[#0f1a26] blur-[120px] opacity-100" 
+            transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-[-20%] left-[-10%] w-[60%] h-[120%] bg-[#0f172a] blur-[100px] opacity-90" 
           />
           
-          {/* Warm Gold (Middle Wave) */}
+          {/* Rich Espresso/Dark Brown */}
           <motion.div 
             animate={{ 
-              y: ["40%", "-15%", "40%"],
-              rotate: [-5, 10, -5],
+              x: ["10%", "-25%", "10%"],
+              y: ["-15%", "25%", "-15%"],
+              rotate: [-20, 30, -20],
               borderRadius: ["60% 40% 30% 70% / 50% 60% 50% 40%", "40% 60% 70% 30% / 40% 50% 60% 50%", "60% 40% 30% 70% / 50% 60% 50% 40%"]
             }}
-            transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-[-10%] left-[15%] w-[50%] h-[70%] bg-[#a67c33] blur-[120px] opacity-95" 
+            transition={{ duration: 19, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-[-10%] right-[-10%] w-[70%] h-[110%] bg-[#291b03] blur-[130px] opacity-80" 
           />
 
-          {/* Soft Teal (Top Wave) */}
+          {/* Golden/Amber Accent */}
           <motion.div 
             animate={{ 
-              y: ["-25%", "30%", "-25%"],
-              rotate: [5, -8, 5],
+              x: ["-15%", "30%", "-15%"],
+              y: ["20%", "-20%", "20%"],
+              rotate: [15, -35, 15],
               borderRadius: ["30% 70% 70% 30% / 30% 30% 70% 70%", "70% 30% 30% 70% / 70% 70% 30% 30%", "30% 70% 70% 30% / 30% 30% 70% 70%"]
             }}
-            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-[-25%] left-[35%] w-[45%] h-[80%] bg-[#2c465e] blur-[100px] opacity-90" 
-          />
-          
-          {/* --- BLOCK 2 (Seamless loop copy, shifted by +50% left) --- */}
-          {/* Deep Slate Blue (Base Wave) */}
-          <motion.div 
-            animate={{ 
-              y: ["-15%", "35%", "-15%"],
-              rotate: [0, 8, 0],
-              borderRadius: ["40% 60% 70% 30% / 40% 50% 60% 50%", "60% 40% 30% 70% / 50% 60% 50% 40%", "40% 60% 70% 30% / 40% 50% 60% 50%"]
-            }}
-            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-[-20%] left-[40%] w-[60%] h-[80%] bg-[#0f1a26] blur-[120px] opacity-100" 
-          />
-          
-          {/* Warm Gold (Middle Wave) */}
-          <motion.div 
-            animate={{ 
-              y: ["40%", "-15%", "40%"],
-              rotate: [-5, 10, -5],
-              borderRadius: ["60% 40% 30% 70% / 50% 60% 50% 40%", "40% 60% 70% 30% / 40% 50% 60% 50%", "60% 40% 30% 70% / 50% 60% 50% 40%"]
-            }}
             transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-[-10%] left-[65%] w-[50%] h-[70%] bg-[#a67c33] blur-[120px] opacity-95" 
+            className="absolute top-[10%] left-[20%] w-[50%] h-[90%] bg-[#cca027] blur-[140px] opacity-60 mix-blend-screen" 
           />
-
-          {/* Soft Teal (Top Wave) */}
+          
+          {/* Subtle Warm Amber Glow for blending */}
           <motion.div 
             animate={{ 
-              y: ["-25%", "30%", "-25%"],
-              rotate: [5, -8, 5],
-              borderRadius: ["30% 70% 70% 30% / 30% 30% 70% 70%", "70% 30% 30% 70% / 70% 70% 30% 30%", "30% 70% 70% 30% / 30% 30% 70% 70%"]
+              x: ["25%", "-20%", "25%"],
+              y: ["-25%", "25%", "-25%"],
+              rotate: [-45, 15, -45],
+              borderRadius: ["50% 50% 30% 70% / 40% 60% 40% 60%", "70% 30% 50% 50% / 60% 40% 60% 40%", "50% 50% 30% 70% / 40% 60% 40% 60%"]
             }}
-            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-[-25%] left-[85%] w-[45%] h-[80%] bg-[#2c465e] blur-[100px] opacity-90" 
+            transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-[-30%] left-[40%] w-[45%] h-[100%] bg-[#b45309] blur-[120px] opacity-40 mix-blend-screen" 
           />
-        </motion.div>
-
-        {/* Heavy Noise Overlay for that specific rough, premium texture */}
-        <div className="absolute inset-0 opacity-[0.6] mix-blend-overlay" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%221.2%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }}></div>
+        </div>
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10 mb-32 px-4 lg:px-8 min-h-[60vh] lg:min-h-[calc(100vh-320px)] flex flex-col justify-center">

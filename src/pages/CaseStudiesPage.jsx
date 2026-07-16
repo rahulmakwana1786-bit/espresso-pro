@@ -130,75 +130,97 @@ export default function CaseStudiesPage() {
         {/* Scrolling Wave Container (Flows towards right) */}
         <motion.div 
           animate={{ x: ["-50%", "0%"] }}
-          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
           className="absolute top-0 left-0 w-[200%] h-full opacity-90"
         >
-          {/* --- BLOCK 1 --- */}
-          {/* Deep Slate Blue (Base Wave) */}
+          {/* --- BLOCK SET 1 --- */}
+          {/* 1. Rich Blue */}
           <motion.div 
             animate={{ 
-              y: ["-15%", "35%", "-15%"],
-              rotate: [0, 8, 0],
+              y: ["-10%", "30%", "-10%"],
+              rotate: [0, 5, 0],
               borderRadius: ["40% 60% 70% 30% / 40% 50% 60% 50%", "60% 40% 30% 70% / 50% 60% 50% 40%", "40% 60% 70% 30% / 40% 50% 60% 50%"]
             }}
             transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-[-20%] left-[-10%] w-[60%] h-[80%] bg-[#0f1a26] blur-[120px] opacity-100" 
+            className="absolute top-[-15%] left-[-5%] w-[45%] h-[80%] bg-gradient-to-b from-[#0b1626] to-[#488fb1] blur-[120px] opacity-90" 
           />
           
-          {/* Warm Gold (Middle Wave) */}
+          {/* 2. Golden */}
           <motion.div 
             animate={{ 
-              y: ["40%", "-15%", "40%"],
-              rotate: [-5, 10, -5],
+              y: ["30%", "-10%", "30%"],
+              rotate: [-5, 8, -5],
               borderRadius: ["60% 40% 30% 70% / 50% 60% 50% 40%", "40% 60% 70% 30% / 40% 50% 60% 50%", "60% 40% 30% 70% / 50% 60% 50% 40%"]
             }}
             transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-[-10%] left-[15%] w-[50%] h-[70%] bg-[#a67c33] blur-[120px] opacity-95" 
+            className="absolute top-[-5%] left-[10%] w-[40%] h-[70%] bg-[#cca027] blur-[100px] opacity-85" 
           />
 
-          {/* Soft Teal (Top Wave) */}
+          {/* 3. Light Brown */}
           <motion.div 
             animate={{ 
-              y: ["-25%", "30%", "-25%"],
-              rotate: [5, -8, 5],
+              y: ["-20%", "25%", "-20%"],
+              rotate: [5, -5, 5],
               borderRadius: ["30% 70% 70% 30% / 30% 30% 70% 70%", "70% 30% 30% 70% / 70% 70% 30% 30%", "30% 70% 70% 30% / 30% 30% 70% 70%"]
             }}
-            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-[-25%] left-[35%] w-[45%] h-[80%] bg-[#2c465e] blur-[100px] opacity-90" 
+            transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-[-20%] left-[25%] w-[35%] h-[75%] bg-[#a67c52] blur-[110px] opacity-85" 
           />
           
-          {/* --- BLOCK 2 (Seamless loop copy, shifted by +50% left) --- */}
-          {/* Deep Slate Blue (Base Wave) */}
+          {/* 4. Green */}
           <motion.div 
             animate={{ 
-              y: ["-15%", "35%", "-15%"],
-              rotate: [0, 8, 0],
+              y: ["25%", "-20%", "25%"],
+              rotate: [-8, 5, -8],
+              borderRadius: ["50% 50% 30% 70% / 40% 60% 40% 60%", "70% 30% 50% 50% / 60% 40% 60% 40%", "50% 50% 30% 70% / 40% 60% 40% 60%"]
+            }}
+            transition={{ duration: 17, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-[-10%] left-[38%] w-[35%] h-[80%] bg-[#064e3b] blur-[120px] opacity-90" 
+          />
+          
+          {/* --- BLOCK SET 2 (Seamless loop copy, shifted by +50% left) --- */}
+          {/* 1. Rich Blue */}
+          <motion.div 
+            animate={{ 
+              y: ["-10%", "30%", "-10%"],
+              rotate: [0, 5, 0],
               borderRadius: ["40% 60% 70% 30% / 40% 50% 60% 50%", "60% 40% 30% 70% / 50% 60% 50% 40%", "40% 60% 70% 30% / 40% 50% 60% 50%"]
             }}
             transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-[-20%] left-[40%] w-[60%] h-[80%] bg-[#0f1a26] blur-[120px] opacity-100" 
+            className="absolute top-[-15%] left-[45%] w-[45%] h-[80%] bg-gradient-to-b from-[#0b1626] to-[#488fb1] blur-[120px] opacity-90" 
           />
           
-          {/* Warm Gold (Middle Wave) */}
+          {/* 2. Golden */}
           <motion.div 
             animate={{ 
-              y: ["40%", "-15%", "40%"],
-              rotate: [-5, 10, -5],
+              y: ["30%", "-10%", "30%"],
+              rotate: [-5, 8, -5],
               borderRadius: ["60% 40% 30% 70% / 50% 60% 50% 40%", "40% 60% 70% 30% / 40% 50% 60% 50%", "60% 40% 30% 70% / 50% 60% 50% 40%"]
             }}
             transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-[-10%] left-[65%] w-[50%] h-[70%] bg-[#a67c33] blur-[120px] opacity-95" 
+            className="absolute top-[-5%] left-[60%] w-[40%] h-[70%] bg-[#cca027] blur-[100px] opacity-85" 
           />
 
-          {/* Soft Teal (Top Wave) */}
+          {/* 3. Light Brown */}
           <motion.div 
             animate={{ 
-              y: ["-25%", "30%", "-25%"],
-              rotate: [5, -8, 5],
+              y: ["-20%", "25%", "-20%"],
+              rotate: [5, -5, 5],
               borderRadius: ["30% 70% 70% 30% / 30% 30% 70% 70%", "70% 30% 30% 70% / 70% 70% 30% 30%", "30% 70% 70% 30% / 30% 30% 70% 70%"]
             }}
-            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-[-25%] left-[85%] w-[45%] h-[80%] bg-[#2c465e] blur-[100px] opacity-90" 
+            transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-[-20%] left-[75%] w-[35%] h-[75%] bg-[#a67c52] blur-[110px] opacity-85" 
+          />
+          
+          {/* 4. Green */}
+          <motion.div 
+            animate={{ 
+              y: ["25%", "-20%", "25%"],
+              rotate: [-8, 5, -8],
+              borderRadius: ["50% 50% 30% 70% / 40% 60% 40% 60%", "70% 30% 50% 50% / 60% 40% 60% 40%", "50% 50% 30% 70% / 40% 60% 40% 60%"]
+            }}
+            transition={{ duration: 17, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-[-10%] left-[88%] w-[35%] h-[80%] bg-[#064e3b] blur-[120px] opacity-90" 
           />
         </motion.div>
 
