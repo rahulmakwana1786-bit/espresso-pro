@@ -15,7 +15,7 @@ export default function AnimatedBackground() {
           rotate: [0, 5, -5, 0],
         }}
         transition={{
-          duration: 25,
+          duration: 3,
           repeat: Infinity,
           ease: "linear"
         }}
@@ -32,7 +32,7 @@ export default function AnimatedBackground() {
           ],
         }}
         transition={{
-          duration: 20,
+          duration: 3,
           repeat: Infinity,
           ease: "linear"
         }}

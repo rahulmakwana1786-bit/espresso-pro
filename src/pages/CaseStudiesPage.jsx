@@ -133,7 +133,7 @@ export default function CaseStudiesPage() {
         {/* Scrolling Wave Container (Flows towards right) */}
         <motion.div 
           animate={{ x: ["-50%", "0%"] }}
-          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+          transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
           className="absolute top-0 left-0 w-[200%] h-full opacity-90"
         >
           {/* --- BLOCK SET 1 (Left Half) --- */}
@@ -144,7 +144,7 @@ export default function CaseStudiesPage() {
               borderRadius: ["40% 60% 70% 30% / 40% 50% 60% 50%", "60% 40% 30% 70% / 50% 60% 50% 40%", "40% 60% 70% 30% / 40% 50% 60% 50%"]
             }}
             transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-[-20%] left-[-5%] w-[30%] h-[120%] bg-[#0f172a] blur-[100px] opacity-90" 
+            className="absolute top-[-20%] left-[-5%] w-[30%] h-[120%] bg-[#0f172a] blur-[80px] opacity-90" 
           />
           
           {/* Rich Espresso/Dark Brown */}
@@ -154,7 +154,7 @@ export default function CaseStudiesPage() {
               borderRadius: ["60% 40% 30% 70% / 50% 60% 50% 40%", "40% 60% 70% 30% / 40% 50% 60% 50%", "60% 40% 30% 70% / 50% 60% 50% 40%"]
             }}
             transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-[-10%] left-[15%] w-[35%] h-[110%] bg-[#291b03] blur-[130px] opacity-80" 
+            className="absolute top-[-10%] left-[15%] w-[35%] h-[110%] bg-[#291b03] blur-[100px] opacity-80" 
           />
 
           {/* Golden/Amber Accent */}
@@ -164,7 +164,7 @@ export default function CaseStudiesPage() {
               borderRadius: ["30% 70% 70% 30% / 30% 30% 70% 70%", "70% 30% 30% 70% / 70% 70% 30% 30%", "30% 70% 70% 30% / 30% 30% 70% 70%"]
             }}
             transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-[10%] left-[5%] w-[25%] h-[90%] bg-[#e6c56a] blur-[150px] opacity-60 mix-blend-screen" 
+            className="absolute top-[10%] left-[5%] w-[25%] h-[90%] bg-[#e6c56a] blur-[120px] opacity-60 mix-blend-screen" 
           />
           
           {/* Subtle Warm Amber Glow for blending */}
@@ -174,7 +174,7 @@ export default function CaseStudiesPage() {
               borderRadius: ["50% 50% 30% 70% / 40% 60% 40% 60%", "70% 30% 50% 50% / 60% 40% 60% 40%", "50% 50% 30% 70% / 40% 60% 40% 60%"]
             }}
             transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-[-30%] left-[20%] w-[25%] h-[100%] bg-[#b45309] blur-[120px] opacity-40 mix-blend-screen" 
+            className="absolute top-[-30%] left-[20%] w-[25%] h-[100%] bg-[#b45309] blur-[90px] opacity-40 mix-blend-screen" 
           />
 
           {/* --- BLOCK SET 2 (Right Half) --- */}
@@ -185,7 +185,7 @@ export default function CaseStudiesPage() {
               borderRadius: ["40% 60% 70% 30% / 40% 50% 60% 50%", "60% 40% 30% 70% / 50% 60% 50% 40%", "40% 60% 70% 30% / 40% 50% 60% 50%"]
             }}
             transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-[-20%] left-[45%] w-[30%] h-[120%] bg-[#0f172a] blur-[100px] opacity-90" 
+            className="absolute top-[-20%] left-[45%] w-[30%] h-[120%] bg-[#0f172a] blur-[80px] opacity-90" 
           />
           
           {/* Rich Espresso/Dark Brown */}
@@ -195,7 +195,7 @@ export default function CaseStudiesPage() {
               borderRadius: ["60% 40% 30% 70% / 50% 60% 50% 40%", "40% 60% 70% 30% / 40% 50% 60% 50%", "60% 40% 30% 70% / 50% 60% 50% 40%"]
             }}
             transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-[-10%] left-[65%] w-[35%] h-[110%] bg-[#291b03] blur-[130px] opacity-80" 
+            className="absolute top-[-10%] left-[65%] w-[35%] h-[110%] bg-[#291b03] blur-[100px] opacity-80" 
           />
 
           {/* Golden/Amber Accent */}
@@ -205,7 +205,7 @@ export default function CaseStudiesPage() {
               borderRadius: ["30% 70% 70% 30% / 30% 30% 70% 70%", "70% 30% 30% 70% / 70% 70% 30% 30%", "30% 70% 70% 30% / 30% 30% 70% 70%"]
             }}
             transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-[10%] left-[55%] w-[25%] h-[90%] bg-[#e6c56a] blur-[150px] opacity-60 mix-blend-screen" 
+            className="absolute top-[10%] left-[55%] w-[25%] h-[90%] bg-[#e6c56a] blur-[120px] opacity-60 mix-blend-screen" 
           />
           
           {/* Subtle Warm Amber Glow for blending */}
@@ -215,7 +215,7 @@ export default function CaseStudiesPage() {
               borderRadius: ["50% 50% 30% 70% / 40% 60% 40% 60%", "70% 30% 50% 50% / 60% 40% 60% 40%", "50% 50% 30% 70% / 40% 60% 40% 60%"]
             }}
             transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-[-30%] left-[70%] w-[25%] h-[100%] bg-[#b45309] blur-[120px] opacity-40 mix-blend-screen" 
+            className="absolute top-[-30%] left-[70%] w-[25%] h-[100%] bg-[#b45309] blur-[90px] opacity-40 mix-blend-screen" 
           />
         </motion.div>
       </div>
