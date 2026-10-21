@@ -5,12 +5,12 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion } from "framer-motion";
 
 // Import portfolio images for Content Strategy clients
-import gcTilesChennaiImg from "../assets/portfolio/gc_tiles_chennai.png";
-import shreejiTilesImg from "../assets/portfolio/shreeji_tiles.png";
-import gcTilesHyderabadImg from "../assets/portfolio/gc_tiles_hyderabad_detail.png";
-import tileBazaarImg from "../assets/portfolio/tile_bazaar_detail.png";
-import vinayakToyotaImg from "../assets/portfolio/vinayak_toyota.png";
-import tileLabImg from "../assets/portfolio/tile_lab.png";
+import gcTilesChennaiImg from "../assets/portfolio/gc_tiles_chennai_logo.png";
+import shreejiTilesImg from "../assets/portfolio/shreeji_tiles_logo.png";
+import gcTilesHyderabadImg from "../assets/portfolio/gc_tiles_hyd_logo.png";
+import tileBazaarImg from "../assets/portfolio/tile_bazaar_logo.png";
+// import vinayakToyotaImg from "../assets/portfolio/vinayak_toyota.png";
+// import tileLabImg from "../assets/portfolio/tile_lab.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -103,20 +103,20 @@ export default function CaseStudiesPage() {
       tag: "Automation & Funnels",
       desc: "E-Commerce Store Development, Google Optimization",
     },
-    {
-      name: "Vinayak Toyota",
-      url: "https://vinayaktoyota.co.in/",
-      image: vinayakToyotaImg,
-      tag: "Automotive Campaigns",
-      desc: "Content Marketing, Production, AI Automation",
-    },
-    {
-      name: "Tile lab",
-      url: "https://www.gctileshyderabad.com/", // boutique ceramic project link
-      image: tileLabImg,
-      tag: "Boutique Storytelling",
-      desc: "Production, Performance Marketing",
-    },
+    // {
+    //   name: "Vinayak Toyota",
+    //   url: "https://vinayaktoyota.co.in/",
+    //   image: vinayakToyotaImg,
+    //   tag: "Automotive Campaigns",
+    //   desc: "Content Marketing, Production, AI Automation",
+    // },
+    // {
+    //   name: "Tile lab",
+    //   url: "https://www.gctileshyderabad.com/", // boutique ceramic project link
+    //   image: tileLabImg,
+    //   tag: "Boutique Storytelling",
+    //   desc: "Production, Performance Marketing",
+    // },
   ];
 
   return (
