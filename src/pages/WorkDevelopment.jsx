@@ -5,10 +5,11 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion } from "framer-motion";
 
 // Import generated mockup images
-import gcCeraImg from "../assets/portfolio/gc_cera_tiles.png";
+import gcCeraImg from "../assets/portfolio/gc_cera.jpg";
 import tileBazaarUkImg from "../assets/portfolio/tile_bazaar_uk.png";
-import leverpoolTilesImg from "../assets/portfolio/leverpool_tiles.png";
-import gctilesHydImg from "../assets/portfolio/gctiles_hyderabad.png";
+import leverpoolTilesImg from "../assets/portfolio/leverpool.jpg";
+import gctilesHydImg from "../assets/portfolio/hyd.jpg";
+import aevitasImg from "../assets/portfolio/aevitas.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -74,16 +75,16 @@ export default function WorkDevelopment() {
 
   const sites = [
     {
-      name: "GC Cera Tiles",
-      url: "https://gcceratiles.com/",
-      image: gcCeraImg,
-      desc: "Designed and developed a luxury digital portal featuring category specifications and high-performance surface showcasing.",
-    },
-    {
       name: "Tile Bazaar UK",
       url: "https://www.tilebazaar.co.uk/",
       image: tileBazaarUkImg,
       desc: "Built a fully-featured e-commerce catalog store tailored with custom liquidate and weight-based logistics integrations.",
+    },
+    {
+      name: "GC Cera Tiles",
+      url: "https://gcceratiles.com/",
+      image: gcCeraImg,
+      desc: "Designed and developed a luxury digital portal featuring category specifications and high-performance surface showcasing.",
     },
     {
       name: "Leverpool Tiles Bangalore",
@@ -95,6 +96,12 @@ export default function WorkDevelopment() {
       name: "GC Tiles Hyderabad",
       url: "https://www.gctileshyderabad.com/",
       image: gctilesHydImg,
+      desc: "Created a localized showroom landing page targeting Hyderabad architects, featuring maps and inventory updates.",
+    },
+    {
+      name: "Aevitas Ceramics",
+      url: "https://aev-new.vercel.app/",
+      image: aevitasImg,
       desc: "Created a localized showroom landing page targeting Hyderabad architects, featuring maps and inventory updates.",
     },
   ];
