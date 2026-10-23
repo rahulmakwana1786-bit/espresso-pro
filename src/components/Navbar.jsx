@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import { services } from "../data/services.js";
+// import { services } from "../data/services.js";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -24,27 +24,35 @@ export default function Navbar() {
     }
   });
 
-  const navItems = [
-    { name: "Work", href: "/work", isRoute: true },
-    { name: "Services", href: "/services", isRoute: true },
-    { name: "About", href: "/about", isRoute: true },
-    { name: "Case Studies", href: "/case-studies", isRoute: true },
-  ];
+const navItems = [
+  { name: "Work", href: "/work" },
+  { name: "Services", href: "/services" },
+  { name: "About", href: "/about" },
+  { name: "Case Studies", href: "/case-studies" },
+  {
+    name: "Branding & Projects",
+    href: "/work/branding-and-creative-solutions",
+  },
+];
 
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
 
-  const handleNavClick = (item) => {
-    setOpen(false);
-    if (item.isRoute) {
-      navigate(item.href);
-    } else {
-      if (location.pathname !== "/") {
-        window.location.href = "/" + item.href;
-      } else {
-        scrollToSection(item.href);
-      }
-    }
-  };
+const handleNavClick = (item) => {
+  setOpen(false);
+  navigate(item.href);
+};
+
+const isActiveRoute = (href) => {
+  const currentPath = location.pathname.replace(/\/+$/, "") || "/";
+  const targetPath = href.replace(/\/+$/, "") || "/";
+
+  return (
+    currentPath === targetPath ||
+    (targetPath === "/work" &&
+      currentPath.startsWith("/work/") &&
+      currentPath !== "/work/branding-and-creative-solutions")
+  );
+};
 
   const scrollToSection = (href) => {
     setOpen(false);
@@ -110,31 +118,37 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden lg:flex items-center justify-center gap-10 flex-1">
-          {navItems.map((item) => {
-            const isActive = item.isRoute
-              ? location.pathname === item.href
-              : location.pathname === "/" && activeSection === item.href.substring(1);
-            return (
-              <div key={item.name} className="relative group">
-                <button
-                  onClick={() => handleNavClick(item)}
-                  className={`relative cursor-pointer transition-colors duration-300 text-sm xl:text-base py-4 ${
-                    isActive ? "text-black font-bold" : "text-gray-700 hover:text-black"
-                  }`}
-                >
-                  {item.name}
-                  <span className={`absolute bottom-2 left-0 h-[2px] bg-black transition-all duration-300 ${
-                    isActive ? "w-full" : "w-0 group-hover:w-full"
-                  }`} />
-                </button>
+<nav className="hidden lg:flex items-center justify-center gap-5 xl:gap-7 flex-1 px-4">
+  {navItems.map((item) => {
+    const isActive = isActiveRoute(item.href);
 
-
-              </div>
-            );
-          })}
-        </nav>
-
+    return (
+      <Link
+        key={item.name}
+        to={item.href}
+        onClick={() => setOpen(false)}
+        aria-current={isActive ? "page" : undefined}
+        className={`relative whitespace-nowrap text-sm xl:text-base py-3
+          transition-colors duration-300
+          ${
+            isActive
+              ? "text-black font-semibold"
+              : "text-gray-700 hover:text-black"
+          }
+          after:content-[''] after:absolute after:left-0 after:bottom-1
+          after:h-[2px] after:bg-[#D4AF37]
+          after:transition-all after:duration-300
+          ${
+            isActive
+              ? "after:w-full"
+              : "after:w-0 hover:after:w-full"
+          }`}
+      >
+        {item.name}
+      </Link>
+    );
+  })}
+</nav>
         {/* Desktop Contact / Work with us button */}
         <div className="hidden lg:block flex-shrink-0">
           <Link
@@ -187,27 +201,26 @@ export default function Navbar() {
           >
             <div className="flex flex-col py-4 px-2">
               {navItems.map((item, index) => {
-                const isActive = item.isRoute
-                  ? location.pathname === item.href
-                  : location.pathname === "/" && activeSection === item.href.substring(1);
-                return (
-                  <div key={item.name}>
-                    <motion.button
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.05 }}
-                      onClick={() => handleNavClick(item)}
-                      className={`w-full text-left text-base py-3 px-6 rounded-xl transition-all duration-200 flex justify-between items-center ${
-                        isActive
-                          ? "bg-gray-100 text-black font-bold"
-                          : "text-gray-700 hover:bg-gray-50 hover:text-black"
-                      }`}
-                    >
-                      {item.name}
-                    </motion.button>
-                  </div>
-                );
-              })}
+  const isActive = isActiveRoute(item.href);
+
+  return (
+    <Link
+      key={item.name}
+      to={item.href}
+      onClick={() => setOpen(false)}
+      aria-current={isActive ? "page" : undefined}
+      className={`block w-full text-left text-base py-3 px-6 rounded-xl
+        transition-all duration-200
+        ${
+          isActive
+            ? "bg-[#D4AF37]/15 text-black font-bold"
+            : "text-gray-700 hover:bg-gray-50 hover:text-black"
+        }`}
+    >
+      {item.name}
+    </Link>
+  );
+})}
               <div className="px-4 pt-4 pb-2 mt-2 border-t border-gray-100">
                 <Link
                   to="/contact"
