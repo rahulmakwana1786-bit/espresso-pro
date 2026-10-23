@@ -1,5 +1,5 @@
-import { useParams, Link } from "react-router-dom";
-import { useEffect, useRef } from "react";
+import { useParams, Link, useNavigate, } from "react-router-dom";
+import {useEffect, useRef, useState,} from "react";
 
 // Import portfolio images for Content Strategy clients
 import gcTilesChennaiImg from "../assets/portfolio/gc_tiles_chennai.png";
@@ -222,6 +222,13 @@ export default function CampaignDetail() {
   const project = campaignData[projectSlug];
   const containerRef = useRef(null);
 
+const navigate = useNavigate();
+
+const transitionRef = useRef(null);
+const navigationTimerRef = useRef(null);
+const navigationStartedRef = useRef(false);
+
+const [handoffProgress, setHandoffProgress] = useState(0);
   // Scroll Progress Bar Logic
   useEffect(() => {
     const bar = document.getElementById("progressBar");
@@ -242,6 +249,82 @@ export default function CampaignDetail() {
       window.removeEventListener("resize", updateProgress);
     };
   }, [projectSlug]);
+
+  // Scroll at the Next Project section to open the next campaign
+useEffect(() => {
+  const zone = transitionRef.current;
+
+  if (!zone || !project?.nextSlug) return;
+
+  let animationFrame = null;
+
+  navigationStartedRef.current = false;
+  setHandoffProgress(0);
+
+  const updateProgress = () => {
+    animationFrame = null;
+
+    const rect = zone.getBoundingClientRect();
+    const sectionHeight = Math.max(
+      1,
+      zone.getBoundingClientRect().height
+    );
+
+    // Progress starts as the transition section enters the viewport
+    const rawProgress =
+      ((window.innerHeight - rect.top) / sectionHeight) * 100;
+
+    const progress = Math.round(
+      Math.max(0, Math.min(100, rawProgress))
+    );
+
+    setHandoffProgress((previous) =>
+      previous === progress ? previous : progress
+    );
+
+    if (rawProgress >= 99.5) {
+      if (!navigationStartedRef.current) {
+        navigationStartedRef.current = true;
+
+        navigationTimerRef.current = window.setTimeout(() => {
+          navigate(
+            `/work/content-strategy-and-marketing/${project.nextSlug}`
+          );
+        }, 350);
+      }
+    } else if (navigationStartedRef.current) {
+      // If the user scrolls upward, cancel pending navigation
+      window.clearTimeout(navigationTimerRef.current);
+      navigationTimerRef.current = null;
+      navigationStartedRef.current = false;
+    }
+  };
+
+  const scheduleUpdate = () => {
+    if (animationFrame !== null) return;
+
+    animationFrame = window.requestAnimationFrame(updateProgress);
+  };
+
+  window.addEventListener("scroll", scheduleUpdate, {
+    passive: true,
+  });
+  window.addEventListener("resize", scheduleUpdate);
+
+  updateProgress();
+
+  return () => {
+    window.removeEventListener("scroll", scheduleUpdate);
+    window.removeEventListener("resize", scheduleUpdate);
+
+    if (animationFrame !== null) {
+      window.cancelAnimationFrame(animationFrame);
+    }
+
+    window.clearTimeout(navigationTimerRef.current);
+    navigationTimerRef.current = null;
+  };
+}, [projectSlug, project?.nextSlug, navigate]);
 
   // Intersection Observer Reveal Logic
   useEffect(() => {
@@ -460,6 +543,163 @@ export default function CampaignDetail() {
         }
         .csd-page .csd-footer a:hover { color: var(--accent); }
 
+        .csd-page .csd-handoff {
+  width: min(420px, 80vw);
+  margin-top: 2px;
+  animation: csdHandoffIn 0.35s ease both;
+}
+
+.csd-page .csd-handoff-label {
+  display: block;
+  color: var(--accent);
+  font-family: var(--sans);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  margin-bottom: 12px;
+}
+
+.csd-page .csd-handoff-track {
+  width: 100%;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.15);
+  overflow: hidden;
+}
+
+.csd-page .csd-handoff-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #cca027, #f4d477);
+  transition: width 0.12s linear;
+}
+
+.csd-page .csd-handoff-percent {
+  display: block;
+  margin-top: 8px;
+  color: #8a8580;
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+}
+
+@keyframes csdHandoffIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Extra scroll distance for the next campaign transition */
+.csd-page .csd-transition-zone {
+  position: relative;
+  height: 200vh;
+  height: 200svh;
+}
+
+/* The next-project screen stays pinned during this scroll range */
+.csd-page .csd-transition-zone .csd-footer {
+  position: sticky;
+  top: 0;
+  box-sizing: border-box;
+
+  width: 100%;
+  height: 100vh;
+  height: 100svh;
+  min-height: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+
+  padding: clamp(32px, 7vh, 80px) 24px;
+  border-top: 1px solid var(--line);
+}
+
+/* Progress text */
+.csd-page .csd-handoff-copy {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  width: min(420px, 80vw);
+  margin-top: 5px;
+
+  color: var(--accent);
+  font-family: var(--sans);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.csd-page .csd-handoff-copy.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Full-window-width progress track */
+.csd-page .csd-handoff-track {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+
+  width: 100vw;
+  height: 4px;
+
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.16);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.csd-page .csd-handoff-track.is-active {
+  opacity: 1;
+}
+
+.csd-page .csd-handoff-fill {
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    #cca027,
+    #f4d477
+  );
+  transition: width 0.08s linear;
+  will-change: width;
+}
+
+/* Preserve the existing mobile layout */
+@media (max-width: 900px) {
+  .csd-page .csd-transition-zone .csd-footer {
+    padding: 32px 22px;
+    text-align: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .csd-page .csd-handoff-copy,
+  .csd-page .csd-handoff-track,
+  .csd-page .csd-handoff-fill {
+    transition: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .csd-page .csd-handoff {
+    animation: none;
+  }
+}
+
         @media (max-width: 900px) {
           .csd-page .csd-hero { grid-template-columns: 1fr; gap: 40px; padding: 60px 22px 40px; }
           .csd-page .csd-grid-sticky, .csd-page .csd-wide { padding: 8px 12px; gap: 10px; }
@@ -636,12 +876,46 @@ export default function CampaignDetail() {
       </section>
 
       {/* ================= LOOP FOOTER NAVIGATION ================= */}
-      <footer className="csd-footer">
-        <span className="eyebrow">Next Project</span>
-        <Link to={`/work/content-strategy-and-marketing/${project.nextSlug}`}>
-          {project.nextName}
-        </Link>
-      </footer>
+      {/* Scroll-driven next campaign transition */}
+<section
+  className="csd-transition-zone"
+  ref={transitionRef}
+>
+  <footer className="csd-footer">
+    <span className="eyebrow">Next Project</span>
+
+    <Link
+      to={`/work/content-strategy-and-marketing/${project.nextSlug}`}
+    >
+      {project.nextName}
+    </Link>
+
+    <div
+      className={`csd-handoff-copy ${
+        handoffProgress > 0 ? "is-visible" : ""
+      }`}
+    >
+      <span>SCROLL TO OPEN {project.nextName}</span>
+      <span>{handoffProgress}%</span>
+    </div>
+
+    <div
+      className={`csd-handoff-track ${
+        handoffProgress > 0 ? "is-active" : ""
+      }`}
+      role="progressbar"
+      aria-label="Next campaign transition"
+      aria-valuemin={0}
+      aria-valuemax={100}
+      aria-valuenow={handoffProgress}
+    >
+      <div
+        className="csd-handoff-fill"
+        style={{ width: `${handoffProgress}%` }}
+      />
+    </div>
+  </footer>
+</section>
     </div>
   );
 }

@@ -1,0 +1,1019 @@
+/* =========================================
+   WORK BRANDING — PAGE STYLES
+========================================= */
+
+.wb-page {
+  --wb-bg: #fbf8f3;
+  --wb-gold: #c89b5e;
+  --wb-gold-strong: #d4af37;
+  --wb-brown: #291b03;
+  --wb-muted: #76695b;
+
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  min-height: 100vh;
+  padding: 125px 0 110px;
+  overflow: clip;
+
+  color: var(--wb-brown);
+  background: var(--wb-bg);
+
+  font-family: var(--font-sans, "Inter"), "Inter", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.wb-page *,
+.wb-page *::before,
+.wb-page *::after {
+  box-sizing: border-box;
+}
+
+.wb-page button,
+.wb-page a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Background */
+
+.wb-decoration {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.wb-glow {
+  position: absolute;
+  top: -180px;
+  left: 60%;
+  width: 800px;
+  height: 600px;
+  max-width: 100vw;
+
+  transform: translateX(-50%);
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    rgba(200, 155, 94, 0.15),
+    rgba(200, 155, 94, 0.04) 42%,
+    transparent 70%
+  );
+
+  filter: blur(65px);
+}
+
+.wb-main {
+  position: relative;
+  width: min(94%, 1580px);
+  margin: 0 auto;
+}
+
+/* =========================================
+   PAGE HEADER
+========================================= */
+
+.wb-intro {
+  margin-bottom: 35px;
+}
+
+.wb-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-bottom: 27px;
+
+  color: #776c60;
+  font-size: 10px;
+  letter-spacing: 0.19em;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  transition: color 0.3s ease;
+}
+
+.wb-back span {
+  color: var(--wb-gold-strong);
+  font-size: 17px;
+  transition: transform 0.3s ease;
+}
+
+.wb-back:hover {
+  color: var(--wb-brown);
+}
+
+.wb-back:hover span {
+  transform: translateX(-4px);
+}
+
+.wb-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+
+  margin-bottom: 17px;
+  padding: 8px 12px;
+
+  border: 1px solid rgba(200, 155, 94, 0.32);
+  border-radius: 999px;
+
+  background: rgba(200, 155, 94, 0.08);
+  color: #946a17;
+
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.wb-eyebrow-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--wb-gold-strong);
+  box-shadow: 0 0 0 4px rgba(204, 160, 39, 0.12);
+}
+
+.wb-heading-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 45px;
+}
+
+.wb-overline {
+  margin: 0 0 13px;
+  color: #8d8071;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+}
+
+.wb-title {
+  max-width: 950px;
+  margin: 0;
+
+  color: #c99a22;
+  font-family: var(--font-sans, "Inter"), "Inter", sans-serif;
+  font-size: clamp(42px, 5.8vw, 82px);
+  font-weight: 750;
+  letter-spacing: -0.055em;
+  line-height: 0.98;
+}
+
+.wb-title span {
+  display: block;
+  color: #b98a32;
+}
+
+.wb-intro-copy {
+  max-width: 385px;
+  margin: 0 0 5px auto;
+
+  color: #675b4f;
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+.wb-section-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  margin-top: 34px;
+  padding: 14px 0;
+
+  border-top: 1px solid rgba(161, 123, 57, 0.27);
+  border-bottom: 1px solid rgba(161, 123, 57, 0.16);
+
+  color: #7e7162;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+}
+
+.wb-section-meta span:last-child {
+  color: #9d741b;
+}
+
+/* =========================================
+   PROJECT GRID AND CARDS
+========================================= */
+
+.wb-brand-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: start;
+  gap: clamp(13px, 1.8vw, 28px);
+}
+
+.wb-brand-card {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+
+  border: 1px solid rgba(166, 125, 54, 0.2);
+  border-radius: 8px;
+
+  background: #fff;
+  box-shadow: 0 12px 34px rgba(63, 43, 16, 0.045);
+
+  cursor: pointer;
+  outline: none;
+
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease,
+    opacity 0.5s ease,
+    border-color 0.4s ease,
+    box-shadow 0.5s ease;
+
+  will-change: transform, filter;
+}
+
+.wb-brand-card:focus-visible {
+  outline: 2px solid var(--wb-gold-strong);
+  outline-offset: 5px;
+}
+
+.wb-brand-card.is-dimmed {
+  filter: blur(2px) brightness(0.86);
+  opacity: 0.65;
+  transform: scale(0.985);
+}
+
+.wb-brand-card:hover,
+.wb-brand-card.is-active {
+  z-index: 3;
+  transform: translateY(-5px);
+
+  border-color: rgba(166, 125, 54, 0.7);
+  box-shadow: 0 25px 50px rgba(85, 58, 17, 0.16);
+}
+
+.wb-card-image {
+  position: relative;
+  display: block;
+
+  width: 100%;
+  aspect-ratio: 3 / 4.2;
+  min-height: 270px;
+
+  overflow: hidden;
+  isolation: isolate;
+
+  border-radius: 7px 7px 0 0;
+  background: #291b03;
+}
+
+.wb-card-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.08),
+    rgba(0, 0, 0, 0.04) 40%,
+    rgba(0, 0, 0, 0.35)
+  );
+
+  transition: background 0.4s ease;
+}
+
+.wb-brand-card:hover .wb-card-image::after,
+.wb-brand-card.is-active .wb-card-image::after {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.08),
+    rgba(0, 0, 0, 0.1) 25%,
+    rgba(0, 0, 0, 0.84)
+  );
+}
+
+.wb-brand-number,
+.wb-brand-category {
+  position: absolute;
+  top: 15px;
+  z-index: 3;
+
+  color: #fffaf0;
+  font-size: 10px;
+  font-weight: 800;
+
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.8);
+}
+
+.wb-brand-number {
+  left: 15px;
+}
+
+.wb-brand-category {
+  right: 13px;
+  max-width: 72%;
+
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+/* Full-card image */
+
+.wb-logo-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.wb-logo {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  transition:
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.6s ease;
+}
+
+.wb-brand-card:hover .wb-logo,
+.wb-brand-card.is-active .wb-logo {
+  transform: scale(1.055);
+}
+
+/* =========================================
+   CARD HOVER DETAILS
+========================================= */
+
+.wb-hover-info {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  padding: 24px 20px;
+
+  color: #fffdf8;
+
+  background: linear-gradient(
+    180deg,
+    transparent 12%,
+    rgba(25, 17, 7, 0.2) 36%,
+    rgba(25, 17, 7, 0.96) 100%
+  );
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.wb-brand-card:hover .wb-hover-info,
+.wb-brand-card.is-active .wb-hover-info,
+.wb-brand-card:focus-visible .wb-hover-info {
+  opacity: 1;
+}
+
+.wb-hover-client {
+  margin-bottom: 10px;
+
+  color: #f2cf7b;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+
+  transform: translateY(14px);
+  transition: transform 0.5s ease;
+}
+
+.wb-hover-description {
+  margin: 0;
+
+  color: #fff;
+  font-size: clamp(13px, 1.1vw, 16px);
+  line-height: 1.65;
+
+  transform: translateY(16px);
+  transition: transform 0.55s ease;
+}
+
+.wb-hover-services {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+
+  margin-top: 14px;
+
+  transform: translateY(16px);
+  transition: transform 0.6s ease;
+}
+
+.wb-hover-services span {
+  padding: 7px 9px;
+
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  border-radius: 3px;
+
+  color: #fff;
+  font-size: 10px;
+}
+
+.wb-brand-card:hover .wb-hover-client,
+.wb-brand-card:hover .wb-hover-description,
+.wb-brand-card:hover .wb-hover-services,
+.wb-brand-card.is-active .wb-hover-client,
+.wb-brand-card.is-active .wb-hover-description,
+.wb-brand-card.is-active .wb-hover-services,
+.wb-brand-card:focus-visible .wb-hover-client,
+.wb-brand-card:focus-visible .wb-hover-description,
+.wb-brand-card:focus-visible .wb-hover-services {
+  transform: translateY(0);
+}
+
+.wb-hover-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+
+  margin-top: 15px;
+  padding-top: 12px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+
+  color: #f2cf7b;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.wb-hover-footer svg,
+.wb-bottom svg {
+  width: 15px;
+  height: 15px;
+}
+
+/* Card caption */
+
+.wb-card-caption {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+
+  padding: 15px 13px 16px;
+}
+
+.wb-caption-number {
+  flex: 0 0 auto;
+
+  color: #8e7c65;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.wb-caption-title {
+  margin: 0;
+
+  color: #291b03;
+  font-family: var(--font-sans, "Inter"), "Inter", sans-serif;
+  font-size: clamp(11px, 1vw, 14px);
+  font-weight: 700;
+  line-height: 1.45;
+  text-align: right;
+
+  transition: color 0.3s ease;
+}
+
+.wb-brand-card:hover .wb-caption-title,
+.wb-brand-card.is-active .wb-caption-title {
+  color: #a1761d;
+}
+
+.wb-caption-client {
+  margin: 6px 0 0;
+
+  color: #8b7c6b;
+  font-size: 9px;
+  text-align: right;
+}
+
+.wb-empty-state {
+  padding: 40px 20px;
+  color: #675b4f;
+  text-align: center;
+}
+
+.wb-empty-state button {
+  display: block;
+  margin: 14px auto 0;
+  padding: 7px 0;
+
+  border: 0;
+  background: transparent;
+
+  color: #9c741e;
+  font-family: inherit;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+/* Footer CTA */
+
+.wb-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+
+  margin-top: 35px;
+  padding-top: 20px;
+
+  border-top: 1px solid rgba(161, 123, 57, 0.25);
+
+  color: #8c7a64;
+  font-family: var(--font-serif, "Playfair Display"), Georgia, serif;
+  font-size: 19px;
+  font-style: italic;
+}
+
+.wb-bottom a {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+
+  color: #9c741e;
+  font-family: var(--font-sans, "Inter"), "Inter", sans-serif;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.wb-bottom a svg {
+  transition: transform 0.3s ease;
+}
+
+.wb-bottom a:hover svg {
+  transform: translate(3px, -3px);
+}
+
+/* =========================================
+   FIXED BOTTOM FILTER DOCK
+========================================= */
+
+.wb-filter-dock {
+  position: fixed;
+  left: 50%;
+  bottom: max(22px, env(safe-area-inset-bottom));
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  max-width: calc(100vw - 24px);
+  padding: 8px;
+
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+
+  background: rgba(29, 25, 20, 0.78);
+
+  backdrop-filter: blur(22px) saturate(135%);
+  -webkit-backdrop-filter: blur(22px) saturate(135%);
+
+  box-shadow:
+    0 10px 38px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+  transform: translateX(-50%);
+}
+
+.wb-filter-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  min-height: 42px;
+  max-width: min(54vw, 360px);
+  padding: 0 20px;
+
+  border: 1px solid rgba(201, 154, 34, 0.25);
+  border-radius: 999px;
+
+  background: #fbf8f3;
+  color: #291b03;
+
+  font-family: var(--font-sans, "Inter"), "Inter", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.3;
+
+  white-space: nowrap;
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.wb-filter-pill:hover {
+  background: #d4af37;
+  color: #21190f;
+  border-color: #d4af37;
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 5px 16px rgba(212, 175, 55, 0.2);
+}
+
+.wb-filter-pill-active {
+  background: #21190f;
+  color: #fbf8f3;
+  border-color: #d4af37;
+}
+
+.wb-filter-pill-selected {
+  background: #d4af37;
+  color: #21190f;
+  border-color: #d4af37;
+}
+
+.wb-filter-pill-selected:hover {
+  background: #e5c65c;
+  color: #21190f;
+}
+
+.wb-filter-pill-selected > span:first-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.wb-filter-clear {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  flex: 0 0 20px;
+  width: 20px;
+  height: 20px;
+
+  border-radius: 50%;
+  background: rgba(33, 25, 15, 0.12);
+  color: #21190f;
+
+  font-size: 19px;
+  line-height: 1;
+}
+
+.wb-filter-chevron {
+  font-size: 15px;
+}
+
+/* Popup backdrop */
+
+.wb-filter-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 998;
+
+  width: 100%;
+  height: 100%;
+  border: 0;
+
+  background: rgba(28, 23, 16, 0.22);
+
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+
+  cursor: default;
+}
+
+/* =========================================
+   CENTERED SERVICE POPUP
+
+   Uses CSS translate independently from the
+   transform animated by Framer Motion.
+========================================= */
+
+.wb-service-popup {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  z-index: 999;
+
+  /* Independent translate prevents Framer Motion
+     transforms from breaking the centering. */
+  translate: -50% -50%;
+
+  width: min(920px, calc(100vw - 32px));
+  max-height: min(78vh, 680px);
+
+  overflow-y: auto;
+  overscroll-behavior: contain;
+
+  margin: 0;
+  padding: 24px 26px 18px;
+
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 20px;
+
+  background: rgba(33, 28, 21, 0.84);
+
+  backdrop-filter: blur(28px) saturate(135%);
+  -webkit-backdrop-filter: blur(28px) saturate(135%);
+
+  box-shadow:
+    0 25px 80px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+
+  color: #fbf8f3;
+  font-family: var(--font-sans, "Inter"), "Inter", sans-serif;
+}
+
+.wb-popup-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  padding-bottom: 16px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+
+  color: #e5c779;
+  font-family: var(--font-sans, "Inter"), "Inter", sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.wb-popup-heading span:last-child {
+  color: rgba(251, 248, 243, 0.58);
+}
+
+/* Service chips */
+
+.wb-service-options {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 24px 0;
+}
+
+.wb-service-option {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  min-height: 40px;
+  padding: 9px 16px;
+
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 999px;
+
+  background: #fbf8f3;
+  color: #291b03;
+
+  font-family: var(--font-sans, "Inter"), "Inter", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.35;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+/* Hover: warm gold with dark readable text */
+
+.wb-service-option:hover {
+  transform: translateY(-2px);
+
+  border-color: #d4af37;
+  background: #d4af37;
+  color: #21190f;
+
+  box-shadow: 0 5px 16px rgba(212, 175, 55, 0.18);
+}
+
+/* Selected service */
+
+.wb-service-option.is-selected {
+  border-color: #d4af37;
+  background: #d4af37;
+  color: #21190f;
+
+  box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.13);
+}
+
+.wb-service-option:focus-visible,
+.wb-filter-pill:focus-visible {
+  outline: 2px solid #e5c779;
+  outline-offset: 3px;
+}
+
+/* Popup bottom row */
+
+.wb-popup-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  padding-top: 15px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+
+  color: rgba(251, 248, 243, 0.72);
+  font-family: var(--font-sans, "Inter"), "Inter", sans-serif;
+  font-size: 11px;
+}
+
+.wb-popup-footer button {
+  padding: 7px 0 7px 12px;
+
+  border: 0;
+  background: transparent;
+
+  color: #e5c779;
+  font: inherit;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.wb-popup-footer button:hover {
+  color: #fff0c2;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1050px) {
+  .wb-heading-row {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 19px;
+  }
+
+  .wb-intro-copy {
+    max-width: 680px;
+    margin: 0;
+  }
+
+  .wb-brand-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .wb-caption-title {
+    font-size: 13px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 620px) {
+  .wb-page {
+    padding-top: 110px;
+    padding-bottom: 105px;
+  }
+
+  .wb-main {
+    width: min(92%, 480px);
+  }
+
+  .wb-title {
+    font-size: clamp(40px, 11vw, 60px);
+  }
+
+  .wb-intro-copy {
+    font-size: 12px;
+  }
+
+  .wb-brand-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .wb-card-image {
+    aspect-ratio: 4 / 3.8;
+    min-height: 0;
+  }
+
+  .wb-hover-info {
+    padding: 18px;
+  }
+
+  .wb-hover-client {
+    font-size: 11px;
+  }
+
+  .wb-hover-description {
+    font-size: 13px;
+  }
+
+  .wb-hover-services span {
+    font-size: 9px;
+  }
+
+  .wb-bottom {
+    align-items: flex-start;
+    font-size: 16px;
+  }
+
+  .wb-filter-dock {
+    bottom: max(14px, env(safe-area-inset-bottom));
+    gap: 6px;
+    padding: 6px;
+  }
+
+  .wb-filter-pill {
+    min-height: 40px;
+    padding: 0 15px;
+    font-size: 12px;
+  }
+
+  .wb-filter-clear {
+    flex-basis: 20px;
+  }
+
+  .wb-service-popup {
+    width: calc(100vw - 24px);
+    max-height: 75vh;
+
+    padding: 18px 14px 14px;
+    border-radius: 17px;
+  }
+
+  .wb-popup-heading {
+    font-size: 9px;
+  }
+
+  .wb-service-options {
+    gap: 8px;
+    padding: 18px 0;
+  }
+
+  .wb-service-option {
+    min-height: 38px;
+    padding: 9px 12px;
+    font-size: 11px;
+  }
+
+  .wb-popup-footer {
+    font-size: 10px;
+  }
+}
+
+/* Reduced motion preference */
+
+@media (prefers-reduced-motion: reduce) {
+  .wb-page *,
+  .wb-page *::before,
+  .wb-page *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

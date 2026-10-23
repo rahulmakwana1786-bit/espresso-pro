@@ -3,20 +3,20 @@ import { useEffect } from "react";
 import { motion } from "framer-motion";
 
 // Import portfolio images for Content Strategy clients
-import gcTilesChennaiImg from "../assets/portfolio/gc_tiles_chennai.png";
-import shreejiTilesImg from "../assets/portfolio/shreeji_tiles.png";
-import gcTilesHyderabadImg from "../assets/portfolio/gc_tiles_hyderabad_detail.png";
-import tileBazaarImg from "../assets/portfolio/tile_bazaar_detail.png";
-import vinayakToyotaImg from "../assets/portfolio/vinayak_toyota.png";
-import tileLabImg from "../assets/portfolio/tile_lab.png";
+import gcTilesChennaiImg from "../assets/portfolio/gc_tiles_chennai_logo.png";
+import shreejiTilesImg from "../assets/portfolio/shreeji_tiles_logo.png";
+import gcTilesHyderabadImg from "../assets/portfolio/gc_tiles_hyd_logo.png";
+import tileBazaarImg from "../assets/portfolio/tile_bazaar_logo.png";
+// import vinayakToyotaImg from "../assets/portfolio/vinayak_toyota.png";
+// import tileLabImg from "../assets/portfolio/tile_lab.png";
 
 const CONTENT_PROJECTS = [
   { id: 1, title: "GC TILES CHENNAI", client: "GC Tiles", image: gcTilesChennaiImg, slug: "gc-tiles-chennai" },
   { id: 2, title: "SHREEJI TILES", client: "Shreeji", image: shreejiTilesImg, slug: "shreeji-tiles" },
   { id: 3, title: "GC TILES HYDERABAD", client: "GC Tiles", image: gcTilesHyderabadImg, slug: "gc-tiles-hyderabad" },
   { id: 4, title: "TILE BAZAAR", client: "Tile Bazaar", image: tileBazaarImg, slug: "tile-bazaar" },
-  { id: 5, title: "VINAYAK TOYOTA", client: "Vinayak Toyota", image: vinayakToyotaImg, slug: "vinayak-toyota" },
-  { id: 6, title: "TILE LAB", client: "Tile Lab", image: tileLabImg, slug: "tile-lab" },
+  // { id: 5, title: "VINAYAK TOYOTA", client: "Vinayak Toyota", image: vinayakToyotaImg, slug: "vinayak-toyota" },
+  // { id: 6, title: "TILE LAB", client: "Tile Lab", image: tileLabImg, slug: "tile-lab" },
 ];
 
 export default function WorkContentStrategy() {
